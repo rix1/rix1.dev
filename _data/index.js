@@ -1,9 +1,17 @@
 export const repos = [
   {
+    title: "Rause Riddere",
+    when: "2024",
+    description:
+      "Testing out Deno KV by giving the ability to upvote principles from Erlend og Steinar's podcast",
+    link: "https://rause-riddere.rix1.dev",
+    repo: "https://github.com/rix1/rause-riddere",
+  },
+  {
     title: "unvote",
     when: "2024",
     description:
-      'In which I embark on a quest to scrape all UN voting documents to face the harsh reality of UNs effectiveness.',
+      "In which I embark on a quest to scrape all UN voting documents to face the harsh reality of UNs effectiveness.",
     link: "https://github.com/rix1/unvote",
     repo: "https://github.com/rix1/unvote",
   },
@@ -11,7 +19,7 @@ export const repos = [
     title: "Cashflow",
     when: "2024",
     description:
-      'Simplify the management of personal finances by parsing and normalizing CSV exports from Norwegian bank statements.',
+      "Simplify the management of personal finances by parsing and normalizing CSV exports from Norwegian bank statements.",
     link: "https://github.com/rix1/cashflow",
     repo: "https://github.com/rix1/cashflow",
   },
