@@ -13,10 +13,11 @@ Built with Lume — a static site generator for Deno, the site reflects my inter
 
 ![CleanShot 2024-05-11 at 13 01 33@2x](https://github.com/rix1/rix1.dev/assets/2470775/81c90cb0-8924-4f3e-9d5a-c053edc629c4)
 
-## Built With
+## Built and deployed with
 
 - [Lume](https://lume.land) - A static site generator built with Deno.
 - [Deno](https://deno.land) - A secure runtime for JavaScript and TypeScript.
+- [Deno Deploy](https://deno.com/deploy) - A hassle-free platform for serverless JavaScript applications
 
 ## Local Development
 
