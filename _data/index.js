@@ -1,5 +1,13 @@
 export const repos = [
   {
+    title: "Wine",
+    when: "2024",
+    description:
+      "Tasting wine and identifying its complex flavors can be challenging. This little tool guides you along the way.",
+    link: "https://wine.rix1.dev",
+    repo: "https://github.com/rix1/wine",
+  },
+  {
     title: "Rause Riddere",
     when: "2024",
     description:
