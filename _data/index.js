@@ -114,7 +114,7 @@ export const repos = [
     title: "46brew",
     when: "2018",
     description: "A coffee timer for the 4:6 brewing method.",
-    link: "https://46brew.app",
+    link: "https://brew.rix1.dev",
     repo: "http://github.com/rix1/46brew",
   },
   {
