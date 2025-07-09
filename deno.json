@@ -17,5 +17,11 @@
   },
   "lint": {
     "plugins": ["https://deno.land/x/lume@v3.0.4/lint.ts"]
+  },
+  "deploy": {
+    "project": "1be252bb-80ef-43c4-996a-9b8e603e330b",
+    "exclude": ["**/node_modules"],
+    "include": [],
+    "entrypoint": "serve.ts"
   }
 }
