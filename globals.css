@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* google-fonts */
+
+@theme {
+    --color-primary: #db2777;
+    --color-secondary: #ea5634;
+}
 
 :root {
     --scale-timing: 0.15s;
@@ -9,9 +14,6 @@
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-
     font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -30,6 +32,18 @@ body {
     box-sizing: border-box;
 }
 
+a:hover {
+    cursor: url("/assets/disney_point-sm.png"), pointer;
+}
+
+@utility bricolage-grotesque-heavy {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
 mark {
     background-color: hsl(333, 71%, 90%);
     color: white;
@@ -38,10 +52,10 @@ mark {
     line-height: 1;
     border-radius: 6px;
 
-    --tw-gradient-from: #ea5634;
-    --tw-gradient-to: #db2777;
-    --tw-gradient-stops: var(--tw-gradient-from),
-        var(--tw-gradient-to, rgba(234, 86, 52, 0));
+    --tw-gradient-from: var(--color-secondary);
+    --tw-gradient-to: var(--color-primary);
+    --tw-gradient-stops:
+        var(--tw-gradient-from), var(--tw-gradient-to, rgba(234, 86, 52, 0));
     background-image: linear-gradient(
         to right,
         var(--tw-gradient-stops)
@@ -78,10 +92,10 @@ mark.playful:hover {
 }
 
 a:not(.clear) {
-    --tw-gradient-from: #ea5634;
-    --tw-gradient-to: #db2777;
-    --tw-gradient-stops: var(--tw-gradient-from),
-        var(--tw-gradient-to, rgba(234, 86, 52, 0));
+    --tw-gradient-from: var(--color-secondary);
+    --tw-gradient-to: var(--color-primary);
+    --tw-gradient-stops:
+        var(--tw-gradient-from), var(--tw-gradient-to, rgba(234, 86, 52, 0));
     background-image: linear-gradient(
         to right,
         var(--tw-gradient-stops)
@@ -149,6 +163,13 @@ a:not(.clear) {
     animation:
         move 8s linear infinite,
         rotate 12s linear infinite;
+}
+
+.blob-wrapper:hover > #blob {
+    inset: 10% 20%;
+    animation:
+        move 8s linear infinite,
+        rotate 2s linear infinite reverse;
 }
 
 @keyframes rotate {
@@ -259,8 +280,9 @@ span[data-tooltip]:after {
 
 .share-icons > a > small {
     opacity: 0;
+    height: 0;
     transform: scale(0.5) translateY(-0.5rem);
-    color: #db2777;
+    color: var(--color-primary);
     transition: all var(--scale-timing) ease-out;
     font-size: 12px;
 }
@@ -278,7 +300,7 @@ span[data-tooltip]:after {
 
 .share-icons > a:hover > svg[stroke] {
     transform: scale(1.2) translateY(-0.5rem);
-    stroke: #db2777;
+    stroke: var(--color-primary);
     transition:
         fill var(--scale-timing) ease-out,
         transform var(--scale-timing) ease-out;
@@ -286,8 +308,40 @@ span[data-tooltip]:after {
 
 .share-icons > a:hover > svg:not([stroke]) {
     transform: scale(1.2) translateY(-0.5rem);
-    fill: #db2777;
+    fill: var(--color-primary);
     transition:
         fill var(--scale-timing) ease-out,
         transform var(--scale-timing) ease-out;
 }
+
+.fancy {
+    display: inline-block;
+}
+
+.fancy span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    transition-property: transform;
+    transition-duration: 200ms;
+    transition-delay: var(--delay);
+}
+
+.fancy:hover span {
+    transform: var(--char-transform, none);
+}
+.fancy:hover {
+    cursor: url("/assets/disney_peace-sm.png"), auto;
+}
+
+@keyframes charDance {
+    0%,
+    100% {
+        transform: var(--char-transform, none);
+    }
+    50% {
+        transform: var(--char-transform, none) rotate(10deg) translateY(-5px);
+    }
+}
+
+@plugin "@tailwindcss/typography";

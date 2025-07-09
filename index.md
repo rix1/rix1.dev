@@ -1,9 +1,8 @@
 ---
 title: rix1.dev 👋
+heading: Product developer &&nbsp;wannabe designer
 layout: layouts/landing.tsx
 ---
-
-# Product developer &&nbsp;wannabe designer
 
 Hi there! 👋
 

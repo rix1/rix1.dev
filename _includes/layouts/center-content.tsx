@@ -1,4 +1,4 @@
-export default ({ comp, title, alignment, children, index }: Lume.Data) => {
+export default ({ comp, title, alignment, children }: Lume.Data) => {
   return (
     <html>
       <head>
@@ -7,14 +7,14 @@ export default ({ comp, title, alignment, children, index }: Lume.Data) => {
         <title>{title}</title>
       </head>
 
-      <body className="relative min-h-screen mt-12 pb-40">
+      <body class="relative min-h-screen mt-12 pb-40">
         <main
-          className={[
-            "px-4 sm:px-6 lg:px-8 mx-auto prose lg:prose-xl",
+          class={[
+            "px-4 sm:px-6 lg:px-8 mx-auto prose lg:prose-xl prose-headings:bricolage-grotesque-heavy",
             alignment === "center" ? "text-center" : "text-left",
           ].join(" ")}
         >
-          <h1 className="mb-0">{title}</h1>
+          <h1 class="mb-0">{title}</h1>
           {children}
           <comp.ShareIcons withBlob />
         </main>
