@@ -35,15 +35,19 @@ for the remainder of our formal studies. Through random encounters and our respe
 that was played in an fMRI machine as part of
 [a research project at NTNU](https://www.biorxiv.org/content/10.1101/2020.05.11.084202v1.abstract).
 
-This was the first time I've ever gotten paid (real money) to program, and it felt quite good.
+This was the first time I've ever gotten paid (real money) to code, and it felt quite good.
 We had no idea what we were doing back then, but our complimentary skillsets was enough
 for people to pay us to build, learn, play and start honing our craft.
+
+> ### _I never worked a day in my life, I just laid back and let the big beat lead me_
+>
+> [Fatboy Slim - Because I Got It Like That (remix)](https://soundcloud.com/theclassicmixcdseries/on-the-floor-at-the-boutique-fatboy-slim)
+
 
 Fast forward a few years, and I was on my way pursuing a master's degree in software development.
 My thesis would be about information systems at hospitals, lack of interoperability, and how web technology and open standards could play a role in
 [monitoring ambulatory heart patients](https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2403242).
-I was shocked learning how extremely complicated, slow moving and overall "behind" this whole sector is. To this day, I still believe there's an opportunity
-for me (and a lot of others!) to make a meaningful impact here.
+I was shocked learning how extremely complicated, slow moving and overall "behind" this whole sector is. To this day, I still believe there's an opportunity for me (and a lot of others!) to make a meaningful impact here.
 
 Professionally though, I had my eyes set on a different path. Like every other
 student at NTNU, I was alluded by the big consultancies that "the best career
@@ -104,15 +108,18 @@ While this was a lot of fun and rewarding, but I also started to grow weary of
 spending too much of my time in meetings, away from the day-to-day trenches of hands-on
 building: Which is what I really enjoy.
 
-Today, I lead Otovo's marketplace team as engineering manager. We're responsible
-for building and maintaining the core mechanics of our platform. It's been a
-roller coaster, but I'm still having fun chasing the sun together with Otovo ☀️
+I moved on to lead Otovo's marketplace team as engineering manager, being responsible
+for building and maintaining the core mechanics of our platform. Over the course of a year, we successfully launced a major overhaul of our core pricing engine, as well as a brand new engine for managing and supporting field sales doing home visits.
+
+While all of this was going on, Russia's war had ravaged Ukrainian people for almost 3 years. This had ripple effects on the European energy market, and in turn, the residential market for PV and Battery installations.
+
+Otovo suffered through several rounds of downsizing. In product, we went from six product teams to three, and then just one. Same responsibilty, fewer folks means you're forced to reconfigure and mature.
+
+All in all, it's been a roller coaster: Every 6-12 months over the last 10 years we've completely changed one or more attributes of how we work, or what we work on. I believe this has given me not only perspective and experience, but also resilience.
+
+As of today, I'm still having fun chasing the sun together with Otovo ☀️
 
 ---
-
-> ### I never worked a day in my life, I just laid back and let the big beat lead me
->
-> [Fatboy Slim - Because I Got It Like That (remix)](https://soundcloud.com/theclassicmixcdseries/on-the-floor-at-the-boutique-fatboy-slim)
 
 As you might figure, these experiences were never strategic career moves for me.
 However, I learned some important lessons in:
@@ -134,8 +141,7 @@ and most recently
 I view dogs as a constant source of unconditional love, and a daily reminder that
 patience, commitment and consistency go a long way.
 
-3. 🎶 Life is better with music, which is why you'll always find me
-[listening to it](https://www.last.fm/user/rikardeide).
+3. 🎶 Life is better with music, I think I listen to more music than most people: https://www.last.fm/user/rikardeide.
 
 4. 🏃‍♂️ I'm not as consistent with my runs as I am with walking dogs, but it's still my favourite way of working out.
 
