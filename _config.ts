@@ -8,8 +8,11 @@ import sitemap from "lume/plugins/sitemap.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import jsx from "lume/plugins/jsx.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
+import metas from "lume/plugins/metas.ts";
 
-const site = lume();
+const site = lume({
+  location: new URL("https://rix1.dev"),
+});
 
 // Add assets
 site.add("assets");
@@ -29,6 +32,7 @@ site.use(
   }),
 );
 site.use(tailwindcss());
+site.use(metas());
 site.use(feed());
 site.use(sitemap());
 

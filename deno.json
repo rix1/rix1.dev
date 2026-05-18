@@ -1,27 +1,83 @@
 {
   "imports": {
-    "lume/": "https://deno.land/x/lume@v3.0.4/",
-    "lume/jsx-runtime": "https://deno.land/x/ssx@v0.1.10/jsx-runtime.ts"
+    "lume/": "https://cdn.jsdelivr.net/gh/lumeland/lume@3.2.4/",
+    "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.15/jsx-runtime.ts"
   },
-  "unstable": ["temporal"],
+  "unstable": [
+    "temporal",
+    "fmt-component"
+  ],
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "lume",
-    "types": ["lume/types.ts"]
+    "types": [
+      "lume/types.ts"
+    ]
   },
   "tasks": {
-    "build": "deno task lume",
-    "serve": "deno task lume -s",
+    "build": {
+      "description": "Build the site for production",
+      "command": "deno task lume"
+    },
+    "serve": {
+      "description": "Run and serve the site for development",
+      "command": "deno task lume -s"
+    },
     "dev": "deno task serve",
-    "lume": "echo \"import 'lume/cli.ts'\" | deno run -A -"
+    "lume": {
+      "description": "Run Lume command",
+      "command": "deno run -P=lume lume/cli.ts"
+    }
   },
   "lint": {
-    "plugins": ["https://deno.land/x/lume@v3.0.4/lint.ts"]
+    "plugins": [
+      "https://cdn.jsdelivr.net/gh/lumeland/lume@3.2.4/lint.ts"
+    ],
+    "rules": {
+      "exclude": [
+        "no-import-prefix"
+      ]
+    }
   },
   "deploy": {
     "project": "1be252bb-80ef-43c4-996a-9b8e603e330b",
-    "exclude": ["**/node_modules"],
+    "exclude": [
+      "**/node_modules"
+    ],
     "include": [],
     "entrypoint": "serve.ts"
-  }
+  },
+  "permissions": {
+    "lume": {
+      "read": true,
+      "write": [
+        "./"
+      ],
+      "import": [
+        "cdn.jsdelivr.net:443",
+        "jsr.io:443",
+        "deno.land:443",
+        "esm.sh:443"
+      ],
+      "net": [
+        "0.0.0.0",
+        "cdn.jsdelivr.net:443",
+        "data.jsdelivr.com:443",
+        "jsr.io:443",
+        "deno.land:443",
+        "esm.sh:443",
+        "registry.npmjs.org:443"
+      ],
+      "env": true,
+      "run": true,
+      "ffi": true,
+      "sys": true
+    }
+  },
+  "allowScripts": {
+    "deny": [
+      "npm:sharp"
+    ]
+  },
+  "lock": false
 }

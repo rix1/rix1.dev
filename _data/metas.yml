@@ -1,0 +1,7 @@
+site: rix1.dev
+title: "=title || rix1.dev"
+description: "=description || Dev, design, product and hooman. Currently having fun chasing the sun together with @OtovoSolar"
+image: https://s3.eu-north-1.amazonaws.com/rix1.dev/social-image.png
+lang: en
+twitter: "@rix1"
+generator: true
