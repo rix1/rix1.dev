@@ -15,6 +15,10 @@ const site = lume({
   location: new URL("https://rix1.dev"),
 });
 
+if (Deno.env.get("LUME_DRAFTS") !== "true") {
+  site.ignore("/drafts");
+}
+
 // Add assets
 site.add("assets");
 

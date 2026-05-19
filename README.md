@@ -75,6 +75,10 @@ scripts:
   - /assets/my-post-widget.js
 ```
 
+Drafts live in `drafts/*.md` with `draft: true`. Lume renders drafts while
+serving locally, but `deno task build` ignores the whole `drafts/` folder so
+they do not deploy.
+
 ## Contributing
 
 I would be surprised if anyone would like to contribute to this site, but if you
