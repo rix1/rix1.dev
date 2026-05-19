@@ -33,7 +33,24 @@ site.use(
 );
 site.use(tailwindcss());
 site.use(metas());
-site.use(feed());
+site.use(
+  feed({
+    output: ["/posts.rss"],
+    query: "type=post",
+    sort: "date=desc",
+    info: {
+      title: "rix1.dev: Thoughts & experiments",
+      description:
+        "Notes on products, technology, design, building things, and life.",
+    },
+    items: {
+      title: "=title",
+      description: "=description",
+      published: "=date",
+      content: "=description",
+    },
+  }),
+);
 site.use(sitemap());
 
 // Add CSS files explicitly for processing

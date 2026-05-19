@@ -52,6 +52,29 @@ curl -fsSL https://deno.land/install.sh | sh
 The site should now be running on `http://localhost:3000`. Open your browser to
 this address to view the site.
 
+## Writing Posts
+
+Posts live in `posts/*.md`. To publish a new one, add a Markdown file with this
+front matter:
+
+```yaml
+---
+title: My post title
+description: A short summary used for the overview, RSS, and social previews.
+date: 2026-05-18
+topic: Build
+---
+```
+
+The shared defaults in `posts/_data.yml` add the post layout, author data, and
+the `post` tag automatically. For interactive posts, prefer a small browser
+script or web component in `assets/` and opt into it from the post:
+
+```yaml
+scripts:
+  - /assets/my-post-widget.js
+```
+
 ## Contributing
 
 I would be surprised if anyone would like to contribute to this site, but if you
