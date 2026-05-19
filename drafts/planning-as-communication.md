@@ -6,6 +6,12 @@ date: 2022-01-17
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Remove or further anonymize the partner-launch origin before publishing.
+> - Make "plans need fabric and time" the thesis and tighten everything around
+>   demos as communication.
+> - Add one finished example image, sketch, or mini timeline if available.
+
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/On planning (with Ibedrola as example).md`.
 

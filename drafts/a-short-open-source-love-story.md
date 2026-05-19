@@ -6,6 +6,13 @@ date: 2022-01-14
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Decide whether this should be a very short post or folded into a broader
+>   note about open source, small contributions, and maintainer speed.
+> - Add the original screenshot if it still feels useful, or remove the visual
+>   dependency entirely.
+> - Replace handle references with links if publishing as-is.
+
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/A short open source love story on a Friday evening.md`.
 

@@ -6,6 +6,12 @@ date: 2018-10-08
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Keep this short; it works best as a compact reflection.
+> - Clarify the intended reader: reviewers, tech leads, or teammates receiving
+>   review feedback.
+> - Add one practical takeaway about how to "join the runner" during review.
+
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/On software, running and support.txt`.
 

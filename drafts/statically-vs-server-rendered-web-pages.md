@@ -6,6 +6,12 @@ date: 2026-05-19
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Update framework references and terminology before publishing.
+> - Link this explicitly to the BFF/Next.js post as historical background.
+> - Add a conclusion with current guidance: when static, server, or client-side
+>   rendering is the pragmatic choice.
+
 > Draft imported from Notion. Needs light anonymization, a pass over old
 > framework references, and a clearer connection to the later BFF/Next.js post.
 

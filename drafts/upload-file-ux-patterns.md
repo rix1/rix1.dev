@@ -6,6 +6,12 @@ date: 2021-11-29
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Recover or recreate the missing screenshots/GIFs.
+> - Finish the third iteration and add a clear recommendation at the end.
+> - Re-test the file input patterns against current browser behavior and
+>   accessibility expectations.
+
 > Draft imported from Notion. The original has screenshots/GIFs that still need
 > to be moved into the site, and the third iteration currently stops
 > mid-thought.

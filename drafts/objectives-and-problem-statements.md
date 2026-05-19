@@ -6,6 +6,12 @@ date: 2020-03-30
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Reduce the generic OKR/book-summary section; the original value is the
+>   problem-statement examples.
+> - Generalize or anonymize installer-specific context.
+> - End with a reusable checklist for writing a good objective.
+
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/Objective and result defining problems.txt`.
 

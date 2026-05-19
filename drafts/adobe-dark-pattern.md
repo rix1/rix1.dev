@@ -6,6 +6,14 @@ date: 2021-10-16
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Decide whether to publish this as a product ethics note or a short UX case
+>   study.
+> - Tighten the tone so the critique lands on the system design, not support
+>   staff.
+> - Consider adding a short "what good looks like" section with a better license
+>   management flow.
+
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/Adobe- Dark pattern!.txt`.
 

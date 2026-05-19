@@ -6,6 +6,12 @@ date: 2022-02-08
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Anonymize company and tenant language enough that the post stands on its own.
+> - Decide whether the answer is "company-first until proven otherwise" or a
+>   more balanced tradeoff piece.
+> - Add a concrete architecture example: URL structure, config, or data model.
+
 > Draft imported from Notion. Needs anonymization, a less company-specific
 > setup, and a stronger conclusion.
 

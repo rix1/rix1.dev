@@ -6,6 +6,13 @@ date: 2020-03-31
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Treat this as source material for the lifetime/time explorable, not
+>   necessarily a standalone post.
+> - Pull out the strongest ideas: spiral, relative time perception, and mental
+>   locations.
+> - Consider adding one small interactive sketch before publishing.
+
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/Visualizing life.txt`. Original note date:
 > `2020-03-30 23:33`.

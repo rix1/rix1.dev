@@ -6,6 +6,13 @@ date: 2021-05-06
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - This is a strong candidate, but it needs one clear arc: craft, flow, and
+>   tooling as leverage.
+> - Verify quotes/sources and replace the missing flow image with a local asset
+>   or remove the dependency.
+> - Shorten the demos list into a few memorable examples.
+
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/On sharpening your knife.txt`.
 

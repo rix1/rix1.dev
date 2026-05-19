@@ -6,6 +6,12 @@ date: 2022-01-17
 draft: true
 ---
 
+> [!NOTE] Internal notes
+> - Cut remaining rambling and make the process/artifact distinction the core
+>   structure.
+> - Add one software example and one non-software example.
+> - Consider ending with a small decision matrix: risk, blast radius, reversibility.
+
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/On sunk cost fallacy.md`.
 
