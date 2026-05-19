@@ -9,6 +9,7 @@ const MetaTags = () => {
         content="On the internet, I'm usually referred to as @rix1. I'm a product developer at Otovo, living in Oslo, Norway."
       />
       <link rel="stylesheet" href="/globals.css" />
+      <script type="module" src="/assets/command-palette.js"></script>
     </>
   );
 };
