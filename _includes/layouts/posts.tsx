@@ -31,12 +31,9 @@ export default ({ comp, search, title, description }: Lume.Data) => {
 
       <body class="relative min-h-screen mt-12 pb-40">
         <main class="px-4 sm:px-6 lg:px-8 mx-auto max-w-5xl">
+          <comp.SiteNav backHref="/" backLabel="Back home" />
+
           <header class="mb-12">
-            <p class="mb-8">
-              <a href="/" class="clear text-sm font-semibold text-primary">
-                Back home
-              </a>
-            </p>
             <h1 class="bricolage-grotesque-heavy mb-4 text-4xl leading-tight sm:text-5xl">
               {title}
             </h1>

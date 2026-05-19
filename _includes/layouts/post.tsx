@@ -30,11 +30,7 @@ export default (
 
       <body class="relative min-h-screen mt-12 pb-40">
         <main class="px-4 sm:px-6 lg:px-8 mx-auto prose lg:prose-xl prose-headings:bricolage-grotesque-heavy">
-          <p class="not-prose mb-8">
-            <a href="/posts/" class="clear text-sm font-semibold text-primary">
-              Back to posts
-            </a>
-          </p>
+          <comp.SiteNav backHref="/posts/" backLabel="Back to posts" />
 
           <article data-pagefind-body>
             <header class="mb-10">

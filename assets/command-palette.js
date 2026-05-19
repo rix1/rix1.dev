@@ -43,15 +43,21 @@ style.textContent = `
     position: fixed;
     inset: 0;
     z-index: 100;
-    display: none;
+    display: grid;
     place-items: start center;
     padding: min(10vh, 5rem) 1rem 1rem;
     background: rgba(17, 24, 39, 0.34);
     backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 150ms ease, visibility 150ms ease;
   }
 
   .cmdk[aria-hidden="false"] {
-    display: grid;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
   }
 
   .cmdk-panel {
@@ -61,6 +67,12 @@ style.textContent = `
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.96);
     box-shadow: 0 30px 80px rgba(17, 24, 39, 0.28);
+    transform: translateY(-0.45rem) scale(0.985);
+    transition: transform 170ms ease;
+  }
+
+  .cmdk[aria-hidden="false"] .cmdk-panel {
+    transform: translateY(0) scale(1);
   }
 
   .cmdk-search {
@@ -139,6 +151,13 @@ style.textContent = `
     color: #4b5563;
     text-align: center;
     font: 600 0.9rem/1.4 system-ui, sans-serif;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cmdk,
+    .cmdk-panel {
+      transition: none;
+    }
   }
 `;
 
@@ -227,7 +246,7 @@ function grouped(matches) {
   ].filter(([, group]) => group.length);
 }
 
-function render() {
+function render({ scrollSelected = false } = {}) {
   const matches = getMatches();
   const groups = grouped(matches);
   currentMatches = groups.flatMap(([, group]) => group);
@@ -264,6 +283,12 @@ function render() {
       </section>
     `;
   }).join("");
+
+  if (scrollSelected) {
+    results.querySelector('[aria-selected="true"]')?.scrollIntoView({
+      block: "nearest",
+    });
+  }
 }
 
 async function openPalette() {
@@ -339,11 +364,11 @@ document.addEventListener("keydown", (event) => {
       activeIndex + 1,
       Math.max(currentMatches.length - 1, 0),
     );
-    render();
+    render({ scrollSelected: true });
   } else if (event.key === "ArrowUp") {
     event.preventDefault();
     activeIndex = Math.max(activeIndex - 1, 0);
-    render();
+    render({ scrollSelected: true });
   } else if (event.key === "Enter") {
     event.preventDefault();
     goToActive();
