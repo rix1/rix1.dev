@@ -11,6 +11,9 @@ draft: true
 >   problem-statement examples.
 > - Generalize or anonymize installer-specific context.
 > - End with a reusable checklist for writing a good objective.
+> - Recommendation: Recast this as a post for product teams who mistake goals
+>   for problems; lead with the failure mode that vague objectives create motion
+>   without giving teams a way to know whether they improved reality.
 
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/Objective and result defining problems.txt`.

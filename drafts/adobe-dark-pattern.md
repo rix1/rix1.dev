@@ -13,6 +13,9 @@ draft: true
 >   staff.
 > - Consider adding a short "what good looks like" section with a better license
 >   management flow.
+> - Recommendation: Open with the cost to the reader's product, not the Adobe
+>   story: cancellation friction may protect revenue briefly, but it converts
+>   routine admin into brand damage and future churn.
 
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/Adobe- Dark pattern!.txt`.

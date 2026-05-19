@@ -12,6 +12,9 @@ draft: true
 > - Add the original screenshot if it still feels useful, or remove the visual
 >   dependency entirely.
 > - Replace handle references with links if publishing as-is.
+> - Recommendation: Publish only if you frame it as a tiny observation about
+>   open source velocity: the value is not the anecdote, but the pleasant
+>   surprise that a maintainer had already fixed the problem before you arrived.
 
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/A short open source love story on a Friday evening.md`.

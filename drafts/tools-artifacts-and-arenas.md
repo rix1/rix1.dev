@@ -10,6 +10,9 @@ draft: true
 > - Expand this from a note into a full post with public examples.
 > - Define tools, artifacts, and arenas early with one concrete example each.
 > - Add a practical recommendation for teams missing feedback arenas.
+> - Recommendation: Lead with the organizational failure mode: teams often blame
+>   people for weak feedback culture when the real problem is that no recurring
+>   arena exists where unfinished artifacts can be inspected safely.
 
 > Draft imported from Notion. This one is short and mostly needs expansion,
 > public examples, and less internal session framing.

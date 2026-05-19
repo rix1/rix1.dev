@@ -11,6 +11,9 @@ draft: true
 >   engineering templates as the main argument.
 > - Add a concrete engineering example for implicit templates.
 > - Check whether any quotes need attribution or replacement with paraphrase.
+> - Recommendation: Make "calm mastery is an operational advantage" the claim,
+>   then use Keller, kitchen rituals, and engineering templates as evidence for
+>   how leaders reduce friction so others can do excellent work.
 
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/2024-07-13 16 05 Chef.md`.

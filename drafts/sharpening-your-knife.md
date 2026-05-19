@@ -12,6 +12,9 @@ draft: true
 > - Verify quotes/sources and replace the missing flow image with a local asset
 >   or remove the dependency.
 > - Shorten the demos list into a few memorable examples.
+> - Recommendation: Open with the professional cost of dull tools: slow feedback
+>   loops do not just waste seconds, they break flow and prevent engineers from
+>   building the intuition that makes high-leverage work possible.
 
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/On sharpening your knife.txt`.

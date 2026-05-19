@@ -11,6 +11,9 @@ draft: true
 > - Finish the third iteration and add a clear recommendation at the end.
 > - Re-test the file input patterns against current browser behavior and
 >   accessibility expectations.
+> - Recommendation: Position this as a pattern comparison for frontend builders:
+>   the value is not the avatar feature itself, but the tradeoff between native
+>   semantics, styling control, accessibility, and implementation complexity.
 
 > Draft imported from Notion. The original has screenshots/GIFs that still need
 > to be moved into the site, and the third iteration currently stops

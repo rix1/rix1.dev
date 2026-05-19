@@ -11,6 +11,9 @@ draft: true
 > - Clarify the intended reader: reviewers, tech leads, or teammates receiving
 >   review feedback.
 > - Add one practical takeaway about how to "join the runner" during review.
+> - Recommendation: Aim this at senior engineers doing late-stage reviews; the
+>   useful intervention is that review is not only quality control, but morale
+>   support at the point where the author has the least energy left.
 
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/On software, running and support.txt`.

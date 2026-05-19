@@ -11,6 +11,9 @@ draft: true
 >   structure.
 > - Add one software example and one non-software example.
 > - Consider ending with a small decision matrix: risk, blast radius, reversibility.
+> - Recommendation: Make reversibility the central decision tool; readers do not
+>   need permission to abandon sunk cost, they need a way to judge when switching
+>   approaches is cheap, contained, and worth trying.
 
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/On sunk cost fallacy.md`.

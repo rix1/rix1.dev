@@ -12,6 +12,9 @@ draft: true
 > - Pull out the strongest ideas: spiral, relative time perception, and mental
 >   locations.
 > - Consider adding one small interactive sketch before publishing.
+> - Recommendation: Use this as the conceptual foundation for the interactive
+>   time post; the reader value is helping people feel the distortion of time
+>   with age, while the life-map ideas can remain secondary or become another post.
 
 > Draft imported from old notes. Source file:
 > `/Users/rix1/Downloads/old notes/Visualizing life.txt`. Original note date:

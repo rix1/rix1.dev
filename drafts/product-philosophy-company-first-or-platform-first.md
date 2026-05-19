@@ -11,6 +11,9 @@ draft: true
 > - Decide whether the answer is "company-first until proven otherwise" or a
 >   more balanced tradeoff piece.
 > - Add a concrete architecture example: URL structure, config, or data model.
+> - Recommendation: Turn the post into a decision memo for teams building
+>   multi-tenant products: the reader value is a vocabulary for spotting when
+>   "just support one more tenant" has become an architecture strategy by accident.
 
 > Draft imported from Notion. Needs anonymization, a less company-specific
 > setup, and a stronger conclusion.

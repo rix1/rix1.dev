@@ -11,6 +11,9 @@ draft: true
 > - Link this explicitly to the BFF/Next.js post as historical background.
 > - Add a conclusion with current guidance: when static, server, or client-side
 >   rendering is the pragmatic choice.
+> - Recommendation: Make this less a taxonomy and more a decision guide; readers
+>   already know rendering modes exist, but they need help seeing which tradeoff
+>   they are actually buying in performance, complexity, and operational control.
 
 > Draft imported from Notion. Needs light anonymization, a pass over old
 > framework references, and a clearer connection to the later BFF/Next.js post.

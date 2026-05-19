@@ -11,6 +11,9 @@ draft: true
 > - Make "plans need fabric and time" the thesis and tighten everything around
 >   demos as communication.
 > - Add one finished example image, sketch, or mini timeline if available.
+> - Recommendation: Write for product/engineering leads whose plans create
+>   agreement but not momentum; argue that planning only starts working when the
+>   team can see, inspect, and sequence a tangible version of the future.
 
 > Draft imported from iA Writer. Source file:
 > `/Users/rix1/Library/CloudStorage/Dropbox/Privat/Writing (IA Writer)/On planning (with Ibedrola as example).md`.
