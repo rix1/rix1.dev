@@ -5,6 +5,8 @@ description: Reflections on how we scaled Otovo from a single market to across E
 date: 2019-06-07
 ---
 
+> This is a written version of a talk I held at [Phrase Conf 2019](https://phrase.com/blog/posts/phraseapp-hosts-first-localization-conference-of-its-kind-in-germany/). You can find the slide deck [here](https://www.dropbox.com/scl/fi/lty172s7aq3rhr191two3/From-infrant-to-teenager-Phrase-talk-2019.pdf?rlkey=uj8hfg4atbly7gfxn6xxnvipg&st=zvae8nmr&dl=0).
+
 I'm a fairly conflicted guy. I come from Norway, one of the richest countries in the world with the highest standard of living. We have 98% clean hydroelectric power, which means electricity is already cheap and clean. We don't get much sun. And our wealth? It was built on tons of oil.
 
 Did we work hard to achieve this standard? Not really. Dinosaurs, the Earth, and time did most of the heavy lifting.
