@@ -41,9 +41,10 @@ different (paying!) clients:
 - We spent a summer building an MVP for
   [Corsane](https://twitter.com/corsane_com), an online learning platform,
 - And we worked about a year a building
-  ["game"](https://s3.eu-north-1.amazonaws.com/rix1.dev/fmri+-+Human+Episodic+Memory.jpg)
-  that was played in an fMRI machine as part of
-  [a research project at NTNU](https://www.biorxiv.org/content/10.1101/2020.05.11.084202v1.abstract).
+  ["memory game"](https://s3.eu-north-1.amazonaws.com/rix1.dev/fmri+-+Human+Episodic+Memory.jpg)
+  for a [a research project at NTNU](https://www.biorxiv.org/content/10.1101/2020.05.11.084202v1.abstract).
+  Research participants played the game while being scanned in an fMRI machine(!); quite unorthodox 
+  constraints for both UX as well system precision and performance.
 
 This was the first time I've ever gotten paid (real money) to code, and it felt
 quite good. We had no idea what we were doing back then, but our complimentary
@@ -66,30 +67,30 @@ opportunity for me (and a lot of others!) to make a meaningful impact here.
 Professionally though, I had my eyes set on a different path. Like every other
 student at NTNU, I was alluded by the big consultancies that "the best career
 choice" for a young student wasn't to freelance or start working at a small
-company, but rather join a big consultancy doing massive projects. With little
+company, but rather join a big consultancy doing massive projects in big, professional teams. With little
 understanding for what this meant in practice, I signed a contract with
 [BEKK](https://www.bekk.no/) and was looking forward to join as soon as my
 master's was done.
 
 However, through an unexpected turn of events, things weren't going to be as
-straight forward as I first envisioned. You see, [DNB](https://www.dnb.no/),
-Norway's largest bank, held a hackathon in 2016 that went
+straight forward as I first envisioned. We participated in a hackathon organized by [DNB](https://www.dnb.no/),
+Norway's largest bank, and did
 [surprisingly](https://www.dnb.no/dnbnyheter/no/din-okonomi/dnb-utfordrer-studenter-til-a-vise-seg-frem)
 [well](https://s3.eu-north-1.amazonaws.com/rix1.dev/2016-05-11-dnb-digital-challenge-finansavisen.png).
-We didn't win, but the bank's CIO offered the four of us full time positions _on
+Although we didn't win, the bank's CIO offered the four of us full time positions _on
 the spot_, after seeing our presentation.
 
 Reluctant at first (we all had consultancy jobs waiting for us), the hackathon
 team consisting of Hanna, Camilla, Siri and I spent a few weeks at DNB that
 summer to evauate and get a feel for working in such a large organization. My
 impression was actually quite good – we were given enough freedom and trust to
-get started on a developer portal, which would eventually morph into their
-[Open Banking platform](https://developer.dnb.no/). This experience led me to
-veer away from the consultant path and resign from my upcoming job at BEKK.
+pursue our hackathon idea of a banking developer portal (years later, this would eventually morph into their
+[Open Banking platform](https://developer.dnb.no/)). This experience led me to
+veer away from the consultant path and resign from my upcoming job at BEKK, before ever starting.
 
-But the twists and turns wouldn't end there.
+But the twists and turns didn't end there.
 
-At what was supposed to be my first job at the bank, the large organisation had
+At what was supposed to be my first job at the bank, they kinda
 forgot I was starting! This gave me a few days extra to reflect, while they
 figured out the logistics. In the interim, I walked back into the office of a
 client Andrroy and I had been working with for the past 6 months – the newly
@@ -98,13 +99,13 @@ We had been helping them with setting up a prototype backend and some internal
 tools for streamlining what was then, a scrappy platform for selling and
 installing residential solar panels.
 
-Beliving they had "lost" me to the bank, [Andreas](https://twitter.com/athornor)
+Beliving they had "lost" me to the bank, Otovo-founders [Andreas](https://twitter.com/athornor)
 and [Simen](https://twitter.com/simenfur) were surprised to see me. Their
 surprise quickly turned into excitement when I asked if I could join full time.
 An hour later the contract was drafted and signed, and I sent my resignation to
 DNB, again without ever having started. 2016 was a crazy year.
 
-Since then, I contributed to building nearly every product and I've taken part
+Since then, I contributed to building nearly every Otovo-product and I've taken part
 in all of the 13 market launches Otovo has done.
 
 I've always had a knack for design, so my first few years were naturally spent
@@ -130,9 +131,9 @@ hands-on building: Which is what I really enjoy.
 
 I moved on to lead Otovo's marketplace team as engineering manager, being
 responsible for building and maintaining the core mechanics of our platform.
-Over the course of a year, we successfully launced a major overhaul of our core
-pricing engine, as well as a brand new engine for managing and supporting field
-sales doing home visits.
+Over the course of a year, our (brilliant!) team successfully launced a major overhaul of our core
+pricing engine with a robust state sync between NetSuite and our platform across all markets. The old pricing system was severly limiting our ability to expand Otovo's solutions from solar panels (tranditionally) to home batteries, EV-chargers and other services, and the existing NetSuite sync was unreliable and severely lacked observability, costing the business real money.
+Later, we built out a brand new engine for managing and operating field sales agents doing home visits. This integrated across Hubspot, Google Calendar, Graphhopper and our Django-platform for [a seamless UX](https://www.dropbox.com/scl/fi/xq65acxk3r03ymz6xj2rq/slot-warnings.mp4?rlkey=lb6yaj4sjzz76dgil4pc6ptcl&st=695mv6a1&dl=0).
 
 While all of this was going on, Russia's war had ravaged Ukrainian people for
 almost 3 years. This had ripple effects on the European energy market, and in
@@ -140,22 +141,21 @@ turn, the residential market for PV and Battery installations.
 
 Otovo suffered through several rounds of downsizing. In product, we went from
 six product teams to three, and then just one. Same responsibilty, fewer folks
-means you're forced to reconfigure and mature.
+means you're forced to reconfigure and mature. During this time, we built and launched Otovo Care - a premium and hassle free "we take care of your home energy maintainance"-subscription, which is currently Otovo's flagship product.
 
 All in all, it's been a roller coaster: Every 6-12 months over the last 10 years
-we've completely changed one or more attributes of how we work, or what we work
-on. I believe this has given me not only perspective and experience, but also
-resilience.
+we've completely changed one or more attributes of how we work and what we work
+on. I believe this has given me not only perspective, but also
+resilience and a broad range of experience.
 
 As of today, I'm still having fun chasing the sun together with Otovo ☀️
 
 ---
 
-As you might figure, these experiences were never strategic career moves for me.
-However, I learned some important lessons in:
+As you might figure, these experiences were never strategic career moves for me, I've kind of went with the flow and seized opportunities as they presented themselves. I learned some important lessons in:
 
 1. Navigating uncertainty.
-2. The importance of having fun.
+2. The importance of having fun as a way to turn one’s predicament into a human achievement.
 3. Placing bets on who to surround yourself with.
 
 I guess if you've already read this far, I might as well shed some light on
@@ -169,8 +169,7 @@ other parts of my life. Here are some in rapid succession:
 2. 🐶 We've had three Belgian shepherds since 2007:
    [Sam & Tiva](https://s3.eu-north-1.amazonaws.com/rix1.dev/dogs/sam-tiva-bamble.jpg)
    and most recently
-   [Yoda](https://s3.eu-north-1.amazonaws.com/rix1.dev/dogs/yoda-oslo.jpg) 🫶. I
-   view dogs as a constant source of unconditional love, and a daily reminder
+   [Yoda](https://s3.eu-north-1.amazonaws.com/rix1.dev/dogs/yoda-oslo.jpg) 🫶. Dogs are a constant source of unconditional love, and a daily reminder
    that patience, commitment and consistency go a long way.
 
 3. 🎶 Life is better with music, I think I listen to more music than most
@@ -182,11 +181,10 @@ other parts of my life. Here are some in rapid succession:
 ---
 
 In all areas of life, I have fun when I can be curious, have attention to
-detail, do _just enough™_ planning and focus on <mark class="playful">playful
-execution</mark>.
+detail, do _just enough™_ planning and focus on <a href="#playful"><mark id="playful" class="playful">playful
+execution</mark></a>.
 
-That should do it for now. If you still haven't gotten enough,
-[here's some content](https://old.rix1.dev/posts) from my old site that still
-haven't been ported.
+That should do it for now. If you still haven't gotten enough, please go on and check out my
+[other writing](/posts).
 
 Cheers, Rix1 ✌️
