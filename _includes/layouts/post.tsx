@@ -36,7 +36,7 @@ export default (
             </a>
           </p>
 
-          <article>
+          <article data-pagefind-body>
             <header class="mb-10">
               <div class="not-prose mb-4 flex flex-wrap items-center gap-2 text-sm text-gray-600">
                 {topic && (

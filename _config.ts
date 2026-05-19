@@ -5,6 +5,7 @@ import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
 import reading_info from "lume/plugins/reading_info.ts";
 import sitemap from "lume/plugins/sitemap.ts";
+import pagefind from "lume/plugins/pagefind.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import jsx from "lume/plugins/jsx.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
@@ -52,6 +53,17 @@ site.use(
   }),
 );
 site.use(sitemap());
+site.use(
+  pagefind({
+    ui: {
+      containerId: "search",
+      showImages: false,
+      excerptLength: 18,
+      showSubResults: false,
+      resetStyles: false,
+    },
+  }),
+);
 
 // Add CSS files explicitly for processing
 site.add([".css"]);

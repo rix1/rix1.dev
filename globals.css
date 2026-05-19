@@ -10,6 +10,15 @@
 :root {
   --scale-timing: 0.15s;
   --image-size: 280px;
+  --pagefind-ui-scale: 0.86;
+  --pagefind-ui-primary: var(--color-primary);
+  --pagefind-ui-text: #111827;
+  --pagefind-ui-background: rgba(255, 255, 255, 0.82);
+  --pagefind-ui-border: rgba(219, 39, 119, 0.14);
+  --pagefind-ui-tag: rgba(219, 39, 119, 0.08);
+  --pagefind-ui-border-width: 1px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-font: inherit;
 }
 
 html,
@@ -46,7 +55,8 @@ mark {
   --tw-gradient-from: var(--color-secondary);
   --tw-gradient-to: var(--color-primary);
   --tw-gradient-stops:
-    var(--tw-gradient-from), var(--tw-gradient-to, rgba(234, 86, 52, 0));
+    var(--tw-gradient-from),
+    var(--tw-gradient-to, rgba(234, 86, 52, 0));
   background-image: linear-gradient(
     to right,
     var(--tw-gradient-stops)
@@ -86,7 +96,8 @@ a:not(.clear) {
   --tw-gradient-from: var(--color-secondary);
   --tw-gradient-to: var(--color-primary);
   --tw-gradient-stops:
-    var(--tw-gradient-from), var(--tw-gradient-to, rgba(234, 86, 52, 0));
+    var(--tw-gradient-from),
+    var(--tw-gradient-to, rgba(234, 86, 52, 0));
   background-image: linear-gradient(
     to right,
     var(--tw-gradient-stops)

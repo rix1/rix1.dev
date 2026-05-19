@@ -45,6 +45,10 @@ export default ({ comp, search, title, description }: Lume.Data) => {
             </p>
           </header>
 
+          <section class="mb-12" data-pagefind-ignore="all">
+            <div id="search"></div>
+          </section>
+
           <section class="grid gap-8 md:grid-cols-3">
             {posts.map((post) => (
               <article class="border-t border-primary/10 pt-6" key={post.url}>
