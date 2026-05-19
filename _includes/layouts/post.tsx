@@ -9,18 +9,16 @@ function formatDate(date: Date | string) {
   return dateFormatter.format(new Date(date));
 }
 
-export default (
-  {
-    comp,
-    title,
-    description,
-    date,
-    topic,
-    readingInfo,
-    scripts = [],
-    children,
-  }: Lume.Data,
-) => {
+export default ({
+  comp,
+  title,
+  description,
+  date,
+  topic,
+  readingInfo,
+  scripts = [],
+  children,
+}: Lume.Data) => {
   return (
     <html>
       <head>
@@ -29,10 +27,13 @@ export default (
       </head>
 
       <body class="relative min-h-screen mt-12 pb-40">
-        <main class="px-4 sm:px-6 lg:px-8 mx-auto prose lg:prose-xl prose-headings:bricolage-grotesque-heavy">
+        <main class="px-4 sm:px-6 lg:px-8 mx-auto max-w-5xl">
           <comp.SiteNav backHref="/posts/" backLabel="Back to posts" />
 
-          <article data-pagefind-body>
+          <article
+            class="prose lg:prose-xl prose-headings:bricolage-grotesque-heavy"
+            data-pagefind-body
+          >
             <header class="mb-10">
               <div class="not-prose mb-4 flex flex-wrap items-center gap-2 text-sm text-gray-600">
                 {topic && (
@@ -64,7 +65,7 @@ export default (
             {children}
           </article>
 
-          <footer class="not-prose mt-14 border-t border-primary/10 pt-8">
+          <footer class="mx-auto mt-14 max-w-prose border-t border-primary/10 pt-8">
             <a href="/posts/" class="clear font-semibold text-primary">
               Read more thoughts
             </a>

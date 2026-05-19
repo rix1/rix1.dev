@@ -50,14 +50,12 @@ style.textContent = `
     backdrop-filter: blur(8px);
     opacity: 0;
     pointer-events: none;
-    visibility: hidden;
-    transition: opacity 150ms ease, visibility 150ms ease;
+    transition: opacity 150ms ease;
   }
 
   .cmdk[aria-hidden="false"] {
     opacity: 1;
     pointer-events: auto;
-    visibility: visible;
   }
 
   .cmdk-panel {
@@ -183,6 +181,7 @@ overlay.innerHTML = `
 `;
 
 document.body.append(trigger, overlay);
+overlay.inert = true;
 
 const input = overlay.querySelector(".cmdk-input");
 const results = overlay.querySelector(".cmdk-results");
@@ -295,6 +294,7 @@ async function openPalette() {
   await loadEntries();
   isOpen = true;
   activeIndex = 0;
+  overlay.inert = false;
   overlay.setAttribute("aria-hidden", "false");
   input.value = "";
   render();
@@ -305,6 +305,7 @@ function closePalette() {
   isOpen = false;
   overlay.setAttribute("aria-hidden", "true");
   input.blur();
+  overlay.inert = true;
 }
 
 function goToActive() {
