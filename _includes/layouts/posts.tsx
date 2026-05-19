@@ -9,6 +9,7 @@ type Post = Lume.Data & {
   description: string;
   date: Date | string;
   topic?: string;
+  draft?: boolean;
   url: string;
   readingInfo?: {
     minutes?: number;
@@ -60,6 +61,11 @@ export default ({ comp, search, title, description }: Lume.Data) => {
                     <time dateTime={new Date(post.date).toISOString()}>
                       {formatDate(post.date)}
                     </time>
+                    {post.draft && (
+                      <span class="rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-xs font-bold uppercase tracking-wide text-amber-700">
+                        Draft
+                      </span>
+                    )}
                   </div>
                   <h2 class="bricolage-grotesque-heavy mb-3 text-2xl leading-tight group-hover:text-primary">
                     {post.title}
