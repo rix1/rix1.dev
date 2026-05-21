@@ -84,6 +84,7 @@ export default ({ comp, title, heading, children, index }: Lume.Data) => {
             ))}
           </div>
         </section>
+        <comp.SiteFooter />
         <div id="blur"></div>
       </body>
     </html>

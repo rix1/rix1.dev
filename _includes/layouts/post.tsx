@@ -65,13 +65,14 @@ export default ({
             {children}
           </article>
 
-          <footer class="mx-auto mt-14 max-w-prose border-t border-primary/10 pt-8">
+          <footer class="mt-14  pt-8">
             <a href="/posts/" class="clear font-semibold text-primary">
-              Read more thoughts
+              ← Read more thoughts
             </a>
           </footer>
         </main>
 
+        <comp.SiteFooter />
         <div id="blur"></div>
         {(scripts as string[]).map((src) => (
           <script type="module" src={src}></script>
