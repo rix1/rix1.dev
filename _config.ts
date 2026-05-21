@@ -5,11 +5,22 @@ import favicon from "lume/plugins/favicon.ts";
 import feed from "lume/plugins/feed.ts";
 import reading_info from "lume/plugins/reading_info.ts";
 import sitemap from "lume/plugins/sitemap.ts";
+import pagefind from "lume/plugins/pagefind.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import jsx from "lume/plugins/jsx.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
+import metas from "lume/plugins/metas.ts";
+import footnote from "npm:markdown-it-footnote@4.0.0";
 
-const site = lume();
+const site = lume({
+  location: new URL("https://rix1.dev"),
+});
+
+site.hooks.addMarkdownItPlugin(footnote);
+
+if (Deno.env.get("LUME_DRAFTS") !== "true") {
+  site.ignore("/drafts");
+}
 
 // Add assets
 site.add("assets");
@@ -29,8 +40,37 @@ site.use(
   }),
 );
 site.use(tailwindcss());
-site.use(feed());
+site.use(metas());
+site.use(
+  feed({
+    output: ["/posts.rss"],
+    query: "type=post",
+    sort: "date=desc",
+    info: {
+      title: "rix1.dev: Thoughts & experiments",
+      description:
+        "Notes on products, technology, design, building things, and life.",
+    },
+    items: {
+      title: "=title",
+      description: "=description",
+      published: "=date",
+      content: "=description",
+    },
+  }),
+);
 site.use(sitemap());
+site.use(
+  pagefind({
+    ui: {
+      containerId: "search",
+      showImages: false,
+      excerptLength: 18,
+      showSubResults: false,
+      resetStyles: false,
+    },
+  }),
+);
 
 // Add CSS files explicitly for processing
 site.add([".css"]);

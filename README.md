@@ -1,10 +1,14 @@
 # rix1.dev &middot; my personal website
 
-Welcome to the source repository of my personal website, [rix1.dev](https://rix1.dev)! I'm a product developer and engineering manager based in Oslo, Norway. My website showcases previous and ongoing projects as well as my professional journey.
+Welcome to the source repository of my personal website,
+[rix1.dev](https://rix1.dev)! I'm a product developer and engineering manager
+based in Oslo, Norway. My website showcases previous and ongoing projects as
+well as my professional journey.
 
 ## About the Site
 
-Built with Lume — a static site generator for Deno, the site reflects my interest in products, technology, and design.
+Built with Lume — a static site generator for Deno, the site reflects my
+interest in products, technology, and design.
 
 ### Features
 
@@ -17,7 +21,8 @@ Built with Lume — a static site generator for Deno, the site reflects my inter
 
 - [Lume](https://lume.land) - A static site generator built with Deno.
 - [Deno](https://deno.land) - A secure runtime for JavaScript and TypeScript.
-- [Deno Deploy](https://deno.com/deploy) - A hassle-free platform for serverless JavaScript applications
+- [Deno Deploy](https://deno.com/deploy) - A hassle-free platform for serverless
+  JavaScript applications
 
 ## Local Development
 
@@ -25,7 +30,8 @@ To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
-Ensure you have [Deno](https://deno.land/#installation) installed on your machine. To install Deno, run:
+Ensure you have [Deno](https://deno.land/#installation) installed on your
+machine. To install Deno, run:
 
 ```bash
 curl -fsSL https://deno.land/install.sh | sh
@@ -43,11 +49,41 @@ curl -fsSL https://deno.land/install.sh | sh
    deno task dev
    ```
 
-The site should now be running on `http://localhost:3000`. Open your browser to this address to view the site.
+The site should now be running on `http://localhost:3000`. Open your browser to
+this address to view the site.
+
+## Writing Posts
+
+Posts live in `posts/*.md`. To publish a new one, add a Markdown file with this
+front matter:
+
+```yaml
+---
+title: My post title
+description: A short summary used for the overview, RSS, and social previews.
+date: 2026-05-18
+topic: Build
+---
+```
+
+The shared defaults in `posts/_data.yml` add the post layout, author data, and
+the `post` tag automatically. For interactive posts, prefer a small browser
+script or web component in `assets/` and opt into it from the post:
+
+```yaml
+scripts:
+  - /assets/my-post-widget.js
+```
+
+Drafts live in `drafts/*.md` with `draft: true`. Lume renders drafts while
+serving locally, but `deno task build` ignores the whole `drafts/` folder so
+they do not deploy.
 
 ## Contributing
 
-I would be surprised if anyone would like to contribute to this site, but if you find any typos feel or want to change my opinion about something, feel free to open a PR:
+I would be surprised if anyone would like to contribute to this site, but if you
+find any typos feel or want to change my opinion about something, feel free to
+open a PR:
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b fix/your-opinion`)
@@ -62,5 +98,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 - @rix1 - [Twitter](https://twitter.com/rix1)
-- Project Link: [https://github.com/rix1/rix1.dev](https://github.com/rix1/rix1.dev)
+- Project Link:
+  [https://github.com/rix1/rix1.dev](https://github.com/rix1/rix1.dev)
 - Website: [rix1.dev](https://rix1.dev)

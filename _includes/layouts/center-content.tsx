@@ -19,6 +19,7 @@ export default ({ comp, title, alignment, children }: Lume.Data) => {
           <comp.ShareIcons withBlob />
         </main>
 
+        <comp.SiteFooter />
         <div id="blur"></div>
       </body>
     </html>

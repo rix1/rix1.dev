@@ -1,0 +1,7 @@
+layout: layouts/post.tsx
+type: post
+tags:
+  - post
+author: Rikard Eide
+authorUrl: https://github.com/rix1
+authorHandle: "@rix1"

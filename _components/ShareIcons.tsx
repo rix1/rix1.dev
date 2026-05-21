@@ -1,7 +1,24 @@
-const ShareIcons = ({ withBlob = false }) => {
+type ShareIconsProps = {
+  withBlob?: boolean;
+  showDivider?: boolean;
+  class?: string;
+};
+
+const ShareIcons = ({
+  withBlob = false,
+  showDivider = true,
+  class: className = "",
+}: ShareIconsProps) => {
+  const rootClass =
+    showDivider || withBlob
+      ? "mb-[1.2em] relative flex flex-col"
+      : "relative flex flex-col";
+
   return (
-    <div class="mb-[1.2em] relative flex flex-col">
-      <hr class="w-1/2 mx-auto mt-0 mb-7 not-prose border-primary/10" />
+    <div class={[rootClass, className].join(" ")}>
+      {showDivider && (
+        <hr class="w-1/2 mx-auto mt-0 mb-7 not-prose border-primary/10" />
+      )}
       <div
         className="mx-auto inline-flex items-center share-icons"
         style={{
@@ -27,6 +44,26 @@ const ShareIcons = ({ withBlob = false }) => {
             <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
           </svg>
           <small>Twitter</small>
+        </a>
+        <a
+          href="https://bsky.app/profile/rix1.bsky.social"
+          target="_blank"
+          class="p-3 flex flex-col items-center"
+          rel="noreferrer"
+        >
+          <svg
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.2"
+            shape-rendering="geometricPrecision"
+            viewBox="0 0 24 24"
+            height="32"
+            width="32"
+            stroke="#000"
+          >
+            <path d="M12 11.5c-1.6-3.3-4.4-6-6.8-6-1.6 0-2.2 1.1-2.2 2.5 0 2.5 2.9 5.1 6 6.4-2.9.3-5.2 1.7-5.2 3.7 0 1.2 1 2.2 2.5 2.2 2.1 0 4.4-2.1 5.7-4.8 1.3 2.7 3.6 4.8 5.7 4.8 1.5 0 2.5-1 2.5-2.2 0-2-2.3-3.4-5.2-3.7 3.1-1.3 6-3.9 6-6.4 0-1.4-.6-2.5-2.2-2.5-2.4 0-5.2 2.7-6.8 6Z"></path>
+          </svg>
+          <small>Bluesky</small>
         </a>
         <a
           href="https://github.com/rix1"
