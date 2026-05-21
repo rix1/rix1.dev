@@ -78,7 +78,7 @@ I'll probably go more in-depth about it's API and how it's built in the future,
 but for now I just wanted to show this off to the world 🌍.
 
 If you want to take a look at the source code,
-[you'll find that on Github](https://github.com/rix1/rix1-builds/tree/main/packages/rix-ui/calendar).
+[you'll find that on Github](https://github.com/rix1/rix1-builds/tree/main/packages/rix-ui/src/calendar/).
 
 ### Feedback
 
