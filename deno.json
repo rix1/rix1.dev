@@ -17,7 +17,7 @@
   "tasks": {
     "build": {
       "description": "Build the site for production",
-      "command": "deno task lume"
+      "command": "deno task lume && deno cache --config deno.json serve.ts"
     },
     "serve": {
       "description": "Run and serve the site for development",
@@ -49,8 +49,7 @@
     "exclude": [
       "**/node_modules"
     ],
-    "include": [],
-    "entrypoint": "serve.ts"
+    "include": []
   },
   "permissions": {
     "lume": {
