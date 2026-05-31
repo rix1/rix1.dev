@@ -41,6 +41,11 @@
   },
   "deploy": {
     "project": "1be252bb-80ef-43c4-996a-9b8e603e330b",
+    "build": "deno task build",
+    "runtime": {
+      "type": "dynamic",
+      "entrypoint": "./serve.ts"
+    },
     "exclude": [
       "**/node_modules"
     ],
