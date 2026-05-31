@@ -17,7 +17,7 @@
   "tasks": {
     "build": {
       "description": "Build the site for production",
-      "command": "deno task lume && deno cache --config deno.json serve.ts"
+      "command": "deno task lume"
     },
     "serve": {
       "description": "Run and serve the site for development",
