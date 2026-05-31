@@ -1,6 +1,8 @@
 type Project = {
   title: string;
   when: string;
+  ai?: boolean;
+  wip?: boolean;
   description: string;
   link: string;
 };
@@ -45,7 +47,11 @@ export default ({ search, index }: Lume.Data) => {
     title: project.title,
     description: stripMarkdownLinks(project.description),
     url: project.link,
-    meta: project.when,
+    meta: [
+      project.when,
+      project.ai ? "AI-assisted" : undefined,
+      project.wip ? "WIP" : undefined,
+    ].filter(Boolean).join(" · "),
   }));
 
   return JSON.stringify({ posts, projects });

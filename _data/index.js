@@ -1,5 +1,43 @@
 export const repos = [
   {
+    title: "YT stats",
+    when: "2026",
+    ai: true,
+    description:
+      "Spotify Wrapped for YouTube. Drop your watch history JSON and get a private, local-first report in the browser or terminal.",
+    link: "https://yt-stats.rix1.dev/",
+    repo: "https://github.com/rix1/yt-stats",
+  },
+  {
+    title: "Barnehageutforsker",
+    when: "2026",
+    ai: true,
+    description:
+      "Browse and compare kindergartens in Oslo with a sortable table, map, filters, favorites, and scraped public data.",
+    link: "https://github.com/rix1/barnehageutforsker",
+    repo: "https://github.com/rix1/barnehageutforsker",
+  },
+  {
+    title: "drop",
+    when: "2026",
+    ai: true,
+    wip: true,
+    description:
+      "A small local file sharing tool for explicit, expiring shares over a reverse tunnel such as Cloudflare Tunnel or Tailscale Funnel.",
+    link: "https://github.com/rix1/drop",
+    repo: "https://github.com/rix1/drop",
+  },
+  {
+    title: "R3",
+    when: "2026",
+    ai: true,
+    wip: true,
+    description:
+      "An experimental Readwise Reader to reMarkable workflow for sending articles to the tablet and recovering highlights back into Readwise.",
+    link: "https://github.com/rix1/r3",
+    repo: "https://github.com/rix1/r3",
+  },
+  {
     title: "Wine",
     when: "2024",
     description:
@@ -65,6 +103,7 @@ export const repos = [
   {
     title: "Cabin planner",
     when: "2022",
+    wip: true,
     description:
       "An app for managing resources in large families, FRP if you want. Built with T3 and Supabase",
     link: "https://hytta.rix1.dev/",
@@ -73,6 +112,7 @@ export const repos = [
   {
     title: "Flow Writer",
     when: "2022",
+    wip: true,
     description:
       "A tool for unclear writing, modelled after my messy brain. Built with Next.js",
     link: "https://twitter.com/rix1/status/1510736583154147330",

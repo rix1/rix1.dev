@@ -1,7 +1,9 @@
 type Project = {
   title: string;
   when: string;
-  status: "broken" | "live" | "unfinished";
+  ai?: boolean;
+  wip?: boolean;
+  status?: "broken" | "live" | "unfinished";
   description: string;
   link: string;
   repo?: string;
@@ -24,16 +26,16 @@ export default ({ comp, title, heading, children, index }: Lume.Data) => {
 
         <title>{title}</title>
       </head>
-      <body class="relative mx-auto my-24 max-w-7xl px-4 sm:px-6 lg:px-8 prose lg:prose-xl prose-headings:bricolage-grotesque-heavy">
-        <main class="grid items-end gap-4 md:grid-cols-2">
-          <div>
+      <body class="prose relative mx-auto my-12 max-w-7xl px-4 prose-headings:bricolage-grotesque-heavy sm:my-16 sm:px-6 sm:prose-lg lg:my-24 lg:px-8 lg:prose-xl">
+        <main class="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_minmax(240px,0.8fr)] lg:gap-14">
+          <div class="max-w-2xl">
             <comp.FancyHeading>{heading}</comp.FancyHeading>
             {children}
           </div>
-          <div class="mb-[1.2em] font-[1.25rem]">
-            <div class="relative blob-wrapper">
+          <div class="mb-[1.2em] text-base sm:text-[1.25rem]">
+            <div class="blob-wrapper relative mx-auto max-w-[min(100%,22rem)]">
               <div
-                class="not-prose mx-auto my-0 p-0 md:[--image-size:400px]"
+                class="not-prose mx-auto my-0 p-0 [--image-size:240px] sm:[--image-size:280px] md:[--image-size:360px] lg:[--image-size:400px]"
                 id="blobby-avatar"
               />
               <div id="blob"></div>
@@ -42,17 +44,29 @@ export default ({ comp, title, heading, children, index }: Lume.Data) => {
           </div>
         </main>
 
-        <section class="mt-24">
-          <h2 class="mb-8">{index.repos.length} of my latest creations:</h2>
-          <div class="grid grid-flow-row grid-cols-2 gap-6 md:grid-cols-3 lg:grid-rows-3">
+        <section class="mt-16 sm:mt-24">
+          <h2 class="mb-8 text-2xl leading-tight sm:text-3xl lg:text-4xl">
+            {index.repos.length} of my latest creations:
+          </h2>
+          <div class="grid grid-flow-row grid-cols-1 gap-7 sm:grid-cols-2 md:grid-cols-3">
             {(index.repos as Project[]).sort(compareFn).map((project) => (
-              <article key={project.title} class="mb-4 max-w-xs">
+              <article key={project.title} class="mb-2 max-w-none">
                 <p class="not-prose my-0 inline-flex flex-wrap items-baseline gap-2">
                   <a href={project.link} class="font-semibold underline">
                     {project.title}
                   </a>
                   &middot;
                   <span class="rounded-full text-sm">{project.when}</span>
+                  {project.ai && (
+                    <span class="rounded-full border border-primary/15 bg-primary/5 px-1.5 py-0.5 text-[0.68rem] font-medium uppercase leading-none tracking-wide text-primary/80">
+                      AI
+                    </span>
+                  )}
+                  {project.wip && (
+                    <span class="rounded-full border border-gray-300/70 bg-gray-50 px-1.5 py-0.5 text-[0.68rem] font-medium uppercase leading-none tracking-wide text-gray-600">
+                      WIP
+                    </span>
+                  )}
                 </p>
                 <p class="not-prose my-0 block">
                   {{ __html: markdownToHtmlLinks(project.description) }}
