@@ -1,8 +1,10 @@
-export default ({ comp, title, alignment, children }: Lume.Data) => {
+export default ({ comp, title, alignment, children, url }: Lume.Data) => {
+  const canonicalUrl = new URL(url, "https://rix1.dev").href;
+
   return (
     <html>
       <head>
-        <comp.MetaTags />
+        <comp.MetaTags canonicalUrl={canonicalUrl} />
 
         <title>{title}</title>
       </head>

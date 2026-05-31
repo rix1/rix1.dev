@@ -18,11 +18,14 @@ export default ({
   readingInfo,
   scripts = [],
   children,
+  url,
 }: Lume.Data) => {
+  const canonicalUrl = new URL(url, "https://rix1.dev").href;
+
   return (
     <html>
       <head>
-        <comp.MetaTags />
+        <comp.MetaTags canonicalUrl={canonicalUrl} />
         <title>{title}</title>
       </head>
 

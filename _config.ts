@@ -24,6 +24,7 @@ if (Deno.env.get("LUME_DRAFTS") !== "true") {
 
 // Add assets
 site.add("assets");
+site.ignore("README.md");
 
 // Configure plugins in the correct order
 site.use(jsx());

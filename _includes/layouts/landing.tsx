@@ -18,11 +18,13 @@ function compareFn(a: Project, b: Project) {
   return Number(b.when) - Number(a.when);
 }
 
-export default ({ comp, title, heading, children, index }: Lume.Data) => {
+export default ({ comp, title, heading, children, index, url }: Lume.Data) => {
+  const canonicalUrl = new URL(url, "https://rix1.dev").href;
+
   return (
     <html>
       <head>
-        <comp.MetaTags />
+        <comp.MetaTags canonicalUrl={canonicalUrl} />
 
         <title>{title}</title>
       </head>

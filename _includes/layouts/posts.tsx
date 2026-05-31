@@ -20,13 +20,14 @@ function formatDate(date: Date | string) {
   return dateFormatter.format(new Date(date));
 }
 
-export default ({ comp, search, title, description }: Lume.Data) => {
+export default ({ comp, search, title, description, url }: Lume.Data) => {
   const posts = search.pages("type=post", "date=desc") as Post[];
+  const canonicalUrl = new URL(url, "https://rix1.dev").href;
 
   return (
     <html>
       <head>
-        <comp.MetaTags />
+        <comp.MetaTags canonicalUrl={canonicalUrl} />
         <title>rix1.dev: {title}</title>
       </head>
 
