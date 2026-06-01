@@ -7,9 +7,20 @@ export default ({ comp }: Lume.Data) => {
             This is Rix1's personal site for notes on products, technology,
             design, building things, and life.
           </p>
+          <p class="m-0 text-xs font-semibold uppercase tracking-wide text-gray-400">
+            Visitors:{" "}
+            <a
+              href="/status"
+              data-visitor-counter
+              hidden
+              class="text-gray-500 underline decoration-primary/30 underline-offset-4 transition hover:text-primary"
+            >
+            </a>
+          </p>
           <comp.ShareIcons showDivider={false} class="w-full" />
         </div>
       </div>
+      <script type="module" src="/assets/visitor-counter.js"></script>
     </footer>
   );
 };

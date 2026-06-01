@@ -4,6 +4,7 @@
     "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.15/jsx-runtime.ts"
   },
   "unstable": [
+    "kv",
     "temporal",
     "fmt-component"
   ],
@@ -24,6 +25,10 @@
       "command": "deno task lume -s"
     },
     "dev": "deno task serve",
+    "start": {
+      "description": "Run the built dynamic server locally",
+      "command": "deno run --allow-read --allow-net --allow-env --unstable-kv serve.ts"
+    },
     "lume": {
       "description": "Run Lume command",
       "command": "deno run -P=lume lume/cli.ts"
@@ -40,6 +45,8 @@
     }
   },
   "deploy": {
+    "org": "rix1",
+    "app": "rix1-dev",
     "project": "1be252bb-80ef-43c4-996a-9b8e603e330b",
     "build": "deno task build",
     "runtime": {

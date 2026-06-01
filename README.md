@@ -7,7 +7,7 @@ well as my professional journey.
 
 ## About the Site
 
-Built with Lume — a static site generator for Deno, the site reflects my
+Built with Lume and served by a small Deno runtime, the site reflects my
 interest in products, technology, and design.
 
 ### Features
@@ -22,7 +22,8 @@ interest in products, technology, and design.
 - [Lume](https://lume.land) - A static site generator built with Deno.
 - [Deno](https://deno.land) - A secure runtime for JavaScript and TypeScript.
 - [Deno Deploy](https://deno.com/deploy) - A hassle-free platform for serverless
-  JavaScript applications
+  JavaScript applications.
+- [Deno KV](https://deno.com/kv) - Privacy-friendly page and crawler counters.
 
 ## Local Development
 
@@ -44,13 +45,45 @@ curl -fsSL https://deno.land/install.sh | sh
    git clone https://github.com/rix1/rix1.dev.git
    cd rix1.dev
    ```
-2. Start the development server:
+2. Start the Lume development server:
    ```bash
    deno task dev
    ```
 
 The site should now be running on `http://localhost:3000`. Open your browser to
 this address to view the site.
+
+To test the production-style dynamic runtime, build the site and run the local
+server:
+
+```bash
+deno task build
+deno task start
+```
+
+The dynamic server runs on `http://localhost:8000` and includes runtime-only
+features such as `/status`, `/api/visitor-count`, and the Deno KV visitor
+counter.
+
+## Production Runtime
+
+Production uses Deno Deploy's dynamic runtime with `serve.ts` as the entrypoint.
+The visitor counter is intentionally privacy-friendly: it stores anonymous
+per-page human visitor hashes and declared crawler families, but not IP
+addresses or raw user agents.
+
+Set a stable private salt before deploying so the anonymous human hashes remain
+consistent across deploys:
+
+```bash
+deno deploy env add VISITOR_COUNTER_SALT "<random-long-value>" --secret
+```
+
+Pass `--org <name>` or `--app <name>` if the Deno Deploy CLI has not already
+selected the right application.
+
+If the salt changes later, existing anonymous visitor IDs will no longer match
+new hashes, so counts may start incrementing again for returning visitors.
 
 ## Writing Posts
 
