@@ -347,6 +347,70 @@ span[data-tooltip]:after {
   cursor: url("/assets/disney_peace-sm.png"), auto;
 }
 
+.prose .markdown-alert {
+  --alert-color: var(--color-primary);
+  --alert-bg: color-mix(in srgb, var(--alert-color) 9%, white);
+  --alert-border: color-mix(in srgb, var(--alert-color) 42%, white);
+
+  margin: 1.75em 0;
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--alert-border);
+  border-left-width: 0.35rem;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--alert-color) 13%, white),
+      var(--alert-bg)
+    );
+  box-shadow: 0 10px 30px color-mix(in srgb, var(--alert-color) 10%, transparent);
+}
+
+.prose .markdown-alert-note {
+  --alert-color: var(--color-primary);
+}
+
+.prose .markdown-alert-tip {
+  --alert-color: #059669;
+}
+
+.prose .markdown-alert-important {
+  --alert-color: var(--color-secondary);
+}
+
+.prose .markdown-alert-warning {
+  --alert-color: #d97706;
+}
+
+.prose .markdown-alert-caution {
+  --alert-color: #dc2626;
+}
+
+.prose .markdown-alert-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.45rem;
+  color: var(--alert-color);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.prose .markdown-alert-title svg {
+  width: 1em;
+  height: 1em;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.prose .markdown-alert > :last-child {
+  margin-bottom: 0;
+}
+
+.prose .markdown-alert > :nth-child(2) {
+  margin-top: 0;
+}
+
 @keyframes charDance {
   0%,
   100% {

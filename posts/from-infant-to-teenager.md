@@ -5,35 +5,50 @@ description: Reflections on how we scaled Otovo from a single market to across E
 date: 2019-06-07
 ---
 
+> [!NOTE]
 > This is a written version of a talk I held at [Phrase Conf 2019](https://phrase.com/blog/posts/phraseapp-hosts-first-localization-conference-of-its-kind-in-germany/). You can find the slide deck [here](https://www.dropbox.com/scl/fi/lty172s7aq3rhr191two3/From-infrant-to-teenager-Phrase-talk-2019.pdf?rlkey=uj8hfg4atbly7gfxn6xxnvipg&st=zvae8nmr&dl=0).
 
-I'm a fairly conflicted guy. I come from Norway, one of the richest countries in the world with the highest standard of living. We have 98% clean hydroelectric power, which means electricity is already cheap and clean. We don't get much sun. And our wealth? It was built on tons of oil.
+I'm a person with some internal conflict: I come from Norway, one of the wealthiest countries in the world. We have 98% clean hydroelectric power, which means cheap and clean electricity.
 
-Did we work hard to achieve this standard? Not really. Dinosaurs, the Earth, and time did most of the heavy lifting.
+However, our wealth was built on tons of oil. Being part of the European energy mix, our prices aren’t *that different* from the rest of Europe. And the sun doesn’t shine for six months at a time.
 
-So why would someone from one of the coldest countries, with the most snow, the longest winters, and the shortest days, want to start a solar company? That's the paradox I want to explore today.
+So why would someone from one of the coldest countries, with the most snow, the longest winters, and the shortest days, want to start a solar company?
+
+<figure>
+  <img src="/assets/from-infant-to-teenager/winter-sun.jpg" alt="Low winter sun over snow-covered trees in Norway" loading="lazy">
+  <figcaption>Norwegian solar starts from a strange place: short winter days, snow, and still enough sun to make the question worth asking.</figcaption>
+</figure>
 
 ## How it started
+On a snowy day in 2016, two Andreases and a Simen sat around a kitchen table[^1] with an idea.
 
-On a snowy day in 2016, two Andreases and a Simen sat around a kitchen table with an idea. (In Norway, it's too cold to stay outside in the garage, so tech companies are born over hot coffee in kitchens.)
+They'd been watching solar panel prices drop steadily over the last decade. Something clicked. They created a landing page, wrote a press release, and set up an Excel sheet.
 
-They'd been watching solar panel prices drop steadily. Donald Trump had just been elected. Something clicked. They created a landing page, wrote a press release, and set up an Excel sheet.
+> Clean and local energy in every home.
 
-Within the first three days, they had 532 interested customers.
+Within the first three days, they had 532 interested customers. BANG 💥. That was the shot from the starting pistol.
 
-BANG. That was the shot from the starting pistol.
+<figure>
+  <img src="/assets/from-infant-to-teenager/startup-rollercoaster.jpg" alt="Otovo team members in an office with the text warning startup rollercoaster ahead" loading="lazy">
+  <figcaption>The early Otovo years had exactly the energy the slide promised: fast, messy, and a little ridiculous.</figcaption>
+</figure>
 
-I joined them a couple of months later in February 2016 as a contractor, then full-time that summer. Since then, we've been racing to make clean and affordable solar available to as many customers as possible across Europe.
+I joined them a couple of months later in February 2016 as a contractor, then full-time that summer. Since then, we've been racing to make clean and affordable solar available to as many residential homes as possible across Europe.
 
 ## The Otovo model
 
 To understand why we had to think differently about expansion, you need to understand how Otovo actually works.
 
-Our mission is simple: to be the easiest and most affordable way to go solar. We realized the best way to accomplish this was by controlling the entire journey – from the moment you first wonder if solar makes sense for you, through the sales process, and all the way through installation. Installing solar is complex, and we position ourselves to make it easy by creating connections between all the actors: customers, installers, electricians, and installers.
+Our mission is simple: to be the easiest and most affordable way to go solar. We realized the best way to accomplish this was by controlling the entire journey – from the moment you first wonder if solar makes sense for you, through the sales process, and all the way through installation. Installing solar is complex, and we position ourselves to make it easy by connecting the actors involved: customers, installers, electricians, grid owners, and financing partners.
+
+<figure>
+  <img src="/assets/from-infant-to-teenager/otovo-ecosystem.jpg" alt="Presentation slide placing Otovo between customers, tradesmen, manufacturers, grid owners, politics, financing, marketing, and environmental concerns" loading="lazy">
+  <figcaption>Otovo is positioned in the middle of end customers, tradesmen, manufacturers, grid owners, financing, marketing, politics, and the broader environmental push.</figcaption>
+</figure>
 
 That's why we built two interconnected products:
 
-**The storefront** (`otovo.no`): You type in your address and get to see your solar potential. We tell you exactly how many panels fit on your roof, what we think is the optimal number, and the total cost – with payment options. The checkout process is straightforward, typically between €7,500–€15,000.
+**The storefront** (`otovo.no`): You type in your address and get to see your solar potential. We tell you exactly how many panels fit on your roof, what we think is the optimal number, and the total cost – with payment options.[^2]
 
 **The installer platform**: Independent electricians and installers sign up, set their own prices, and define their service area. They're incentivized to offer competitive pricing because they're visible to customers on our platform.
 
@@ -41,25 +56,35 @@ Here's the key difference between us and most other solar providers: **The price
 
 That's our secret sauce. That's what makes Otovo work.
 
+<figure>
+  <img src="/assets/from-infant-to-teenager/storefront-platform.jpg" alt="Presentation slide comparing Otovo's storefront and solar platform products" loading="lazy">
+  <figcaption>The two-product model: a customer-facing storefront connected to the operational platform behind it.</figcaption>
+</figure>
+
 ## The expansion problem
 
 But here's the thing: even if we installed solar panels on every single roof in Norway, it wouldn't make a dent in the world's energy problems.
 
-So in mid-2017, we started planning for expansion. We looked east toward Sweden – our big brother – and told ourselves: we're starting there in February. Summer is almost here, and we can't afford to lose daylight. We need to hit the ground running.
+So in mid-2017, we started planning for expansion. We looked east toward Sweden – our big brother – and told ourselves: we're starting there in February. The solar season would start soon after, and we could not afford to spend the first useful months still getting ready.
 
-At that point, we had five full-time developers and one product lead. The question was urgent: how do we expand our platform to other markets?
+At that point, we had five full-time developers and one product lead. The question was urgent: how do we expand our platform to other markets without rebuilding the company every time?
 
-We had a React frontend and a Django backend. We had built our system optimized for a single country. Now we needed to make it work for multiple countries with completely different regulations, tax systems, electricity markets, installer networks, and customer expectations.
+We had a React frontend and a Django backend. We also had a lot of Norwegian assumptions baked into both: language, currency, roof data, subsidies, installer workflows, and what a "normal" customer journey looked like.
 
-As any good agile team would do, we made some decisions.
+The problem was not just translation. Translation is the visible part. The harder question was where market-specific logic should live, and how much of it the platform should be designed to absorb.
 
 ## Internationalization vs localization
 
 I like to think about this problem using a toy analogy. You know those toys for toddlers with holes of different shapes? The box is our system. It's our responsibility to design and build the box properly – to create space for pegs of different shapes and sizes.
 
+<figure>
+  <img src="/assets/from-infant-to-teenager/kid-blocks.gif" alt="A toddler trying to fit toy blocks into a shape sorter" loading="lazy">
+  <figcaption>Internationalization is designing the sorter; localization is dealing with the shapes each market hands you. Sometimes the easiest thing is, admittedly, to cheat a little.</figcaption>
+</figure>
+
 That's **internationalization (i18n)**: the upfront design and architecture work that makes your system flexible enough to handle different markets.
 
-**Localization** is the actual pegs – the market-specific content, features, and configurations that fit into that box. Here are some of the differences we encountered between Norway and Sweden alone:
+**Localization** is the actual pegs – the market-specific content, features, and configurations that fit into that box. Even between Norway and Sweden, the pegs were not identical:
 
 - Different tax systems and VAT rates
 - Different payment methods and financing options
@@ -70,23 +95,34 @@ That's **internationalization (i18n)**: the upfront design and architecture work
 - Different electrical grid regulations
 - Different installation labor costs
 
-This list isn't exhaustive. There's a lot to figure out. But some things matter more than others and have longer lead times than others.
+This list is not exhaustive. It also is not a checklist of everything that needed to become configurable on day one. Some things were crucial to the customer journey. Some could be handled manually at first. Some only became important after we had real customers in a market.
 
-If you don't design your i18n correctly upfront, you end up trying to fit a square peg into a round hole. And there's no way around it.
+That distinction mattered. If you ignore i18n, every new market becomes a square peg and your codebase becomes the toddler. But if you try to predict every possible variation upfront, you build a platform for imaginary countries instead of learning from real ones.
 
-We could have ignored this problem. We could have copied the entire codebase and customized it for Sweden. Maybe that would have worked in the short term. But we were thinking about expansion across Europe – multiple countries, different teams, different requirements. At some point, the cost of maintaining separate codebases would become unsustainable.
+The useful move was to draw a boundary: keep the core platform shared, make the market-specific parts explicit, and accept that we would learn some of the boundaries by shipping.
 
-So we made the harder choice upfront: design a system that could accommodate different markets.
+## The pattern that worked
 
-## How we actually did it
+The slide version eventually became simpler than the architecture diagrams: expand front to back, then improve back to front.
 
-Part of me wants to tell you the polished version of how we solved this. The clean narrative about architectural foresight and elegant design patterns.
+<figure>
+  <img src="/assets/from-infant-to-teenager/front-to-back.jpg" alt="Presentation slide showing the expansion flow from landing page to contract signing" loading="lazy">
+  <figcaption>For a new market, the first question was not “what can the platform support?” It was “what must the customer be able to do?”</figcaption>
+</figure>
 
-But here's the truth: it's been messy. Things still are messy. We've made mistakes. We've had to refactor. We've discovered problems we didn't anticipate.
+**Expanding front to back** meant starting with the customer path: landing page, roof drawing, calculation, offer, and contract signing. We localized enough of that path to make the market real, then worked backwards into the operational systems needed to support it.
 
-**On the frontend**: We use React Intl for managing translations, and Phrase for content management. We went for the pragmatic solution rather than trying to over-engineer everything upfront. Routes, messages, and API endpoints are all configured for the specific market and locale you're operating in.
+**Improving back to front** meant taking what we learned from that launch and turning it into better platform capabilities. The next market should start from a better baseline, not from a copy-paste fork of the previous one.
 
-The tradeoff we made: language is tightly tied to market/locale. That's a simplification, but it was the right call early on given our resources.
+This was the practical version of our i18n strategy. Not "make everything configurable." Not "hard-code Sweden and hope France looks similar." Find the market's critical path, ship it, then move the learning into the shared system.
+
+## How that looked in practice
+
+Part of me wants to tell you the polished version of how we solved this: architectural foresight, elegant abstractions, a clean migration from infant to teenager.
+
+But the truth is less tidy. Things were messy. We made mistakes. We refactored. We discovered problems we did not know how to name until a second or third market forced the issue.
+
+**On the frontend**: We use React Intl for managing translations, and Phrase for content management. We went for the pragmatic solution rather than trying to over-engineer everything upfront.[^3] Routes, messages, and API endpoints are all configured for the specific market and locale you're operating in.
 
 **On the backend**: Here's an example of the kind of code we had to unlearn. When we first expanded, we had code like this:
 
@@ -106,50 +142,38 @@ This is what you write when you're thinking about a single market and quickly ha
 
 That's the kind of thinking we had to unlearn.
 
-**The approach that worked**: We prioritized identifying what was core and what had long lead times. We worked iteratively and shipped early and often. We used the landing page approach initially (just like we did in 2016 with Unbounce), got customers, and let their feedback guide our learning.
+The approach that worked was prioritizing what was core, what was market-specific, and what had long lead times. We shipped early, got customers, and let feedback tell us which assumptions were real.
 
-For a new market, the biggest change is usually the customer sales flow. Everything else – installer onboarding, roof analysis, payment processing – we tried to reuse as much as possible. We'd gather the necessary data, iterate on the specific features that didn't fit, and ship when we could provide a good customer experience.
+For a new market, the biggest change was usually the customer sales flow. Everything else – installer onboarding, roof analysis, payment processing – we tried to reuse as much as possible. We gathered the data we needed, localized the specific parts that did not fit, and shipped when we could provide a coherent customer experience.
 
-## Why expansion matters
+## What this taught us
 
-We're makers. We love making things. We geek out over clean code, well-documented libraries, thoughtfully designed systems. Most users will never notice the difference between a system built on solid architecture and one that's been hacked together – but we do.
+There is a principle in software that says "YAGNI – You Ain't Gonna Need It." Do not optimize for something you think might happen.
 
-That's why thinking in systems and structures matters. It's not just about purity. It's about sustainability.
+Internationalization is the awkward exception. The point is not to build every future feature early. The point is to avoid hiding country-specific assumptions so deeply in your product that every future market has to negotiate with them.
 
-When you're a five-person team expanding to one new market, you can probably get away with shortcuts. When you're expanding across five countries with different teams, different time zones, different requirements – those shortcuts compound into monsters.
+When you are a five-person team expanding to one new country, you can get away with shortcuts. When you are expanding across Europe, those shortcuts compound. The work we did on i18n meant Sweden informed France, France informed Spain, and Spain informed Germany. Each launch still had real work, but it did not require starting over.
 
-The work we did on i18n upfront meant that the next market wasn't 10x harder than the first one. It meant our Sweden expansion informed our approach to France, which informed Spain, which informed Germany.
-
-## The principle
-
-There's a principle in software that says "YAGNI – You Ain't Gonna Need It." Don't optimize for something you think might happen.
-
-But internationalization is different. If you wait until you actually need to support a second market to start thinking about i18n, you're already too late. The decision-making is backward. You've already baked in assumptions throughout your system.
-
-The hard part isn't just the technical architecture. It's the organizational thinking. It's making sure your product team understands what can vary by market and what shouldn't. It's making sure your backend team has a mental model for how data flows through the system. It's making sure your frontend team understands the constraints.
-
-## The pattern that worked
-
-What we discovered is this: if you manage to get up to speed in one country, you can repeat that process in the next. We started with Norway. We iterated on Sweden. By the time we expanded to France, Germany, Spain, and beyond, we had a working pipeline.
-
-We work in a forward-backward fashion now. You ship something early, learn from customers, iterate, and repeat a successful approach. Then you apply that same approach to the next market. Step by step, until you have full support for that market.
-
-It's not perfect, but it's sustainable. And importantly, it doesn't require tripling your team every time you expand.
-
-## A note on organization
-
-As we grew, we realized that feature improvements and content management needed to be solved differently. You can't just pass everything through the engineers. We had to build processes and teams that could handle the complexity of managing a product across multiple markets at scale.
-
-That's a different kind of challenge, but it's one we had to solve as we scaled.
+The hard part was not just technical architecture. It was organizational thinking: making sure product, frontend, backend, operations, and local market teams shared a mental model for what could vary, what should stay common, and where learning from one market should become platform capability for the next. As we grew, that also meant giving local and content teams ways to change the product without passing every improvement through engineering.
 
 ## Closing
 
 I'm not here to claim we got it all right. We didn't. We're still learning.
 
-But I will say this: if you're building something with global ambitions, start thinking about i18n early. It's one of those design decisions that gets exponentially harder the longer you wait. And unlike many "best practices" in software, this is one where the early effort actually pays dividends.
+But I will say this: if you're building something with global ambitions, start separating shared product logic from market-specific assumptions earlier than feels strictly necessary. It is one of those design decisions that gets exponentially harder the longer you wait.
 
 We started in one of the coldest, darkest, least sunny countries in Europe. Against the odds, we're now driving environmental change across the continent. And a big part of how we're able to do that is because we made some hard architectural decisions early on – decisions that let us expand without tearing everything down and starting over.
+
+<figure>
+  <img src="/assets/from-infant-to-teenager/clean-local-energy.jpg" alt="Residential neighborhood with solar panels on a blue house roof under the Otovo logo" loading="lazy">
+  <figcaption>The original pitch was simple and still holds up: clean, local energy in ordinary homes.</figcaption>
+</figure>
 
 If you want to do something meaningful and useful, Otovo is hiring. We're remote-friendly, but we'll also help you relocate if you want to.
 
 That's what I wanted to share with you today.
+
+
+[^1]: I was told start-ups are conceived in garages — however, in Norway, it's too cold to stay outside in the garage. So we start tech companies in kitchens instead.
+[^2]: At the time, a typical checkout was roughly €7,500–€15,000, which made trust in the price especially important.
+[^3]: The main simplification was tying language tightly to market/locale. Not perfect, but pragmatic for the team and phase we were in.

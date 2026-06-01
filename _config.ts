@@ -10,6 +10,7 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import jsx from "lume/plugins/jsx.ts";
 import googleFonts from "lume/plugins/google_fonts.ts";
 import metas from "lume/plugins/metas.ts";
+import alerts from "npm:markdown-it-github-alerts@1.0.0";
 import footnote from "npm:markdown-it-footnote@4.0.0";
 
 const site = lume({
@@ -17,6 +18,7 @@ const site = lume({
 });
 
 site.hooks.addMarkdownItPlugin(footnote);
+site.hooks.addMarkdownItPlugin(alerts);
 
 if (Deno.env.get("LUME_DRAFTS") !== "true") {
   site.ignore("/drafts");
