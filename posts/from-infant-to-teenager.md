@@ -152,9 +152,9 @@ There is a principle in software that says "YAGNI – You Ain't Gonna Need It." 
 
 Internationalization is the awkward exception. The point is not to build every future feature early. The point is to avoid hiding country-specific assumptions so deeply in your product that every future market has to negotiate with them.
 
-When you are a five-person team expanding to one new country, you can get away with shortcuts. When you are expanding across Europe, those shortcuts compound. The work we did on i18n meant Sweden informed France, France informed Spain, and Spain informed Germany. Each launch still had real work, but it did not require starting over.
+When you are a five-person team expanding to one new country, you can get away with shortcuts. When you are expanding across Europe, those shortcuts compound. The work we did on i18n meant Sweden informed France, France informed Spain, and Spain informed Germany. Each launch still had real work, but it did not require starting over. We created leverage, and each new market became a little bit easier than the last.
 
-The hard part was not just technical architecture. It was organizational thinking: making sure product, frontend, backend, operations, and local market teams shared a mental model for what could vary, what should stay common, and where learning from one market should become platform capability for the next. As we grew, that also meant giving local and content teams ways to change the product without passing every improvement through engineering.
+The hard part was not just technical architecture. It was organizational thinking: making sure product, frontend, backend, operations, and local market teams shared a mental model for what could vary, what should stay common, what was currently hard-coded but could be fixed when needed, and where learning from one market should become platform capability for the next. As we grew, that also meant giving local and content teams ways to change the product without passing every improvement through engineering.
 
 ## Closing
 
