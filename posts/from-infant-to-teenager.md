@@ -122,7 +122,7 @@ Part of me wants to tell you the polished version of how we solved this: archite
 
 But the truth is less tidy. Things were messy. We made mistakes. We refactored. We discovered problems we did not know how to name until a second or third market forced the issue.
 
-**On the frontend**: We use React Intl for managing translations, and Phrase for content management. We went for the pragmatic solution rather than trying to over-engineer everything upfront.[^3] Routes, messages, and API endpoints are all configured for the specific market and locale you're operating in.
+**On the frontend**: We use React Intl for managing translations, and Phrase for content management. We went for the pragmatic solution rather than trying to over-engineer everything upfront.[^3] Routes, messages, and API endpoints are all configured to handle the specific market and locale you're operating in.
 
 **On the backend**: Here's an example of the kind of code we had to unlearn. When we first expanded, we had code like this:
 
