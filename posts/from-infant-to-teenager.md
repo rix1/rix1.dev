@@ -156,6 +156,8 @@ When you are a five-person team expanding to one new country, you can get away w
 
 The hard part was not just technical architecture. It was organizational thinking: making sure product, frontend, backend, operations, and local market teams shared a mental model for what could vary, what should stay common, what was currently hard-coded but could be fixed when needed, and where learning from one market should become platform capability for the next. As we grew, that also meant giving local and content teams ways to change the product without passing every improvement through engineering.
 
+Sharing and reuse were critical. We tried hard to avoid forks: one storefront server handling all locales, one platform, one set of concepts, with market-specific behavior made explicit where it needed to be. The danger is not one special case. The danger is special cases multiplying across products, teams, and 13 markets until nobody can understand the whole thing anymore. Sometimes you solve that with code. Sometimes you solve it with ownership: local teams who know their market and have clear responsibility for the parts that should vary.
+
 ## Closing
 
 I'm not here to claim we got it all right. We didn't. We're still learning.
