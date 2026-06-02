@@ -1,6 +1,9 @@
-import { serveVisitorCount, trackHtmlVisit } from "./serve/counter.ts";
+import {
+  serveVisitorCount,
+  serveVisitorStatus,
+  trackHtmlVisit,
+} from "./serve/counter.ts";
 import { filePath, serveFile } from "./serve/files.ts";
-import { serveStatus } from "./serve/status.ts";
 
 const root = `${Deno.cwd()}/_site`;
 
@@ -12,15 +15,15 @@ async function handler(request: Request) {
     return serveVisitorCount(requestUrl);
   }
 
+  if (requestUrl.pathname === "/api/status") {
+    return serveVisitorStatus();
+  }
+
   if (hostname === "www.rix1.dev") {
     requestUrl.protocol = "https:";
     requestUrl.hostname = "rix1.dev";
 
     return Response.redirect(requestUrl, 308);
-  }
-
-  if (requestUrl.pathname === "/status" || requestUrl.pathname === "/status/") {
-    return serveStatus();
   }
 
   const path = filePath(root, requestUrl.pathname);
