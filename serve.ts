@@ -609,7 +609,6 @@ async function runtimeRows(kvAvailable: boolean) {
     await localGitCommit();
 
   return [
-    ["Generated at", new Date().toISOString()],
     ["KV", kvAvailable ? "available" : "unavailable"],
     ["Deno", Deno.version.deno],
     ["Deployment", safeEnv("DENO_DEPLOYMENT_ID") ?? "not exposed"],
