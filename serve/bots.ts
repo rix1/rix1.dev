@@ -1,0 +1,212 @@
+export type VisitorClass =
+  | { kind: "human" }
+  | { kind: "bot"; family: string };
+
+// UA-only detection keeps the counter privacy-friendly; this is counting
+// declared crawlers, not trying to prove identity by IP.
+export const botFamilies = [
+  "addsearchbot",
+  "ahrefs",
+  "ai2bot-deepresearcheval",
+  "ai2bot-dolma",
+  "ai2bot",
+  "aihitbot",
+  "amazon-kendra",
+  "amazonbot",
+  "amazonbuyforme",
+  "amzn-searchbot",
+  "amzn-user",
+  "andibot",
+  "anthropic-ai",
+  "apifybot",
+  "apifywebsitecontentcrawler",
+  "applebot-extended",
+  "applebot",
+  "azureai-searchbot",
+  "baiduspider",
+  "bedrockbot",
+  "bingbot",
+  "bigsur.ai",
+  "bravebot",
+  "brightbot",
+  "buddybot",
+  "bytespider",
+  "ccbot",
+  "channel3bot",
+  "chatglm-spider",
+  "chatgpt agent",
+  "chatgpt-user",
+  "claude-code",
+  "claude-searchbot",
+  "claude-user",
+  "claude-web",
+  "claudebot",
+  "cloudflare-autorag",
+  "cloudvertexbot",
+  "cohere-ai",
+  "cohere-training-data-crawler",
+  "crawl4ai",
+  "crawlspace",
+  "curl",
+  "deepseekbot",
+  "devin",
+  "diffbot",
+  "discordbot",
+  "dotbot",
+  "duckassistbot",
+  "duckduckbot",
+  "echobot bot",
+  "echoboxbot",
+  "exabot",
+  "facebookbot",
+  "facebookexternalhit",
+  "factset_spyderbot",
+  "firecrawlagent",
+  "friendlycrawler",
+  "gemini-deep-research",
+  "google-agent",
+  "google-cloudvertexbot",
+  "google-extended",
+  "google-firebase",
+  "google-gemini-cli",
+  "google-notebooklm",
+  "googleagent-mariner",
+  "googlebot",
+  "googleother-image",
+  "googleother-video",
+  "googleother",
+  "gptbot",
+  "headlesschrome",
+  "iaskbot",
+  "iaskspider",
+  "ia_archiver",
+  "iboubot",
+  "icc-crawler",
+  "imagesiftbot",
+  "imagespider",
+  "img2dataset",
+  "isscyberriskcrawler",
+  "kagi-fetcher",
+  "kangaroo bot",
+  "klaviyoaibot",
+  "kunatocrawler",
+  "laion-huggingface-processor",
+  "laiondownloader",
+  "linerbot",
+  "linkedinbot",
+  "linkupbot",
+  "manus-user",
+  "meta-externalagent",
+  "meta-externalfetcher",
+  "meta-webindexer",
+  "mistralai-user",
+  "mj12bot",
+  "mycentralaiscraperbot",
+  "nagetbot",
+  "newsai",
+  "notebooklm",
+  "novaact",
+  "oai-adsbot",
+  "oai-searchbot",
+  "openai",
+  "opencode",
+  "pangu bot",
+  "pangubot",
+  "perplexity-user",
+  "perplexitybot",
+  "petalbot",
+  "phindbot",
+  "pingdom",
+  "poggio-citations",
+  "poseidon research crawler",
+  "python-requests",
+  "qualifiedbot",
+  "quillbot",
+  "sbintuitionsbot",
+  "scrapy",
+  "semrushbot-ocob",
+  "semrushbot-swa",
+  "semrush",
+  "shap-user",
+  "shapbot",
+  "slurp",
+  "tavilybot",
+  "telegrambot",
+  "thinkbot",
+  "tiktokspider",
+  "timpibot",
+  "twinagent",
+  "uptime",
+  "webzio-extended",
+  "wget",
+  "wrtnbot",
+  "youbot",
+];
+
+export const botFamilyLabels: Record<string, string> = {
+  "ai2bot": "Ai2Bot",
+  "ai2bot-deepresearcheval": "Ai2Bot-DeepResearchEval",
+  "ai2bot-dolma": "Ai2Bot-Dolma",
+  "amazonbot": "Amazonbot",
+  "amzn-searchbot": "Amazon SearchBot",
+  "amzn-user": "Amazon User",
+  "anthropic-ai": "Anthropic AI",
+  "applebot": "Applebot",
+  "applebot-extended": "Applebot-Extended",
+  "bingbot": "Bingbot",
+  "bytespider": "Bytespider",
+  "ccbot": "CCBot",
+  "chatgpt agent": "ChatGPT Agent",
+  "chatgpt-user": "ChatGPT-User",
+  "claude-code": "Claude Code",
+  "claude-searchbot": "Claude-SearchBot",
+  "claude-user": "Claude-User",
+  "claude-web": "Claude-Web",
+  "claudebot": "ClaudeBot",
+  "deepseekbot": "DeepSeekBot",
+  "facebookbot": "FacebookBot",
+  "gemini-deep-research": "Gemini Deep Research",
+  "google-extended": "Google-Extended",
+  "googlebot": "Googlebot",
+  "gptbot": "GPTBot",
+  "headlesschrome": "Headless Chrome",
+  "meta-externalagent": "Meta-ExternalAgent",
+  "meta-externalfetcher": "Meta-ExternalFetcher",
+  "mistralai-user": "MistralAI-User",
+  "oai-adsbot": "OAI-AdsBot",
+  "oai-searchbot": "OAI-SearchBot",
+  "perplexity-user": "Perplexity-User",
+  "perplexitybot": "PerplexityBot",
+  "python-requests": "python-requests",
+  "semrush": "Semrush",
+};
+
+export function botFamily(userAgent: string) {
+  const normalized = userAgent.toLowerCase();
+  const matchedFamily = botFamilies.find((family) =>
+    normalized.includes(family)
+  );
+
+  if (matchedFamily) {
+    return matchedFamily;
+  }
+
+  if (
+    normalized.includes("bot") ||
+    normalized.includes("crawler") ||
+    normalized.includes("spider")
+  ) {
+    return "other-crawler";
+  }
+}
+
+export function classifyVisitor(request: Request): VisitorClass {
+  const userAgent = request.headers.get("user-agent") ?? "";
+  const family = botFamily(userAgent);
+
+  return family ? { kind: "bot", family } : { kind: "human" };
+}
+
+export function botFamilyLabel(family: string) {
+  return botFamilyLabels[family] ?? family;
+}
