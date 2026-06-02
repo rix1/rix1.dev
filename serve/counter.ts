@@ -184,14 +184,6 @@ async function visitorCounts(pagePath: string) {
   };
 }
 
-export async function serveVisitorStatus() {
-  return Response.json(await allVisitorCounts(), {
-    headers: {
-      "cache-control": "no-store",
-    },
-  });
-}
-
 export async function serveVisitorCount(requestUrl: URL) {
   const pagePath = normalizePagePath(
     requestUrl.searchParams.get("path") ?? "/",

@@ -34,35 +34,40 @@ export function filePath(root: string, pathname: string) {
   return parsed.decoded.endsWith("/") ? `${path}/index.html` : path;
 }
 
-async function loadFile(
-  path: string,
-): Promise<{ body: Uint8Array<ArrayBuffer>; path: string } | undefined> {
+async function readFile(path: string) {
   try {
-    return { body: await Deno.readFile(path), path };
+    return await Deno.readFile(path);
   } catch (error) {
-    if (error instanceof Deno.errors.NotFound) {
+    if (
+      error instanceof Deno.errors.NotFound ||
+      error instanceof Deno.errors.IsADirectory
+    ) {
       return undefined;
-    }
-
-    if (error instanceof Deno.errors.IsADirectory) {
-      return loadFile(`${path}/index.html`);
     }
 
     throw error;
   }
 }
 
-export async function serveFile(path: string, status = 200) {
-  const file = await loadFile(path);
+export async function isDirectory(path: string) {
+  try {
+    return (await Deno.stat(path)).isDirectory;
+  } catch {
+    return false;
+  }
+}
 
-  if (!file) {
+export async function serveFile(path: string, status = 200) {
+  const body = await readFile(path);
+
+  if (!body) {
     return new Response("Not found", { status: 404 });
   }
 
-  return new Response(file.body, {
+  return new Response(body, {
     status,
     headers: {
-      "content-type": contentTypes[extension(file.path)] ??
+      "content-type": contentTypes[extension(path)] ??
         "application/octet-stream",
     },
   });

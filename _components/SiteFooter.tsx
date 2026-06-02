@@ -10,7 +10,7 @@ export default ({ comp }: Lume.Data) => {
           <p class="m-0 text-xs font-semibold uppercase tracking-wide text-gray-400">
             Visitors:{" "}
             <a
-              href="/status"
+              href="/status/"
               data-visitor-counter
               hidden
               class="text-gray-500 underline decoration-primary/30 underline-offset-4 transition hover:text-primary"
