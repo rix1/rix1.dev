@@ -29,6 +29,10 @@
       "description": "Run the built dynamic server locally",
       "command": "deno run --allow-read --allow-net --allow-env --unstable-kv serve.ts"
     },
+    "image:blog": {
+      "description": "Resize and compress a blog image to 1600x900 JPEG",
+      "command": "sh -c 'magick \"$1\" -auto-orient -resize \"1600x900^\" -gravity center -extent 1600x900 -strip -colorspace sRGB -quality 84 \"$2\"' --"
+    },
     "lume": {
       "description": "Run Lume command",
       "command": "deno run -P=lume lume/cli.ts"

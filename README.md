@@ -108,6 +108,14 @@ scripts:
   - /assets/my-post-widget.js
 ```
 
+Blog images can be normalized to the site's wide image format with ImageMagick:
+
+```bash
+deno task image:blog input.jpg assets/my-post/output.jpg
+```
+
+This exports a stripped sRGB JPEG at `1600x900` and quality `84`.
+
 Drafts live in `drafts/*.md` with `draft: true`. Lume renders drafts while
 serving locally, but `deno task build` ignores the whole `drafts/` folder so
 they do not deploy.
