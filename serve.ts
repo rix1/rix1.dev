@@ -1,4 +1,8 @@
-import { serveVisitorCount, trackHtmlVisit } from "./serve/counter.ts";
+import {
+  serveVisitorCount,
+  serveVisitorStatus,
+  trackHtmlVisit,
+} from "./serve/counter.ts";
 import { filePath, isDirectory, serveFile } from "./serve/files.ts";
 
 const root = `${Deno.cwd()}/_site`;
@@ -9,6 +13,10 @@ async function handler(request: Request) {
 
   if (requestUrl.pathname === "/api/visitor-count") {
     return serveVisitorCount(requestUrl);
+  }
+
+  if (requestUrl.pathname === "/api/status") {
+    return serveVisitorStatus();
   }
 
   if (hostname === "www.rix1.dev") {
