@@ -38,7 +38,9 @@ async function handler(request: Request) {
     return serveFile(`${root}/404.html`, 404);
   }
 
-  if (request.method === "GET" && path.endsWith(".html")) {
+  const contentType = response.headers.get("content-type") ?? "";
+
+  if (request.method === "GET" && contentType.startsWith("text/html")) {
     const { cookie } = await trackHtmlVisit(request, requestUrl);
 
     if (cookie) {
