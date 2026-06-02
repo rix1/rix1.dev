@@ -33,12 +33,12 @@ Death) which appropriately map to past, present and future.
 <lifetime-timeline></lifetime-timeline>
 </div>
 
-This is a pretty nice mental modal [[1]](#footnote-1) It's easy and straight
+This is a pretty nice mental modal [^1]. It's easy and straight
 forward. Using this model we can calculate lifetime as the distance between
 Birth and Death. Normal people call this distance _age_.
 
 However simple, I belive that thinking of as that something you have _ahead of
-you_ is slightly incorrect.
+you_ is slightly incorrect and misleading. As we'll see, changing the way we look at this does not only explain our perception of time, but it can also have a profound impact on how we live our daily lives.
 
 ### Sometimes you're behind, somtimes you're ahead
 
@@ -46,19 +46,21 @@ If someone feeling "behind" on life, it might be comforting to reassure them
 "Don't worry, you got most of your life in front of you". But strictly speaking,
 we really don't know.
 
-If you think about it, no part of your life is in front of you. I believe that
+If you really think about it, no part of your life is in front of you. I believe that
 we are the sum of our _past_ experiences and _present_ sensations, but the
 _future_ hasn't happened yet, so how can most of your life be there? This seems
-quite strange to me.
+quite strange to me... Does this mean that I should consider my death to lie just ahead of me? Yes, but bear with me.
 
-I get what you're thinking:
+You're probably thinking:
 
 > This is overly pedantic, very pessimistic and also kinda sad – stop it! The
-> phrase is just a positive way of saying most of your life hasn't happened yet
+> phrase is just a positive way of looking ahead.
 
-You might be right. But something happened when I challenged it: I started
-asking myself, if "life isn't some variable thing dependent of how old you are –
-is it fixed?". Of course it have to be: If I died this very second, then my life
+You might be right. But something clicked when I challenged this and considered my death to be just ahead of me, instead of N years in the future. I asked myself:
+
+> If life isn't some variable thing anchored on your age when you die in the future – is it fixed? 
+
+Of course it have to be: If I died this very second, then my life
 would be over, right? No future events, only past and present. So instead of
 thinking that life is something I have ahead of me, I'm living at the edge of
 death, aren't I? In fact, we all are.
@@ -66,43 +68,47 @@ death, aren't I? In fact, we all are.
 Again, sorry if this hits you as very grim – it's not intended to. But it
 started to increasingly make sense while reflecting over my past experiences:
 Didn't time pass much slower when you were younger? I remember the dreaded car
-trips during summer vacation – they took forever! But when we finally arrived
+trips during summer vacation – they took forever! And when we finally arrived
 some 3 hours later, it was just like time stood still. Those 8 weeks of vacation
 seemed like forever.
+
+While the days were long when I was younger, these days time seem to be speeding
+up. Years go by in a breeze. In my mind, the cause of this effect becomes easier to spot after deleting
+the negative space of future lifetime from the mental model of my own life. In
+other words, is our experience of time related to the time spent on this earth?
+It certainly seem so.
 
 <div class="not-prose">
 <year-size-explorer></year-size-explorer>
 </div>
 
-While the days were long when I was younger, these days time seem to be speeding
-up. In my mind, the cause of this effect becomes easier to spot after deleting
-the negative space of future lifetime from the mental model of my own life. In
-other words, is our experience of time related to the time spent on this earth?
-It certainly seem so.
 
-**Let's look at an example:**
+This gives us a better explanation for the feeling that time speeds up. A year
+does not get shorter on the calendar, but it becomes smaller relative to the life
+you have already lived. The older you get, the less of your experienced life a
+single year represents.
+
+And the other part, the slightly uncomfortable part, is useful too. If life is
+not a pile of future time waiting somewhere ahead of us, then death is not only a
+distant point at the end of a line. We are always living right at its edge. I do
+not think that has to be depressing. It makes life feel more immediate:
+take less for granted, waste less time, and pay a little more attention to the
+ordinary days while they are actually happening.
+
+
+---
+
+
+If you want to play around with the idea, here's a small calculator:
 
 <div class="not-prose">
 <relative-time-explorer></relative-time-explorer>
 </div>
 
-Try the road trip preset for a 10 month old child and an adult. The clock says
-the trip takes the same amount of time for both, but relative to the time
-they've lived through, the felt size of that trip is very different.
 
-Maybe this can be used to build empathy for people younger/older than yourself?
-If not, I just hope you found this interesting in some way or form and that it
-wasn't a waste of your time ✌️
-
-<aside id="footnote-1">
-
-I originally started to ponder about this back in 2012. In 2015, I made an
+[^1]: I originally started to ponder about this back in 2012. In 2015, I made an
 attempt at creating a small CLI that made it possible to calculate the
-experienced time between N people ([source](https://github.com/rix1/time)).
-
-In the time since, I've came back to thinking about this several times. Although
+experienced time between N people ([source](https://github.com/rix1/time)). In the time since, I've came back to thinking about this several times. Although
 not directly related, I suggest checking out "I Am a Strange Loop" from Douglas
 Hofstadter and "How Emotions Are Made" by Lisa Feldman Barrett if you found
 topic this interesting.
-
-</aside>
