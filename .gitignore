@@ -2,3 +2,4 @@ _cache/
 _site/
 deno.lock
 node_modules
+.claude/
