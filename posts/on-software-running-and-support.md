@@ -1,7 +1,7 @@
 ---
-title: On software, running, and support
+title: On software, running, and providing support
 topic: Build
-description: A short note on code review, endurance, and joining someone near the finish line.
+description: A short note on code review, endurance running, and joining someone near the finish line.
 date: 2018-10-08
 draft: false
 ---
