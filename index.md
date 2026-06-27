@@ -16,7 +16,8 @@ I take pride in crafting experiences, talent, and food. I'm here to learn all
 the things and build a better tomorrow doing so.
 
 I'm slowly turning this site back into a place for writing. You can
-[read my blog](/posts/) or learn more [about me here](/about).
+[read my blog](/posts/), learn more [about me here](/about), or skim
+[my CV](/cv/).
 
 I'm currently having fun chasing the sun together with
 [@OtovoSolar](https://twitter.com/@otovosolar).

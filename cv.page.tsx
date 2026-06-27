@@ -505,11 +505,26 @@ const cvStyles = `
     }
 
     .cv-section {
+      grid-template-columns: 1fr;
       margin-top: 7mm;
     }
 
+    .cv-section-mark {
+      display: none;
+    }
+
     .cv-section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
       font-size: 18px;
+      white-space: nowrap;
+    }
+
+    .cv-section-meta {
+      display: inline;
+      margin-top: 0;
+      font-size: 12px;
     }
 
     .cv-role-heading {
@@ -524,6 +539,28 @@ const cvStyles = `
     .cv-footer,
     .cv-contact-row {
       font-size: 12px;
+    }
+
+    .cv-education-row {
+      grid-template-columns: 1fr 18px 1fr 18px 1fr;
+      gap: 10px;
+    }
+
+    .cv-education-arrow {
+      display: block;
+      padding-top: 15px;
+    }
+
+    .cv-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 0;
+    }
+
+    .cv-footer span {
+      display: inline;
+      margin-top: 0;
     }
   }
 `;
