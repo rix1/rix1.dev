@@ -1,6 +1,5 @@
 export const title = "Rikard Eide - CV";
-export const description =
-  "Rikard Eide's 2022 CV as an editable HTML page.";
+export const description = "Rikard Eide's 2022 CV as an editable HTML page.";
 export const url = "/cv/";
 
 type Role = {
@@ -24,36 +23,31 @@ type Education = {
 const sections: Section[] = [
   {
     title: "Otovo",
-    meta: "6 years 7 months so far",
+    meta: "2016 - Present",
     roles: [
       {
-        title: "Product Manager",
-        meta: "Jan 2022 - Present (8 months)",
-        description: "Product manager for Otovo's partnership team.",
+        title: "Software Engineer",
+        meta: "Jan 2025 - Present",
+        description:
+          "Returned to hands-on product engineering after years in product and engineering leadership. Building across the platform where product judgment, technical depth, and speed matter.",
+      },
+      {
+        title: "Engineering Manager",
+        meta: "Jan 2023 - Dec 2024",
+        description:
+          "Led product engineering teams across partnerships and marketplace. Responsible for core platform mechanics, team delivery, and translating business-critical operational complexity into reliable product systems.",
       },
       {
         title: "Product Manager",
-        meta: "May 2020 - Dec 2021 (1 year 8 months)",
+        meta: "May 2020 - Jan 2023",
         description:
-          "Product manager for our platform-as-a-service initiative. Our team launched Brazil, Poland, Italy and Germany.",
+          "Owned product direction for platform expansion and partnerships. Combined product management with hands-on technical contribution, helping launch Brazil, Poland, Italy, and Germany.",
       },
       {
         title: "Software Engineer",
-        meta: "Jun 2016 - May 2020 (4 years)",
+        meta: "Feb 2016 - May 2020",
         description:
-          "Full stack development leaning towards front-end. I've been part of building most of Otovo's products, and launching all of our markets. During this period, I spent most my time building the customer experience of buying solar panels online. Did programming, product development, UX, visual design and more.",
-      },
-      {
-        title: "Software Engineer",
-        meta: "Jul 2016 - Aug 2016 (3 months)",
-        description:
-          'During our summer internship me and Andreas Rorvik built the first iteration of the "My Otovo" website.',
-      },
-      {
-        title: "Software Developer",
-        meta: "Feb 2016 - Jun 2016 (5 months)",
-        description:
-          "Part time employed at Otovo while finishing my masters degree. Helped fix bugs and make sure that the very scrappy customer facing site looked nice.",
+          "Joined Otovo early and helped build much of the original product surface across customer experience, internal tools, and market launches. Worked across front-end, back-end, UX, visual design, and product development.",
       },
     ],
   },
@@ -64,7 +58,7 @@ const sections: Section[] = [
         title: "Filtvet Feriekoloni",
         meta: "Chef - July 2019 - Present (3 years 1 month)",
         description:
-          "Working as a chef at Filtvet Feriekoloni every summer, serving 60 kids and grown ups three meals a day for 10 days at a time. Siri Holtnaes and I also build and maintain feriekolonien.no.",
+          "Working as a chef at Filtvet Feriekoloni every summer, serving 60 kids and grown ups three meals a day for 10 days at a time. Siri Holtnæs and I also build and maintain feriekolonien.no.",
       },
       {
         title: "Norwegian Armed Forces",
@@ -96,7 +90,7 @@ const education: Education[] = [
   {
     title: "Informatics (MSc) at NTNU",
     place: "Trondheim, Norway",
-    years: "2011 - 2014",
+    years: "2015 - 2016",
   },
 ];
 
@@ -108,6 +102,15 @@ const cvStyles = `
     --cv-faint: #e3e8f1;
     --cv-paper: #fffefc;
     --cv-accent: #db2777;
+    --cv-space-1: 4px;
+    --cv-space-2: 8px;
+    --cv-space-3: 12px;
+    --cv-space-4: 16px;
+    --cv-space-5: 20px;
+    --cv-space-6: 24px;
+    --cv-space-7: 28px;
+    --cv-space-8: 32px;
+    --cv-space-9: 36px;
   }
 
   body.cv-body {
@@ -123,7 +126,7 @@ const cvStyles = `
   .cv-shell {
     width: min(100%, 1040px);
     margin: 0 auto;
-    padding: 24px 20px 52px;
+    padding: var(--cv-space-6) 20px 52px;
   }
 
   .cv-toolbar {
@@ -131,7 +134,7 @@ const cvStyles = `
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    margin: 0 auto 16px;
+    margin: 0 auto var(--cv-space-4);
     max-width: 860px;
   }
 
@@ -172,7 +175,7 @@ const cvStyles = `
     width: min(100%, 860px);
     min-height: 1216px;
     margin: 0 auto;
-    padding: 66px 68px 56px;
+    padding: 72px 68px 60px;
     background: var(--cv-paper);
     border: 1px solid rgba(24, 32, 51, 0.1);
     box-shadow: 0 26px 80px rgba(24, 32, 51, 0.15);
@@ -183,7 +186,7 @@ const cvStyles = `
     grid-template-columns: minmax(0, 1fr) 196px;
     gap: 44px;
     align-items: start;
-    margin-bottom: 30px;
+    margin-bottom: var(--cv-space-8);
   }
 
   .cv-title {
@@ -198,7 +201,7 @@ const cvStyles = `
   }
 
   .cv-role {
-    margin: 7px 0 7px;
+    margin: var(--cv-space-2) 0;
     color: var(--cv-ink);
     font-size: 20px;
     line-height: 1.15;
@@ -210,10 +213,10 @@ const cvStyles = `
     flex-wrap: wrap;
     align-items: center;
     gap: 7px;
-    margin-bottom: 18px;
+    margin-bottom: var(--cv-space-5);
     color: var(--cv-muted);
     font-size: 14px;
-    font-weight: 650;
+    font-weight: 500;
     line-height: 1.2;
   }
 
@@ -261,7 +264,7 @@ const cvStyles = `
   }
 
   .cv-intro + .cv-intro {
-    margin-top: 14px;
+    margin-top: var(--cv-space-4);
   }
 
   .cv-photo {
@@ -279,7 +282,11 @@ const cvStyles = `
     display: grid;
     grid-template-columns: 12px minmax(0, 1fr);
     column-gap: 0;
-    margin-top: 27px;
+    margin-top: var(--cv-space-8);
+  }
+
+  .cv-hero + .cv-section {
+    margin-top: 0;
   }
 
   .cv-section-mark {
@@ -294,7 +301,7 @@ const cvStyles = `
     display: flex;
     align-items: baseline;
     gap: 6px;
-    margin: 0 0 7px;
+    margin: 0 0 var(--cv-space-2);
     font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 21px;
     font-weight: 800;
@@ -314,7 +321,7 @@ const cvStyles = `
   }
 
   .cv-role-block {
-    margin-top: 14px;
+    margin-top: var(--cv-space-4);
     color: var(--cv-text);
     font-size: 14.5px;
     line-height: 1.28;
@@ -333,7 +340,7 @@ const cvStyles = `
   }
 
   .cv-role-description {
-    margin: 2px 0 0;
+    margin: var(--cv-space-1) 0 0;
     white-space: pre-line;
   }
 
@@ -359,7 +366,7 @@ const cvStyles = `
   .cv-education-arrow {
     color: var(--cv-muted);
     font-size: 20px;
-    font-weight: 900;
+    font-weight: 300;
     line-height: 1;
     padding-top: 17px;
     text-align: center;
@@ -370,7 +377,7 @@ const cvStyles = `
     justify-content: space-between;
     gap: 16px;
     margin-top: auto;
-    padding-top: 28px;
+    padding-top: var(--cv-space-8);
     color: var(--cv-muted);
     font-size: 13px;
     line-height: 1.2;
@@ -379,7 +386,7 @@ const cvStyles = `
 
   @media (max-width: 760px) {
     .cv-shell {
-      padding: 18px 12px 40px;
+      padding: var(--cv-space-5) 12px 40px;
     }
 
     .cv-toolbar {
@@ -388,13 +395,13 @@ const cvStyles = `
 
     .cv-page {
       min-height: 0;
-      padding: 34px 24px 38px;
+      padding: var(--cv-space-8) var(--cv-space-6) var(--cv-space-9);
     }
 
     .cv-hero {
       grid-template-columns: 1fr;
-      gap: 22px;
-      margin-bottom: 22px;
+      gap: var(--cv-space-6);
+      margin-bottom: var(--cv-space-7);
     }
 
     .cv-title {
@@ -418,13 +425,13 @@ const cvStyles = `
 
     .cv-section-meta {
       display: block;
-      margin-top: 4px;
+      margin-top: var(--cv-space-1);
       font-size: 15px;
     }
 
     .cv-education-row {
       grid-template-columns: 1fr;
-      gap: 12px;
+      gap: var(--cv-space-3);
     }
 
     .cv-education-arrow {
@@ -437,7 +444,7 @@ const cvStyles = `
 
     .cv-footer span {
       display: block;
-      margin-top: 6px;
+      margin-top: var(--cv-space-2);
     }
   }
 
@@ -526,13 +533,12 @@ const GithubIcon = () => (
     class="cv-contact-icon"
     stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-width="1.5"
+    stroke-width="2"
     shape-rendering="geometricPrecision"
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22">
-    </path>
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path>
   </svg>
 );
 
@@ -541,21 +547,21 @@ const BlueskyIcon = () => (
     class="cv-contact-icon cv-contact-icon-bluesky"
     stroke-linecap="round"
     stroke-linejoin="round"
-    stroke-width="1.2"
+    stroke-width="1.7"
     shape-rendering="geometricPrecision"
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
-    <path d="M12 11.5c-1.6-3.3-4.4-6-6.8-6-1.6 0-2.2 1.1-2.2 2.5 0 2.5 2.9 5.1 6 6.4-2.9.3-5.2 1.7-5.2 3.7 0 1.2 1 2.2 2.5 2.2 2.1 0 4.4-2.1 5.7-4.8 1.3 2.7 3.6 4.8 5.7 4.8 1.5 0 2.5-1 2.5-2.2 0-2-2.3-3.4-5.2-3.7 3.1-1.3 6-3.9 6-6.4 0-1.4-.6-2.5-2.2-2.5-2.4 0-5.2 2.7-6.8 6Z">
-    </path>
+    <path d="M12 11.5c-1.6-3.3-4.4-6-6.8-6-1.6 0-2.2 1.1-2.2 2.5 0 2.5 2.9 5.1 6 6.4-2.9.3-5.2 1.7-5.2 3.7 0 1.2 1 2.2 2.5 2.2 2.1 0 4.4-2.1 5.7-4.8 1.3 2.7 3.6 4.8 5.7 4.8 1.5 0 2.5-1 2.5-2.2 0-2-2.3-3.4-5.2-3.7 3.1-1.3 6-3.9 6-6.4 0-1.4-.6-2.5-2.2-2.5-2.4 0-5.2 2.7-6.8 6Z"></path>
   </svg>
 );
 
 const PinIcon = () => (
   <svg
-    class="cv-contact-icon cv-contact-icon-solid"
+    class="cv-contact-icon"
     viewBox="0 0 24 24"
     aria-hidden="true"
+    stroke-width="2"
   >
     <path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.6A2.6 2.6 0 1 1 12 6.4a2.6 2.6 0 0 1 0 5.2Z" />
   </svg>
@@ -596,7 +602,9 @@ function CvSection({ section }: { section: Section }) {
             <span class="cv-section-meta">· {section.meta}</span>
           )}
         </h2>
-        {section.roles.map((role) => <RoleBlock role={role} />)}
+        {section.roles.map((role) => (
+          <RoleBlock role={role} />
+        ))}
       </div>
     </section>
   );
@@ -616,7 +624,9 @@ export default ({ comp, url }: Lume.Data) => {
       <body class="cv-body">
         <main class="cv-shell">
           <div class="cv-toolbar">
-            <a class="cv-home" href="/">Back home</a>
+            <a class="cv-home" href="/">
+              Back home
+            </a>
             <button
               class="cv-print-button"
               type="button"
@@ -630,9 +640,12 @@ export default ({ comp, url }: Lume.Data) => {
           <article class="cv-page" data-pagefind-body>
             <header class="cv-hero">
               <div>
-                <h1 class="cv-title">Rikard Eide ✌</h1>
-                <p class="cv-role">Product Manager at Otovo</p>
-                <div class="cv-contact-row" aria-label="Social links and location">
+                <h1 class="cv-title">Rikard Eide</h1>
+                <p class="cv-role">Product Engineer at Otovo</p>
+                <div
+                  class="cv-contact-row"
+                  aria-label="Social links and location"
+                >
                   <a
                     class="cv-contact-link"
                     href="https://bsky.app/profile/rix1.bsky.social"
@@ -647,34 +660,31 @@ export default ({ comp, url }: Lume.Data) => {
                   >
                     <GithubIcon />
                   </a>
-                  <a href="https://bsky.app/profile/rix1.bsky.social">
-                    @rix1.bsky.social
-                  </a>
+                  @rix1
                   <span aria-hidden="true">·</span>
                   <PinIcon />
                   <span>Oslo, Norway</span>
                 </div>
                 <p class="cv-intro">
                   I once wrote a masters degree about ambulatory patient
-                  monitoring using low-energy Bluetooth. After that did some
-                  competitions and accidentally landed a job at Norway's largest
-                  bank. I declined their offer and now I want to learn all the
-                  fun stuff and build a better tomorrow doing so.
-                </p>
-                <p class="cv-intro">
-                  A little bit of everything, all of the time.
+                  monitoring using low-energy Bluetooth at NTNU. After that I
+                  accidentally landed a job at Norway's largest bank. I declined
+                  their offer and now I want to learn all the fun stuff and
+                  build a better tomorrow doing so.
                 </p>
               </div>
               <img
                 class="cv-photo"
-                src="https://s3.eu-north-1.amazonaws.com/rix1.dev/first-thursday-450x450.jpg"
+                src="https://s3.eu-north-1.amazonaws.com/rix1.dev/portrait-2026.jpg"
                 alt="Rikard Eide"
                 width="196"
                 height="196"
               />
             </header>
 
-            {sections.map((section) => <CvSection section={section} />)}
+            {sections.map((section) => (
+              <CvSection section={section} />
+            ))}
 
             <section class="cv-section">
               <div class="cv-section-mark" aria-hidden="true"></div>
