@@ -1,5 +1,6 @@
-export const title = "Rikard Eide - CV";
-export const description = "Rikard Eide's 2022 CV as an editable HTML page.";
+export const title = "CV - Rikard Eide";
+export const description =
+  "Rikard Eide's CV: product engineering, engineering management, product leadership, and full-stack software experience from Otovo and beyond.";
 export const url = "/cv/";
 
 type Role = {
