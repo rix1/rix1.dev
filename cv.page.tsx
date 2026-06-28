@@ -104,9 +104,9 @@ const sections: Section[] = [
       },
       {
         title: "CosyTech AS",
-        meta: "Software Engineer",
+        meta: "Software Engineer - Nov 2014 - Nov 2015 (1 year 1 month)",
         description:
-          "Nov 2014 - Nov 2015 (1 year 1 month)\nFull stack web development and product design. Planning, designing, implementing, testing and deploying software spanning multiple projects and technologies.",
+          "Full stack web development and product design. Planning, designing, implementing, testing and deploying software spanning multiple projects and technologies.",
       },
     ],
   },
@@ -505,6 +505,11 @@ const cvStyles = `
       display: block;
       margin-top: var(--cv-space-1);
       font-size: 15px;
+    }
+
+    .cv-role-meta {
+      display: block;
+      margin-top: var(--cv-space-1);
     }
 
     .cv-education-row {
