@@ -20,14 +20,49 @@ type Education = {
   years: string;
 };
 
+type ToolGroup = {
+  label: string;
+  tools: string[];
+};
+
+function pluralize(value: number, singular: string, plural = `${singular}s`) {
+  return `${value} ${value === 1 ? singular : plural}`;
+}
+
+function formatCurrentDuration(startYear: number, startMonth = 1) {
+  const now = new Date();
+  const startMonthIndex = startMonth - 1;
+  const months =
+    (now.getFullYear() - startYear) * 12 +
+    (now.getMonth() - startMonthIndex) +
+    1;
+
+  if (months < 12) {
+    return pluralize(months, "month");
+  }
+
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  if (remainingMonths === 0) {
+    return pluralize(years, "year");
+  }
+
+  return `${pluralize(years, "year")} ${pluralize(remainingMonths, "month")}`;
+}
+
+function presentMeta(label: string, startYear: number, startMonth = 1) {
+  return `${label} - Present (${formatCurrentDuration(startYear, startMonth)})`;
+}
+
 const sections: Section[] = [
   {
     title: "Otovo",
-    meta: "2016 - Present",
+    meta: presentMeta("2016", 2016),
     roles: [
       {
         title: "Software Engineer",
-        meta: "Jan 2025 - Present",
+        meta: presentMeta("Jan 2025", 2025, 1),
         description:
           "Returned to hands-on product engineering after years in product and engineering leadership. Building across the platform where product judgment, technical depth, and speed matter.",
       },
@@ -56,15 +91,15 @@ const sections: Section[] = [
     roles: [
       {
         title: "Filtvet Feriekoloni",
-        meta: "Chef - July 2019 - Present (3 years 1 month)",
+        meta: `Chef - ${presentMeta("July 2019", 2019, 7)}`,
         description:
-          "Working as a chef at Filtvet Feriekoloni every summer, serving 60 kids and grown ups three meals a day for 10 days at a time. Siri Holtnæs and I also build and maintain feriekolonien.no.",
+          "Working as a chef at Filtvet Feriekoloni every summer, serving 60 kids and adults three meals a day for 10 days at a time. Siri Holtnæs and I also build and maintain feriekolonien.no.",
       },
       {
         title: "Norwegian Armed Forces",
-        meta: "CBRN specialist -> Corporal - 2012 - Present (10 years)",
+        meta: `CBRN specialist -> Sergeant - ${presentMeta("2012", 2012)}`,
         description:
-          'Initially hired to build up a CBRN team at HV-12 "Innsatsstyrke Rype" at Vaernes, Trondheim. After finishing my 4 year contract, I moved to Oslo where I\'m currently serving as corporal in my squad at HV-02.',
+          'Initially hired to build up a CBRN team at HV-12 "Innsatsstyrke Rype" at Værnes, Trondheim. After finishing my 4 year contract, I moved to Oslo where I\'m currently serving as squad leader at HV-02.',
       },
       {
         title: "CosyTech AS",
@@ -83,7 +118,7 @@ const education: Education[] = [
     years: "2011 - 2014",
   },
   {
-    title: "Comp. Sci at UCT",
+    title: "Comp. Sci honours at UCT",
     place: "Cape Town, South Africa",
     years: "2014 - 2015",
   },
@@ -93,6 +128,26 @@ const education: Education[] = [
     years: "2015 - 2016",
   },
 ];
+
+const toolGroups: ToolGroup[] = [
+  {
+    label: "Frontend",
+    tools: ["TypeScript", "React", "Next.js", "HTMX", "Tailwind", "SCSS"],
+  },
+  {
+    label: "Backend/data",
+    tools: ["Python", "Django", "DRF", "SQL", "Postgres", "GraphQL"],
+  },
+  {
+    label: "Product/platform",
+    tools: ["Sanity", "i18n", "React Native", "Expo", "Deno", "Kubernetes"],
+  },
+];
+
+const footerDetails = {
+  born: "Born 27th Jun 1990, Norway",
+  contact: "+47 947 96 136 | rikardeide@gmail.com | @rix1",
+};
 
 const cvStyles = `
   :root {
@@ -372,16 +427,38 @@ const cvStyles = `
     text-align: center;
   }
 
+  .cv-tools-list {
+    display: grid;
+    gap: var(--cv-space-2);
+    padding-bottom: var(--cv-space-8);
+    color: var(--cv-text);
+    font-size: 14px;
+    line-height: 1.28;
+  }
+
+  .cv-tool-group {
+    margin: 0;
+  }
+
+  .cv-tool-label {
+    color: var(--cv-ink);
+    font-weight: 850;
+  }
+
   .cv-footer {
     display: flex;
     justify-content: space-between;
     gap: 16px;
     margin-top: auto;
-    padding-top: var(--cv-space-8);
+    padding-top: var(--cv-space-2);
     color: var(--cv-muted);
     font-size: 13px;
     line-height: 1.2;
     border-top: 1px solid var(--cv-faint);
+  }
+
+  .cv-print-footer {
+    display: none;
   }
 
   @media (max-width: 760px) {
@@ -438,6 +515,10 @@ const cvStyles = `
       display: none;
     }
 
+    .cv-tools-list {
+      gap: var(--cv-space-3);
+    }
+
     .cv-footer {
       display: block;
     }
@@ -450,34 +531,60 @@ const cvStyles = `
 
   @page {
     size: A4;
-    margin: 0;
+    margin: 18mm 18mm 22mm;
   }
 
   @media print {
     html,
     body.cv-body {
-      width: 210mm;
-      min-height: 297mm;
+      width: auto;
+      min-height: auto;
       background: #fff;
     }
 
     .cv-shell {
-      width: 210mm;
+      width: auto;
       padding: 0;
     }
 
     .cv-toolbar,
-    .cv-no-print {
+    .cv-no-print,
+    .cmdk,
+    .cmdk-trigger {
       display: none !important;
     }
 
     .cv-page {
-      width: 210mm;
-      min-height: 297mm;
+      width: auto;
+      min-height: auto;
       margin: 0;
-      padding: 18mm 18mm 16mm;
+      padding: 0;
       border: 0;
       box-shadow: none;
+    }
+
+    .cv-print-page {
+      position: relative;
+      min-height: calc(297mm - 40mm);
+      padding-bottom: 8mm;
+    }
+
+    .cv-print-page-one {
+      break-after: page;
+      page-break-after: always;
+    }
+
+    .cv-print-footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--cv-muted);
+      font-size: 10px;
+      line-height: 1.2;
     }
 
     .cv-title {
@@ -505,12 +612,19 @@ const cvStyles = `
     }
 
     .cv-section {
-      grid-template-columns: 1fr;
+      grid-template-columns: 12px minmax(0, 1fr);
       margin-top: 7mm;
     }
 
+    .cv-print-page-two > .cv-section:first-child {
+      margin-top: 0;
+    }
+
     .cv-section-mark {
-      display: none;
+      display: block;
+      width: 0;
+      background: transparent;
+      border-left: 3px solid var(--cv-ink);
     }
 
     .cv-section-title {
@@ -551,16 +665,14 @@ const cvStyles = `
       padding-top: 15px;
     }
 
-    .cv-footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      border-top: 0;
+    .cv-tools-list {
+      gap: 2mm;
+      padding-bottom: 0;
+      font-size: 12px;
     }
 
-    .cv-footer span {
-      display: inline;
-      margin-top: 0;
+    .cv-footer {
+      display: none;
     }
   }
 `;
@@ -675,81 +787,113 @@ export default ({ comp, url }: Lume.Data) => {
           </div>
 
           <article class="cv-page" data-pagefind-body>
-            <header class="cv-hero">
-              <div>
-                <h1 class="cv-title">Rikard Eide</h1>
-                <p class="cv-role">Product Engineer at Otovo</p>
-                <div
-                  class="cv-contact-row"
-                  aria-label="Social links and location"
-                >
-                  <a
-                    class="cv-contact-link"
-                    href="https://bsky.app/profile/rix1.bsky.social"
-                    aria-label="Bluesky"
+            <div class="cv-print-page cv-print-page-one">
+              <header class="cv-hero">
+                <div>
+                  <h1 class="cv-title">Rikard Eide</h1>
+                  <p class="cv-role">Product Engineer at Otovo</p>
+                  <div
+                    class="cv-contact-row"
+                    aria-label="Social links and location"
                   >
-                    <BlueskyIcon />
-                  </a>
-                  <a
-                    class="cv-contact-link"
-                    href="https://github.com/rix1"
-                    aria-label="GitHub"
-                  >
-                    <GithubIcon />
-                  </a>
-                  @rix1
-                  <span aria-hidden="true">·</span>
-                  <PinIcon />
-                  <span>Oslo, Norway</span>
+                    <a
+                      class="cv-contact-link"
+                      href="https://bsky.app/profile/rix1.bsky.social"
+                      aria-label="Bluesky"
+                    >
+                      <BlueskyIcon />
+                    </a>
+                    <a
+                      class="cv-contact-link"
+                      href="https://github.com/rix1"
+                      aria-label="GitHub"
+                    >
+                      <GithubIcon />
+                    </a>
+                    @rix1
+                    <span aria-hidden="true">·</span>
+                    <PinIcon />
+                    <span>Oslo, Norway</span>
+                  </div>
+                  <p class="cv-intro">
+                    I once wrote a masters degree about ambulatory patient
+                    monitoring using low-energy Bluetooth at NTNU. After that I
+                    accidentally landed a job at Norway's largest bank. I
+                    declined their offer and decided to chase the sun instead.
+                    Now I want to learn all the fun stuff and build a better
+                    tomorrow doing so.
+                  </p>
                 </div>
-                <p class="cv-intro">
-                  I once wrote a masters degree about ambulatory patient
-                  monitoring using low-energy Bluetooth at NTNU. After that I
-                  accidentally landed a job at Norway's largest bank. I declined
-                  their offer and now I want to learn all the fun stuff and
-                  build a better tomorrow doing so.
-                </p>
+                <img
+                  class="cv-photo"
+                  src="https://s3.eu-north-1.amazonaws.com/rix1.dev/rix1-portrait-26-alt-0.jpg"
+                  alt="Rikard Eide"
+                  width="196"
+                  height="196"
+                />
+              </header>
+
+              {sections.map((section) => (
+                <CvSection section={section} />
+              ))}
+
+              <div class="cv-print-footer" aria-hidden="true">
+                <span>{footerDetails.born}</span>
+                <span>{footerDetails.contact}</span>
               </div>
-              <img
-                class="cv-photo"
-                src="https://s3.eu-north-1.amazonaws.com/rix1.dev/rix1-portrait-26-alt-0.jpg"
-                alt="Rikard Eide"
-                width="196"
-                height="196"
-              />
-            </header>
+            </div>
 
-            {sections.map((section) => (
-              <CvSection section={section} />
-            ))}
-
-            <section class="cv-section">
-              <div class="cv-section-mark" aria-hidden="true"></div>
-              <div>
-                <h2 class="cv-section-title">Education</h2>
-                <div class="cv-education-row">
-                  {education.map((item, index) => (
-                    <>
-                      <div class="cv-education-item">
-                        <strong class="cv-education-title">{item.title}</strong>
-                        <span>{item.place}</span>
-                        <br />
-                        <span>{item.years}</span>
-                      </div>
-                      {index < education.length - 1 && (
-                        <div class="cv-education-arrow" aria-hidden="true">
-                          →
+            <div class="cv-print-page cv-print-page-two">
+              <section class="cv-section cv-education-section">
+                <div class="cv-section-mark" aria-hidden="true"></div>
+                <div>
+                  <h2 class="cv-section-title">Education</h2>
+                  <div class="cv-education-row">
+                    {education.map((item, index) => (
+                      <>
+                        <div class="cv-education-item">
+                          <strong class="cv-education-title">
+                            {item.title}
+                          </strong>
+                          <span>{item.place}</span>
+                          <br />
+                          <span>{item.years}</span>
                         </div>
-                      )}
-                    </>
-                  ))}
+                        {index < education.length - 1 && (
+                          <div class="cv-education-arrow" aria-hidden="true">
+                            →
+                          </div>
+                        )}
+                      </>
+                    ))}
+                  </div>
                 </div>
+              </section>
+
+              <section class="cv-section">
+                <div class="cv-section-mark" aria-hidden="true"></div>
+                <div>
+                  <h2 class="cv-section-title">Experienced with</h2>
+                  <div class="cv-tools-list">
+                    {toolGroups.map((group) => (
+                      <p class="cv-tool-group">
+                        <strong class="cv-tool-label">{group.label}:</strong>{" "}
+                        {group.tools.join(", ")}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              <div class="cv-print-footer" aria-hidden="true">
+                <span>{footerDetails.born}</span>
+                <span>{footerDetails.contact}</span>
               </div>
-            </section>
+            </div>
 
             <footer class="cv-footer">
-              <span>Born 27th Jun 1990, Norway</span>
-              <span>+47 947 96 136 | rikardeide@gmail.com | @rix1</span>
+              <span>{footerDetails.born}</span>
+              <span>{footerDetails.contact}</span>
             </footer>
           </article>
         </main>
