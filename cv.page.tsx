@@ -376,6 +376,10 @@ const cvStyles = `
     font-size: 14px;
   }
 
+  .cv-meta-separator {
+    display: inline;
+  }
+
   .cv-role-block {
     margin-top: var(--cv-space-4);
     color: var(--cv-text);
@@ -510,6 +514,10 @@ const cvStyles = `
     .cv-role-meta {
       display: block;
       margin-top: var(--cv-space-1);
+    }
+
+    .cv-meta-separator {
+      display: none;
     }
 
     .cv-education-row {
@@ -739,7 +747,11 @@ function RoleBlock({ role }: { role: Role }) {
   return (
     <div class="cv-role-block">
       <h3 class="cv-role-heading">
-        {role.title} <span class="cv-role-meta">· {role.meta}</span>
+        {role.title}{" "}
+        <span class="cv-role-meta">
+          <span class="cv-meta-separator">· </span>
+          {role.meta}
+        </span>
       </h3>
       <p class="cv-role-description">{role.description}</p>
     </div>
@@ -754,7 +766,10 @@ function CvSection({ section }: { section: Section }) {
         <h2 class="cv-section-title">
           <span>{section.title}</span>
           {section.meta && (
-            <span class="cv-section-meta">· {section.meta}</span>
+            <span class="cv-section-meta">
+              <span class="cv-meta-separator">· </span>
+              {section.meta}
+            </span>
           )}
         </h2>
         {section.roles.map((role) => (
