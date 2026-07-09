@@ -1,5 +1,14 @@
 export const repos = [
   {
+    title: "Family Calendar",
+    when: "2026",
+    ai: true,
+    description:
+      "A private calendar for family birthdays and important dates. Everyone subscribes to their own iCal feed, and a monthly newsletter rounds up what's coming. Built with Fresh 2 and Deno KV.",
+    link: "https://github.com/rix1/family-cal",
+    repo: "https://github.com/rix1/family-cal",
+  },
+  {
     title: "YT stats",
     when: "2026",
     ai: true,
