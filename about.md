@@ -62,7 +62,10 @@ role in
 [monitoring ambulatory heart patients](https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2403242).
 I was shocked learning how extremely complicated, slow moving and overall
 "behind" this whole sector is. To this day, I still believe there's an
-opportunity for me (and a lot of others!) to make a meaningful impact here.
+opportunity for me (and a lot of others!) to make a meaningful impact here. If
+you're curious, here's
+[a summary of my academic work](/posts/academic-work/), covering both my
+bachelor's and master's theses.
 
 Professionally though, I had my eyes set on a different path. Like every other
 student at NTNU, I was alluded by the big consultancies that "the best career

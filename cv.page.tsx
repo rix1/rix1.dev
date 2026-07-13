@@ -432,6 +432,13 @@ const cvStyles = `
     text-align: center;
   }
 
+  .cv-education-note {
+    margin: var(--cv-space-3) 0 0;
+    color: var(--cv-text);
+    font-size: 13.5px;
+    line-height: 1.3;
+  }
+
   .cv-tools-list {
     display: grid;
     gap: var(--cv-space-2);
@@ -888,6 +895,12 @@ export default ({ comp, url }: Lume.Data) => {
                       </>
                     ))}
                   </div>
+                  <p class="cv-education-note">
+                    Both my <a href="/posts/academic-work/">theses</a> explored
+                    healthcare interoperability: EMR integration for handheld
+                    ultrasound (BSc) and wireless ECG monitoring over Bluetooth
+                    Low Energy (MSc).
+                  </p>
                 </div>
               </section>
 

@@ -3,3 +3,7 @@ _site/
 deno.lock
 node_modules
 .claude/
+
+# Thesis PDFs — too large for git, hosted on Dropbox
+EMR_Capgemini.pdf
+Master Thesis Rikard Eide.pdf
