@@ -20,8 +20,8 @@ breaks ties within a year — newest first).
    {
      title: "Project name",
      when: "2026",              // year as a string
-     ai: true,                  // only if substantially AI-built
-     wip: true,                 // only if unfinished/experimental
+     ai: true,                  // project was created, in part or purely, together with an agent
+     wip: true,                 // work in progress / unfinished stuff
      description:
        "One casual sentence. Markdown links work. Optionally end with 'Built with X.'",
      link: "https://project.rix1.dev",   // live site preferred; repo URL if none
@@ -31,7 +31,10 @@ breaks ties within a year — newest first).
 
    - `repo` is rendered conditionally; a private repo link would 404 for
      visitors, so leave the field out rather than pointing at a 404.
-   - Match the existing tone: short, playful, first person.
+   - **Tone of voice**: casual, first-person and a little self-deprecating —
+     plain sentences with the occasional emoji, honest about what the thing is
+     ("A stupid tool that wont help you do meetings better") rather than
+     marketing copy.
 
 3. **Verify the build**:
 
