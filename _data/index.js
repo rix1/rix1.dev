@@ -1,5 +1,13 @@
 export const repos = [
   {
+    title: "Cabinet playground",
+    when: "2026",
+    ai: true,
+    description:
+      "A Three.js playground for designing the cabinet above our kitchen hood — complete with an IKEA-style build guide and a Maxbo shopping list.",
+    link: "https://lofotgata.rix1.dev",
+  },
+  {
     title: "Family Calendar",
     when: "2026",
     ai: true,
