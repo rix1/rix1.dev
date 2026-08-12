@@ -151,6 +151,24 @@ style.textContent = `
     font: 600 0.9rem/1.4 system-ui, sans-serif;
   }
 
+  @media (hover: none) and (pointer: coarse) {
+    .cmdk-trigger kbd,
+    .cmdk-shortcut {
+      display: none;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .cmdk-item {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.3rem;
+    }
+
+    .cmdk-meta {
+      white-space: normal;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .cmdk,
     .cmdk-panel {

@@ -337,7 +337,6 @@ span[data-tooltip]:after {
         fill var(--scale-timing) ease-out,
         transform var(--scale-timing) ease-out;
 }
-
 .fancy {
     display: inline-block;
 }

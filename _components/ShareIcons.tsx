@@ -27,7 +27,7 @@ const ShareIcons = ({
         <a
           href="https://twitter.com/rix1"
           target="_blank"
-          class="flex flex-col items-center p-2 sm:p-3"
+          class="clear no-underline flex flex-col items-center p-2 sm:p-3"
           rel="noreferrer"
         >
           <svg
@@ -48,7 +48,7 @@ const ShareIcons = ({
         <a
           href="https://bsky.app/profile/rix1.bsky.social"
           target="_blank"
-          class="flex flex-col items-center p-2 sm:p-3"
+          class="clear no-underline flex flex-col items-center p-2 sm:p-3"
           rel="noreferrer"
         >
           <svg
@@ -69,7 +69,7 @@ const ShareIcons = ({
         <a
           href="https://github.com/rix1"
           target="_blank"
-          class="flex flex-col items-center p-2 sm:p-3"
+          class="clear no-underline flex flex-col items-center p-2 sm:p-3"
           rel="noreferrer"
         >
           <svg
@@ -90,7 +90,7 @@ const ShareIcons = ({
         <a
           href="https://instagram.com/rix1"
           target="_blank"
-          class="flex flex-col items-center p-2 sm:p-3"
+          class="clear no-underline flex flex-col items-center p-2 sm:p-3"
           rel="noreferrer"
         >
           <svg
@@ -112,7 +112,7 @@ const ShareIcons = ({
         <a
           href="https://linkedin.com/in/riix1"
           target="_blank"
-          class="flex flex-col items-center p-2 sm:p-3"
+          class="clear no-underline flex flex-col items-center p-2 sm:p-3"
           rel="noreferrer"
         >
           <svg
@@ -134,7 +134,7 @@ const ShareIcons = ({
         <a
           href="https://keybase.io/rix1"
           target="_blank"
-          class="flex flex-col items-center p-2 sm:p-3"
+          class="clear no-underline flex flex-col items-center p-2 sm:p-3"
           rel="noreferrer"
         >
           <svg

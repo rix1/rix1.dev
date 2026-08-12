@@ -625,6 +625,7 @@ const cvStyles = `
     .cv-photo {
       width: 50mm;
       height: 50mm;
+      box-shadow: none;
     }
 
     .cv-intro,
