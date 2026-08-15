@@ -33,8 +33,7 @@ function pluralize(value: number, singular: string, plural = `${singular}s`) {
 function formatCurrentDuration(startYear: number, startMonth = 1) {
   const now = new Date();
   const startMonthIndex = startMonth - 1;
-  const months =
-    (now.getFullYear() - startYear) * 12 +
+  const months = (now.getFullYear() - startYear) * 12 +
     (now.getMonth() - startMonthIndex) +
     1;
 
@@ -130,18 +129,68 @@ const education: Education[] = [
   },
 ];
 
+const toolsIntro =
+  "Everything here is tech I've shipped, bet on, or been answerable for — first as an engineer, then as a PM choosing it, then as an EM when it broke, now as an engineer again. Most of it was used in production at Otovo, across 15 countries, 18 locales and 8 currencies.";
+
 const toolGroups: ToolGroup[] = [
   {
-    label: "Frontend",
-    tools: ["TypeScript", "React", "Next.js", "HTMX", "Tailwind", "SCSS"],
+    label: "Daily drivers",
+    tools: [
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Python",
+      "Django",
+      "DRF",
+      "GraphQL",
+      "Celery",
+      "PostgreSQL",
+      "PostGIS",
+      "HTMX",
+      "Tailwind",
+      "Vite",
+    ],
   },
   {
-    label: "Backend/data",
-    tools: ["Python", "Django", "DRF", "SQL", "Postgres", "GraphQL"],
+    label: "Integrations",
+    tools: [
+      "NetSuite",
+      "HubSpot",
+      "Stripe",
+      "GoCardless",
+      "AvtaleGiro",
+      "Scrive (e-signing)",
+      "Twilio, Mailgun & SendGrid",
+      "Google Maps & Calendar APIs",
+      "Facebook Business and Google Ads",
+      "Sanity CMS",
+      "OpenAI",
+    ],
   },
   {
-    label: "Product/platform",
-    tools: ["Sanity", "i18n", "React Native", "Expo", "Deno", "Kubernetes"],
+    label: "In production",
+    tools: [
+      "Kubernetes",
+      "GitHub Actions",
+      "Vercel",
+      "Sentry",
+      "Prometheus",
+      "Grafana",
+    ],
+  },
+  {
+    label: "Migrations survived",
+    tools: [
+      "Flow → TypeScript",
+      "Redux → hooks",
+      "SCSS → Tailwind",
+      "Webpack → Vite",
+      "Heroku → Kubernetes",
+    ],
+  },
+  {
+    label: "After hours",
+    tools: ["Deno", "Lume", "React Native", "Expo", "this website"],
   },
 ];
 
@@ -439,6 +488,14 @@ const cvStyles = `
     line-height: 1.3;
   }
 
+  .cv-tools-intro {
+    max-width: 640px;
+    margin: 0 0 var(--cv-space-4);
+    color: var(--cv-text);
+    font-size: 14px;
+    line-height: 1.32;
+  }
+
   .cv-tools-list {
     display: grid;
     gap: var(--cv-space-2);
@@ -687,6 +744,12 @@ const cvStyles = `
       padding-top: 15px;
     }
 
+    .cv-tools-intro {
+      max-width: none;
+      margin-bottom: 3mm;
+      font-size: 12px;
+    }
+
     .cv-tools-list {
       gap: 2mm;
       padding-bottom: 0;
@@ -709,7 +772,8 @@ const GithubIcon = () => (
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path>
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22">
+    </path>
   </svg>
 );
 
@@ -723,7 +787,8 @@ const BlueskyIcon = () => (
     viewBox="0 0 24 24"
     aria-hidden="true"
   >
-    <path d="M12 11.5c-1.6-3.3-4.4-6-6.8-6-1.6 0-2.2 1.1-2.2 2.5 0 2.5 2.9 5.1 6 6.4-2.9.3-5.2 1.7-5.2 3.7 0 1.2 1 2.2 2.5 2.2 2.1 0 4.4-2.1 5.7-4.8 1.3 2.7 3.6 4.8 5.7 4.8 1.5 0 2.5-1 2.5-2.2 0-2-2.3-3.4-5.2-3.7 3.1-1.3 6-3.9 6-6.4 0-1.4-.6-2.5-2.2-2.5-2.4 0-5.2 2.7-6.8 6Z"></path>
+    <path d="M12 11.5c-1.6-3.3-4.4-6-6.8-6-1.6 0-2.2 1.1-2.2 2.5 0 2.5 2.9 5.1 6 6.4-2.9.3-5.2 1.7-5.2 3.7 0 1.2 1 2.2 2.5 2.2 2.1 0 4.4-2.1 5.7-4.8 1.3 2.7 3.6 4.8 5.7 4.8 1.5 0 2.5-1 2.5-2.2 0-2-2.3-3.4-5.2-3.7 3.1-1.3 6-3.9 6-6.4 0-1.4-.6-2.5-2.2-2.5-2.4 0-5.2 2.7-6.8 6Z">
+    </path>
   </svg>
 );
 
@@ -757,7 +822,7 @@ function RoleBlock({ role }: { role: Role }) {
       <h3 class="cv-role-heading">
         {role.title}{" "}
         <span class="cv-role-meta">
-          <span class="cv-meta-separator">· </span>
+          <span class="cv-meta-separator">·</span>
           {role.meta}
         </span>
       </h3>
@@ -775,14 +840,12 @@ function CvSection({ section }: { section: Section }) {
           <span>{section.title}</span>
           {section.meta && (
             <span class="cv-section-meta">
-              <span class="cv-meta-separator">· </span>
+              <span class="cv-meta-separator">·</span>
               {section.meta}
             </span>
           )}
         </h2>
-        {section.roles.map((role) => (
-          <RoleBlock role={role} />
-        ))}
+        {section.roles.map((role) => <RoleBlock role={role} />)}
       </div>
     </section>
   );
@@ -862,9 +925,7 @@ export default ({ comp, url }: Lume.Data) => {
                 />
               </header>
 
-              {sections.map((section) => (
-                <CvSection section={section} />
-              ))}
+              {sections.map((section) => <CvSection section={section} />)}
 
               <div class="cv-print-footer" aria-hidden="true">
                 <span>{footerDetails.born}</span>
@@ -897,10 +958,10 @@ export default ({ comp, url }: Lume.Data) => {
                     ))}
                   </div>
                   <p class="cv-education-note">
-                    Both my <a href="/posts/academic-work/">theses</a> explored
-                    healthcare interoperability: EMR integration for handheld
-                    ultrasound (BSc) and wireless ECG monitoring over Bluetooth
-                    Low Energy (MSc).
+                    Both my <a href="/posts/academic-work/">theses</a>{" "}
+                    explored healthcare interoperability: EMR integration for
+                    handheld ultrasound (BSc) and wireless ECG monitoring over
+                    Bluetooth Low Energy (MSc).
                   </p>
                 </div>
               </section>
@@ -909,10 +970,12 @@ export default ({ comp, url }: Lume.Data) => {
                 <div class="cv-section-mark" aria-hidden="true"></div>
                 <div>
                   <h2 class="cv-section-title">Experienced with</h2>
+                  <p class="cv-tools-intro">{toolsIntro}</p>
                   <div class="cv-tools-list">
                     {toolGroups.map((group) => (
                       <p class="cv-tool-group">
-                        <strong class="cv-tool-label">{group.label}:</strong>{" "}
+                        <strong class="cv-tool-label">{group.label}</strong>
+                        {": "}
                         {group.tools.join(", ")}
                       </p>
                     ))}
