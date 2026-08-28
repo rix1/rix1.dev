@@ -1,3 +1,12 @@
+---
+title: Webpack, code splitting and SSR
+topic: Tech
+description: A walkthrough of how webpack, Babel and React Loadable powered
+  code splitting and server-side rendering at Otovo in 2018.
+date: 2018-08-05
+draft: true
+---
+
 In spite of no Remarkable-battery, I've started documenting the process ✌️Along the way this actually took the form of a blog post (dev-blog any1??1 😄). First part «Build and Server Stuff» is kinda ready for review/feedback if anyone is interested in reading 📖. I'll supplement with Client side stuff later. Tomorrow probably. 
 
 Before we decide where this should reside (docs/blog idunno ¯\\\_(ツ)\_/¯ ) I'll just post it here as a comment.
