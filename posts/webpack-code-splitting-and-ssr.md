@@ -4,7 +4,6 @@ topic: Tech
 description: A walkthrough of how webpack, Babel and React Loadable powered
   code splitting and server-side rendering at Otovo in 2018.
 date: 2018-08-05
-draft: true
 ---
 
 > _**Editor's note (August 2026):** I wrote this in August 2018, while working
