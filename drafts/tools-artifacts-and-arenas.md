@@ -39,28 +39,19 @@ useful places where unfinished work can be inspected.
 
 Those places come in different forms.
 
-## Async arenas
-
-- Pull requests
-- Tickets
-- Timelines and roadmaps
-- Planning docs
-- Dashboards
-- Running applications, including preview deployments
-- Public Slack discussions
-- Feature-flagged releases
-- Weekly written updates
-- Technical prototypes
-- Design prototypes
-
-## Sync arenas
-
-- Product and engineering reviews
-- Weekly stakeholder syncs
-- 1:1s
-- Standups
-- Retrospectives
-- Informal whiteboard sessions
+| Sync                             | Async                                               |
+| -------------------------------- | --------------------------------------------------- |
+| Product and engineering reviews  | Pull requests                                       |
+| Weekly stakeholder syncs         | Tickets                                             |
+| 1:1s                             | Timelines and roadmaps                              |
+| Standups                         | Planning docs                                       |
+| Retrospectives                   | Dashboards                                          |
+| Informal whiteboard sessions     | Running applications, including preview deployments |
+|                                  | Public Slack discussions                            |
+|                                  | Feature-flagged releases                            |
+|                                  | Weekly written updates                              |
+|                                  | Technical prototypes                                |
+|                                  | Design prototypes                                   |
 
 When these arenas are weak, work stays private for too long. By the time the
 right people see it, the cost of changing direction is high. The product has
