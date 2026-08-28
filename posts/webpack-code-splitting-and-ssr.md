@@ -6,15 +6,12 @@ description: A walkthrough of how webpack, Babel and React Loadable powered
 date: 2018-08-05
 ---
 
-> _**Editor's note (August 2026):** I wrote this in August 2018, while working
-> on the Otovo web app, and posted it as a gist for my colleagues with the note
-> «dev-blog any1??1 😄». It never made it to an actual blog – until now, eight
-> years later, when I finally dug the gist up again. I've fixed typos and
-> written the intro and ending it never got (the original starts mid-thought
-> and trails off into a `TODO!`), reconstructed from the app's actual source
-> code as it looked the week the gist was written. Otherwise it's untouched – Webpack, React Loadable and
-> server-side rendering as they were in 2018 – and published retroactively
-> under its original date._
+> _**Editor's note (August 2026):** I wrote this in August 2018 and posted it
+> as [a gist](https://gist.github.com/rix1/cc26d2c189fd91fcaf726954731facfc)
+> for my Otovo colleagues («dev-blog any1??1 😄»). Eight years later I dug it
+> up and published it here, retroactively, under its original date. I've fixed
+> typos and written the intro and ending it never got – reconstructed from the
+> app's source code as it looked that week. Otherwise it's untouched 2018._
 
 Here's a question: when you write `() => import('./LandingPage')`, do you actually know what happens next? I didn't. Not really. And that started to bug me, because everything at otovo.no depends on it: our app is server-side rendered and code-split, meaning Webpack, Babel and React Loadable conspire on every single request to make sure visitors only download the JavaScript they actually need. When this machinery works, nobody notices it. When it breaks – a spinner that never disappears, a page that flashes, a bundle that refuses to load – you're suddenly debugging «magic» nobody on the team fully understands.
 
