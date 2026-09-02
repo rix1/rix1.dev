@@ -14,7 +14,9 @@ draft: true
 > - Written by Claude Code on 2026-09-02 from two sources on the Desktop: the
 >   four-page "Normal Computing Overview.pdf" and the transcript of The Wall
 >   Street Skinny short "The TRUTH about the Semiconductor Trade" (2026-08-30).
->   The five-layer cake comes from the short's whiteboard, not the transcript.
+>   The five-layer cake is on the short's whiteboard, not in the transcript.
+>   The short borrowed it from Jensen Huang's Nvidia post "AI Is a 5-Layer
+>   Cake" (2026-03-10). The layer one-liners in the table are quoted from there.
 > - Everything under "Competitors" and the funding figures came from web
 >   searches, not from the two files. Links at the bottom.
 > - The PDF says CN101 taped out in June 2025. The press release is dated
@@ -29,16 +31,19 @@ hesitating.
 
 ## The five-layer cake
 
-The Wall Street Skinny frames the AI ecosystem as five layers. Chips are layer
-two, and that layer splits into memory and logic.
+The model comes from Jensen Huang's Nvidia post
+[AI Is a 5-Layer Cake](https://blogs.nvidia.com/blog/ai-5-layer-cake/)
+(March 2026): "When you look at AI industrially, it resolves into a five-layer
+stack." The Wall Street Skinny short reuses it and zooms in on layer two, which
+splits into memory and logic.
 
 | Layer | What it is | Example players | Where Normal Computing fits |
 | --- | --- | --- | --- |
-| 5. Apps | Products built on top of models | Cursor, Perplexity, vertical AI startups | Not present |
-| 4. Models | Foundation model labs that train and serve models | OpenAI, Anthropic, Google DeepMind, Meta | Target workloads: diffusion models and long-context transformer decoding. Also trains its own post-trained models for EDA |
-| 3. Infra | Data centers, cloud, racks, networking, cooling | AWS, Azure, Google Cloud, CoreWeave, Foxconn and Wistron for rack assembly | Customer. Normal's PCIe cards install into existing air-cooled servers, with forward-deployed engineers doing the install |
-| 2. Chips | Memory (HBM) and logic (GPUs, ASICs) plus the whole supply chain behind them | Memory: SK Hynix, Micron, Samsung. Logic: Nvidia, AMD, Broadcom | **Here, twice.** Normal ASICs is a fabless logic-chip designer. Normal EDA sells design software to the other companies on this layer |
-| 1. Energy | Power generation, grid, utilities feeding data centers | Utilities, power producers, grid and cooling equipment | Indirect. The pitch is cutting the energy cost of inference, so Normal sells against this layer's constraint |
+| 5. Applications | Products built on top of models. "Where economic value is created" | Cursor, Perplexity, vertical AI startups | Not present |
+| 4. Models | Foundation model labs that train and serve models. "AI models understand many kinds of information: language, biology, chemistry, physics, finance, medicine and the physical world itself" | OpenAI, Anthropic, Google DeepMind, Meta | Target workloads: diffusion models and long-context transformer decoding. Also trains its own post-trained models for EDA |
+| 3. Infrastructure | "Land, power delivery, cooling, construction, networking and the systems that orchestrate tens of thousands of processors into one machine" | AWS, Azure, Google Cloud, CoreWeave, Foxconn and Wistron for rack assembly | Customer. Normal's PCIe cards install into existing air-cooled servers, with forward-deployed engineers doing the install |
+| 2. Chips | "Processors designed to transform energy into computation efficiently at massive scale." Splits into memory (HBM) and logic (GPUs, ASICs), plus the supply chain behind them | Memory: SK Hynix, Micron, Samsung. Logic: Nvidia, AMD, Broadcom | **Here, twice.** Normal ASICs is a fabless logic-chip designer. Normal EDA sells design software to the other companies on this layer |
+| 1. Energy | "Intelligence generated in real time requires power generated in real time." Generation, grid and utilities feeding data centers | Utilities, power producers, grid and cooling equipment | Indirect. The pitch is cutting the energy cost of inference, so Normal sells against this layer's constraint |
 
 ## Layer two up close: the chip supply chain
 
@@ -164,3 +169,4 @@ The rest is from web research.
 - [Thermodynamic computers go with the energy flow, Quanta](https://www.quantamagazine.org/thermodynamic-computers-go-with-the-energy-flow-20260715/)
 - [Extropic](https://extropic.ai/)
 - [The Wall Street Skinny: The TRUTH about the Semiconductor Trade](https://www.youtube.com/watch?v=WDaLN0cN_Jk)
+- [Jensen Huang: AI Is a 5-Layer Cake, Nvidia blog](https://blogs.nvidia.com/blog/ai-5-layer-cake/)
