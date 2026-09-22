@@ -61,7 +61,7 @@ const sections: Section[] = [
     meta: presentMeta("2016", 2016),
     roles: [
       {
-        title: "Software Engineer",
+        title: "Lead UX Engineer",
         meta: presentMeta("Jan 2025", 2025, 1),
         description:
           "Returned to hands-on product engineering after years in product and engineering leadership. Building across the platform where product judgment, technical depth, and speed matter.",
@@ -91,19 +91,19 @@ const sections: Section[] = [
     roles: [
       {
         title: "Filtvet Feriekoloni",
-        meta: `Chef - ${presentMeta("July 2019", 2019, 7)}`,
+        meta: `Chef, ${presentMeta("July 2019", 2019, 7)}`,
         description:
           "Working as a chef at Filtvet Feriekoloni every summer, serving 60 kids and adults three meals a day for 10 days at a time. Siri Holtnæs and I also build and maintain feriekolonien.no.",
       },
       {
         title: "Norwegian Armed Forces",
-        meta: `CBRN specialist -> Sergeant - ${presentMeta("2012", 2012)}`,
+        meta: `CBRN specialist → Sergeant, ${presentMeta("2012", 2012)}`,
         description:
           'Initially hired to build up a CBRN team at HV-12 "Innsatsstyrke Rype" at Værnes, Trondheim. After finishing my 4 year contract, I moved to Oslo where I\'m currently serving as squad leader at HV-02.',
       },
       {
         title: "CosyTech AS",
-        meta: "Software Engineer - Nov 2014 - Nov 2015 (1 year 1 month)",
+        meta: "Software Engineer, Nov 2014 - Nov 2015 (1 year 1 month)",
         description:
           "Full stack web development and product design. Planning, designing, implementing, testing and deploying software spanning multiple projects and technologies.",
       },
@@ -427,6 +427,7 @@ const cvStyles = `
 
   .cv-meta-separator {
     display: inline;
+    margin: 0 4px;
   }
 
   .cv-role-block {
@@ -820,7 +821,7 @@ function RoleBlock({ role }: { role: Role }) {
   return (
     <div class="cv-role-block">
       <h3 class="cv-role-heading">
-        {role.title}{" "}
+        {role.title}
         <span class="cv-role-meta">
           <span class="cv-meta-separator">·</span>
           {role.meta}
