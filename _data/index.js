@@ -1,5 +1,14 @@
 export const repos = [
   {
+    title: "Nord Stream, in one place",
+    when: "2026",
+    ai: true,
+    description:
+      "Every NRK bulletin about Nord Stream since 2016 on a single page, with a magnifying timeline in the margin. Hybrid warfare is designed to be hard to follow; this is me trying to see the whole thing at once. Norwegian, but there's a translate button.",
+    link: "https://nordstream.rix1.dev",
+    repo: "https://github.com/rix1/nordstream",
+  },
+  {
     title: "Cabinet playground",
     when: "2026",
     ai: true,
