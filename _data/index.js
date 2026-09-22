@@ -1,5 +1,14 @@
 export const repos = [
   {
+    title: "Catering",
+    when: "2026",
+    ai: true,
+    description:
+      "Cooking an Italian sharing buffet for 76 people with an LLM as sous-chef: production schedule, recipes and a shopping list whose check-offs sync between phones in the store. Plain HTML on Cloudflare Pages with a tiny D1 function.",
+    link: "https://mat.rix1.dev",
+    repo: "https://github.com/rix1/catering",
+  },
+  {
     title: "Nord Stream, in one place",
     when: "2026",
     ai: true,
