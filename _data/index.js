@@ -50,7 +50,7 @@ export const repos = [
     ai: true,
     description:
       "Browse and compare kindergartens in Oslo with a sortable table, map, filters, favorites, and scraped public data.",
-    link: "https://github.com/rix1/barnehageutforsker",
+    link: "https://barnehageutforsker.rix1.deno.net/",
     repo: "https://github.com/rix1/barnehageutforsker",
   },
   {
