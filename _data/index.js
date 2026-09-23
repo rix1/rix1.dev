@@ -4,7 +4,7 @@ export const repos = [
     when: "2026",
     ai: true,
     description:
-      "Cooking an Italian sharing buffet for 76 people with an LLM as sous-chef: production schedule, recipes and a shopping list whose check-offs sync between phones in the store. Plain HTML on Cloudflare Pages with a tiny D1 function.",
+      "I made dinner for a wedding party for some friends. It was 76 guests and I was busy with parental leave, so I let an LLM act as sous-chef: production schedule, recipes and a shopping list w/check-off sync. Plain HTML on Cloudflare Pages with a tiny D1 function.",
     link: "https://mat.rix1.dev",
     repo: "https://github.com/rix1/catering",
   },
