@@ -1,5 +1,15 @@
 export const repos = [
   {
+    title: "vaskekjeller",
+    when: "2026",
+    ai: true,
+    wip: true,
+    description:
+      "Our building's laundry room booking, rebuilt: grab a washer and dryer together in one tap, get a push notification when a slot frees up, and leave passive-aggressive comments. Hono JSX on Cloudflare Workers + D1.",
+    link: "https://github.com/rix1/vaskekjeller",
+    repo: "https://github.com/rix1/vaskekjeller",
+  },
+  {
     title: "Catering",
     when: "2026",
     ai: true,
