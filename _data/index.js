@@ -6,7 +6,7 @@ export const repos = [
     wip: true,
     description:
       "Our building's laundry room booking, rebuilt: grab a washer and dryer together in one tap, get a push notification when a slot frees up, and leave passive-aggressive comments. Hono JSX on Cloudflare Workers + D1.",
-    link: "https://github.com/rix1/vaskekjeller",
+    link: "https://www.vaskekjeller.no",
     repo: "https://github.com/rix1/vaskekjeller",
   },
   {
