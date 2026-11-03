@@ -1,8 +1,8 @@
 # rix1.dev &middot; my personal website
 
 Welcome to the source repository of my personal website,
-[rix1.dev](https://rix1.dev)! I'm a product developer and engineering manager
-based in Oslo, Norway. My website showcases previous and ongoing projects as
+[rix1.dev](https://rix1.dev)! I'm a product developer based
+in Oslo, Norway. My website showcases previous and ongoing projects as
 well as my professional journey.
 
 ## About the Site

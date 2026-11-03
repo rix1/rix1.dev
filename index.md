@@ -1,6 +1,6 @@
 ---
 title: rix1.dev 👋
-description: Oslo-based product developer and engineering manager making sense of the world through products, technology, and design.
+description: Oslo-based product developer making sense of the world through products, technology, and design.
 heading: Product developer &&nbsp;wannabe designer
 layout: layouts/landing.tsx
 ---
@@ -8,7 +8,7 @@ layout: layouts/landing.tsx
 Hi there! 👋
 
 I'm [@rix1](https://twitter.com/rix1),
-Oslo-based [product developer](https://github.com/rix1) and engineering manager.
+Oslo-based [product developer](https://github.com/rix1).
 I'm on a quest to make sense of the world through the lens of products,
 technology, and design.
 
@@ -19,5 +19,5 @@ I'm slowly turning this site back into a place for writing. You can
 [read my blog](/posts/), learn more [about me here](/about), or skim
 [my CV](/cv/).
 
-I'm currently having fun chasing the sun together with
-[@OtovoSolar](https://twitter.com/@otovosolar).
+After ten years chasing the sun with [Otovo](https://otovo.com/), I'm now
+building AI for the systems inside buildings at [Solvera](https://solvera.ai/).
