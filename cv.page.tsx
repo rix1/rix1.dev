@@ -200,6 +200,48 @@ const footerDetails = {
 };
 
 const cvStyles = `
+  /* Static (non-variable) fonts: Chrome can only embed static fonts in PDFs;
+     variable fonts get traced into bulky Type3 glyph outlines. */
+  @font-face {
+    font-family: "CV Bricolage Display";
+    src: url("/assets/fonts/bricolage-grotesque-display-800.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CV Bricolage";
+    src: url("/assets/fonts/bricolage-grotesque-heading-800.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CV Inter";
+    src: url("/assets/fonts/inter-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CV Inter";
+    src: url("/assets/fonts/inter-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CV Inter";
+    src: url("/assets/fonts/inter-850.woff2") format("woff2");
+    font-weight: 850;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --cv-ink: #182033;
     --cv-text: #2b3447;
@@ -223,7 +265,7 @@ const cvStyles = `
     min-height: 100vh;
     background: linear-gradient(180deg, #f7f8fb 0%, #eef1f6 100%);
     color: var(--cv-ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "CV Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: geometricPrecision;
   }
@@ -297,7 +339,7 @@ const cvStyles = `
   .cv-title {
     margin: 0;
     color: var(--cv-ink);
-    font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "CV Bricolage Display", "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 55px;
     font-weight: 800;
     font-optical-sizing: auto;
@@ -407,7 +449,7 @@ const cvStyles = `
     align-items: baseline;
     gap: 6px;
     margin: 0 0 var(--cv-space-2);
-    font-family: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "CV Bricolage", "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 21px;
     font-weight: 800;
     font-optical-sizing: auto;
@@ -421,7 +463,7 @@ const cvStyles = `
   }
 
   .cv-section-meta {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "CV Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     font-size: 14px;
   }
 
@@ -861,6 +903,41 @@ export default ({ comp, url }: Lume.Data) => {
         <comp.MetaTags canonicalUrl={canonicalUrl} />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <link
+          rel="preload"
+          href="/assets/fonts/bricolage-grotesque-display-800.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/bricolage-grotesque-heading-800.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/inter-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/inter-500.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
+        <link
+          rel="preload"
+          href="/assets/fonts/inter-850.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin=""
+        />
         <style>{{ __html: cvStyles }}</style>
       </head>
       <body class="cv-body">
