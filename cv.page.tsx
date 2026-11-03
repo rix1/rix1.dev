@@ -996,7 +996,7 @@ export default ({ comp, url }: Lume.Data) => {
                 </div>
                 <img
                   class="cv-photo"
-                  src="https://s3.eu-north-1.amazonaws.com/rix1.dev/rix1-portrait-26-alt-0.jpg"
+                  src="https://s3.eu-north-1.amazonaws.com/rix1.dev/rix1-portrait-26-alt-0-600.jpg"
                   alt="Rikard Eide"
                   width="196"
                   height="196"
