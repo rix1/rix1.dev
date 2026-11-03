@@ -1,6 +1,6 @@
 export const title = "CV - Rikard Eide";
 export const description =
-  "Rikard Eide's CV: product engineering, engineering management, product leadership, and full-stack software experience from Otovo and beyond.";
+  "Rikard Eide's CV: product engineering, engineering management, product leadership, and full-stack software experience from Solvera, Otovo, and beyond.";
 export const url = "/cv/";
 
 type Role = {
@@ -30,12 +30,13 @@ function pluralize(value: number, singular: string, plural = `${singular}s`) {
   return `${value} ${value === 1 ? singular : plural}`;
 }
 
-function formatCurrentDuration(startYear: number, startMonth = 1) {
-  const now = new Date();
-  const startMonthIndex = startMonth - 1;
-  const months = (now.getFullYear() - startYear) * 12 +
-    (now.getMonth() - startMonthIndex) +
-    1;
+function formatDuration(
+  startYear: number,
+  startMonth: number,
+  endYear: number,
+  endMonth: number,
+) {
+  const months = (endYear - startYear) * 12 + (endMonth - startMonth) + 1;
 
   if (months < 12) {
     return pluralize(months, "month");
@@ -51,20 +52,50 @@ function formatCurrentDuration(startYear: number, startMonth = 1) {
   return `${pluralize(years, "year")} ${pluralize(remainingMonths, "month")}`;
 }
 
+function formatCurrentDuration(startYear: number, startMonth = 1) {
+  const now = new Date();
+  return formatDuration(
+    startYear,
+    startMonth,
+    now.getFullYear(),
+    now.getMonth() + 1,
+  );
+}
+
 function presentMeta(label: string, startYear: number, startMonth = 1) {
   return `${label} - Present (${formatCurrentDuration(startYear, startMonth)})`;
 }
 
-const sections: Section[] = [
+function rangeMeta(
+  [startLabel, startYear, startMonth]: [string, number, number],
+  [endLabel, endYear, endMonth]: [string, number, number],
+) {
+  return `${startLabel} - ${endLabel} (${
+    formatDuration(startYear, startMonth, endYear, endMonth)
+  })`;
+}
+
+const workSections: Section[] = [
+  {
+    title: "Solvera",
+    roles: [
+      {
+        title: "Software Engineer",
+        meta: presentMeta("Oct 2026", 2026, 10),
+        description:
+          "Building the in-house AI systems at an AI-native consulting engineering firm that designs ventilation, heating, plumbing, and electrical systems for buildings. From the energy on the roof to the systems inside the building.",
+      },
+    ],
+  },
   {
     title: "Otovo",
-    meta: presentMeta("2016", 2016),
+    meta: rangeMeta(["Feb 2016", 2016, 2], ["Sep 2026", 2026, 9]),
     roles: [
       {
         title: "Lead UX Engineer",
-        meta: presentMeta("Jan 2025", 2025, 1),
+        meta: rangeMeta(["Jan 2025", 2025, 1], ["Sep 2026", 2026, 9]),
         description:
-          "Returned to hands-on product engineering after years in product and engineering leadership. Building across the platform where product judgment, technical depth, and speed matter.",
+          "Returned to hands-on product engineering after years in product and engineering leadership. Built across the platform where product judgment, technical depth, and speed matter.",
       },
       {
         title: "Engineering Manager",
@@ -86,30 +117,31 @@ const sections: Section[] = [
       },
     ],
   },
-  {
-    title: "Other experiences",
-    roles: [
-      {
-        title: "Filtvet Feriekoloni",
-        meta: `Chef, ${presentMeta("July 2019", 2019, 7)}`,
-        description:
-          "Working as a chef at Filtvet Feriekoloni every summer, serving 60 kids and adults three meals a day for 10 days at a time. Siri Holtnæs and I also build and maintain feriekolonien.no.",
-      },
-      {
-        title: "Norwegian Armed Forces",
-        meta: `CBRN specialist → Sergeant, ${presentMeta("2012", 2012)}`,
-        description:
-          'Initially hired to build up a CBRN team at HV-12 "Innsatsstyrke Rype" at Værnes, Trondheim. After finishing my 4 year contract, I moved to Oslo where I\'m currently serving as squad leader at HV-02.',
-      },
-      {
-        title: "CosyTech AS",
-        meta: "Software Engineer, Nov 2014 - Nov 2015 (1 year 1 month)",
-        description:
-          "Full stack web development and product design. Planning, designing, implementing, testing and deploying software spanning multiple projects and technologies.",
-      },
-    ],
-  },
 ];
+
+const otherExperiences: Section = {
+  title: "Other experiences",
+  roles: [
+    {
+      title: "Filtvet Feriekoloni",
+      meta: `Chef, ${presentMeta("July 2019", 2019, 7)}`,
+      description:
+        "Working as a chef at Filtvet Feriekoloni every summer, serving 60 kids and adults three meals a day for 10 days at a time. Siri Holtnæs and I also build and maintain feriekolonien.no.",
+    },
+    {
+      title: "Norwegian Armed Forces",
+      meta: `CBRN specialist → Sergeant, ${presentMeta("2012", 2012)}`,
+      description:
+        'Initially hired to build up a CBRN team at HV-12 "Innsatsstyrke Rype" at Værnes, Trondheim. After finishing my 4 year contract, I moved to Oslo where I\'m currently serving as squad leader at HV-02.',
+    },
+    {
+      title: "CosyTech AS",
+      meta: "Software Engineer, Nov 2014 - Nov 2015 (1 year 1 month)",
+      description:
+        "Full stack web development and product design. Planning, designing, implementing, testing and deploying software spanning multiple projects and technologies.",
+    },
+  ],
+};
 
 const education: Education[] = [
   {
@@ -961,7 +993,7 @@ export default ({ comp, url }: Lume.Data) => {
               <header class="cv-hero">
                 <div>
                   <h1 class="cv-title">Rikard Eide</h1>
-                  <p class="cv-role">Product Engineer at Otovo</p>
+                  <p class="cv-role">Software Engineer at Solvera</p>
                   <div
                     class="cv-contact-row"
                     aria-label="Social links and location"
@@ -1003,7 +1035,7 @@ export default ({ comp, url }: Lume.Data) => {
                 />
               </header>
 
-              {sections.map((section) => <CvSection section={section} />)}
+              {workSections.map((section) => <CvSection section={section} />)}
 
               <div class="cv-print-footer" aria-hidden="true">
                 <span>{footerDetails.born}</span>
@@ -1012,6 +1044,7 @@ export default ({ comp, url }: Lume.Data) => {
             </div>
 
             <div class="cv-print-page cv-print-page-two">
+              <CvSection section={otherExperiences} />
               <section class="cv-section cv-education-section">
                 <div class="cv-section-mark" aria-hidden="true"></div>
                 <div>
