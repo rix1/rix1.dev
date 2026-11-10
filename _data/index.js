@@ -86,6 +86,7 @@ export const repos = [
   {
     title: "Wine",
     when: "2024",
+    ai: "0",
     description:
       "Tasting wine and identifying its complex flavors can be challenging. This little tool guides you along the way.",
     link: "https://wine.rix1.dev",
@@ -94,6 +95,7 @@ export const repos = [
   {
     title: "Rause Riddere",
     when: "2024",
+    ai: "0",
     description:
       "Testing out Deno KV by giving the ability to upvote principles from Erlend og Steinar's podcast",
     link: "https://rause-riddere.rix1.dev",
@@ -102,6 +104,7 @@ export const repos = [
   {
     title: "unvote",
     when: "2024",
+    ai: "0",
     description:
       "In which I embark on a quest to scrape all UN voting documents to face the harsh reality of UNs effectiveness.",
     link: "https://github.com/rix1/unvote",
@@ -119,6 +122,7 @@ export const repos = [
   {
     title: "Physical 100",
     when: "2023",
+    ai: "0",
     description:
       'Search contestants from the Netflix show "Physical:100". Built with T3 stack and fzf.',
     link: "https://search-100.rix1.dev/",
@@ -127,6 +131,7 @@ export const repos = [
   {
     title: "Pizza.rix1.dev",
     when: "2022",
+    ai: "0",
     description:
       "A small utility for calculating pizza dough. Built with Deno Fresh.",
     link: "https://pizza.rix1.dev/",
@@ -135,6 +140,7 @@ export const repos = [
   {
     title: "Gifty.lol",
     when: "2022",
+    ai: "0",
     description: "Secret Santa for the family 🎅. Built with T3 and Supabase",
     link: "https://gifty.lol/",
     repo: "https://github.com/rix1/rix1-builds/tree/main/apps/doggo",
@@ -142,6 +148,7 @@ export const repos = [
   {
     title: "Doggo",
     when: "2022",
+    ai: "0",
     description:
       "An app that help us track daily tasks with our new dog, Yoda. Built with T3 and Supabase",
     link: "https://doggo.rix1.dev/",
@@ -150,6 +157,7 @@ export const repos = [
   {
     title: "Cabin planner",
     when: "2022",
+    ai: "0",
     wip: true,
     description:
       "An app for managing resources in large families, FRP if you want. Built with T3 and Supabase",
@@ -159,6 +167,7 @@ export const repos = [
   {
     title: "Flow Writer",
     when: "2022",
+    ai: "0",
     wip: true,
     description:
       "A tool for unclear writing, modelled after my messy brain. Built with Next.js",
@@ -168,6 +177,7 @@ export const repos = [
   {
     title: "Nearme",
     when: "2020",
+    ai: "0",
     description:
       "COVID-19: A tool to help you track your weekly lockdown-encounters.",
 
@@ -177,6 +187,7 @@ export const repos = [
   {
     title: "Plugformac.com",
     when: "2020",
+    ai: "0",
     description:
       "I try my best to give a helping hand out to the awesome people at [Wulkano](https://wulkano.com) 💜",
     link: "https://www.plugformac.com",
@@ -184,6 +195,7 @@ export const repos = [
   {
     title: "Feriekolonien.no",
     when: "2019",
+    ai: "0",
     description:
       "A site for a childrens camp where I cook and play during summer.",
     link: "https://www.feriekolonien.no",
@@ -192,6 +204,7 @@ export const repos = [
   {
     title: "Auth now",
     when: "2019",
+    ai: "0",
     description:
       "Together with some friends, we cooked up a simple passwordless authentication service ✨",
     link: "https://github.com/rix1/auth-now",
@@ -200,6 +213,7 @@ export const repos = [
   {
     title: "46brew",
     when: "2018",
+    ai: "0",
     description: "A coffee timer for the 4:6 brewing method.",
     link: "https://brew.rix1.dev",
     repo: "http://github.com/rix1/46brew",
@@ -207,6 +221,7 @@ export const repos = [
   {
     title: "Meeting timer",
     when: "2018",
+    ai: "0",
     description: "A stupid tool that wont help you do meetings better.",
     link: "https://rix1-meeting-timer-kxtvp0psu.now.sh",
     repo: "https://github.com/rix1/meeting-timer",
@@ -214,6 +229,7 @@ export const repos = [
   {
     title: "Gradient mixer",
     when: "2015",
+    ai: "0",
     description:
       "A simple tool that help you mix a bunch of colors to find nice gradients 💅",
     link: "http://rix1.github.io/gradient-mixer/",

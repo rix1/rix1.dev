@@ -35,6 +35,8 @@ export default {
 
     const response = new Response(asset.body, asset);
     response.headers.set("cache-control", "no-store");
+    // Workers assets send a bare `text/html`; without a charset browsers guess.
+    response.headers.set("content-type", "text/html; charset=utf-8");
 
     try {
       const { cookie, write } = await trackHtmlVisit(

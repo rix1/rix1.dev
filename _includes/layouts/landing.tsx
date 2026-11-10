@@ -67,13 +67,15 @@ export default ({ comp, title, heading, children, index, url }: Lume.Data) => {
                   <span class="rounded-full text-sm">{project.when}</span>
                   {project.ai && (
                     <span class="group relative self-center">
-                      <button
-                        type="button"
+                      <a
+                        href="https://0rwx.com/"
+                        target="_blank"
+                        rel="noopener"
                         aria-describedby={`ai-tooltip-${slugify(project.title)}`}
-                        class="cursor-help self-center translate-y-0.5 leading-none text-gray-500 transition-colors hover:text-primary focus-visible:text-primary"
+                        class="block translate-y-0.5 leading-none text-gray-500 transition-colors hover:text-primary focus-visible:text-primary"
                       >
-                        <AiBadge level={project.ai} class="block h-7 w-7" />
-                      </button>
+                        <AiBadge level={project.ai} class="block h-5 w-5" />
+                      </a>
                       <span
                         role="tooltip"
                         id={`ai-tooltip-${slugify(project.title)}`}

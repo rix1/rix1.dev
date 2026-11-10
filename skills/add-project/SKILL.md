@@ -51,4 +51,4 @@ breaks ties within a year — newest first).
    git push
    ```
 
-   Deno Deploy publishes automatically on push to `main`.
+   Cloudflare builds and deploys automatically on push to `main`.
