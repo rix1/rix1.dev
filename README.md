@@ -64,14 +64,15 @@ deno task preview
 ## Production Runtime
 
 Production is a Cloudflare Worker (`worker/index.ts`) that serves the Lume
-build in `_site/` as static assets and counts page views in D1. Deploy with:
+build in `_site/` as static assets and counts page views in D1.
+
+Deploys are git-ops: pushing to `main` triggers Cloudflare Workers Builds,
+which builds the site and deploys the Worker. The build token has no D1 access,
+so new migrations in `migrations/` are applied by hand:
 
 ```bash
-deno task deploy
+deno task wrangler d1 migrations apply rix1-dev --remote
 ```
-
-This builds the site, applies any new D1 migrations in `migrations/`, and runs
-`wrangler deploy`.
 
 The visitor counter is intentionally privacy-friendly: it stores anonymous
 per-page human visitor hashes and declared crawler families, but not IP
