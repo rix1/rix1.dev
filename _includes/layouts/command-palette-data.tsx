@@ -1,7 +1,7 @@
 type Project = {
   title: string;
   when: string;
-  ai?: boolean;
+  ai?: "0" | "R" | "W" | "X";
   wip?: boolean;
   description: string;
   link: string;
@@ -49,7 +49,7 @@ export default ({ search, index }: Lume.Data) => {
     url: project.link,
     meta: [
       project.when,
-      project.ai ? "AI-assisted" : undefined,
+      project.ai ? `AI:${project.ai}` : undefined,
       project.wip ? "WIP" : undefined,
     ].filter(Boolean).join(" · "),
   }));

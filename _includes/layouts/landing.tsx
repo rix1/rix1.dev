@@ -1,7 +1,9 @@
+import AiBadge, { AI_LEVELS, type AiLevel } from "../../_components/AiBadge.tsx";
+
 type Project = {
   title: string;
   when: string;
-  ai?: boolean;
+  ai?: AiLevel;
   wip?: boolean;
   status?: "broken" | "live" | "unfinished";
   description: string;
@@ -64,20 +66,24 @@ export default ({ comp, title, heading, children, index, url }: Lume.Data) => {
                   &middot;
                   <span class="rounded-full text-sm">{project.when}</span>
                   {project.ai && (
-                    <span class="group relative">
+                    <span class="group relative self-center">
                       <button
                         type="button"
                         aria-describedby={`ai-tooltip-${slugify(project.title)}`}
-                        class="cursor-help rounded-full border border-primary/15 bg-primary/5 px-1.5 py-0.5 text-[0.68rem] font-medium uppercase leading-none tracking-wide text-primary/80"
+                        class="cursor-help self-center translate-y-0.5 leading-none text-gray-500 transition-colors hover:text-primary focus-visible:text-primary"
                       >
-                        AI
+                        <AiBadge level={project.ai} class="block h-7 w-7" />
                       </button>
                       <span
                         role="tooltip"
                         id={`ai-tooltip-${slugify(project.title)}`}
                         class="pointer-events-none invisible absolute bottom-full left-1/2 z-10 mb-1.5 w-max max-w-[13rem] -translate-x-1/2 rounded-md bg-gray-900 px-2.5 py-1.5 text-center text-xs font-normal normal-case leading-snug tracking-normal text-white opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100"
                       >
-                        Built partly or entirely with AI coding agents
+                        <strong class="font-semibold">
+                          AI:{project.ai} · {AI_LEVELS[project.ai].label}
+                        </strong>
+                        <br />
+                        {AI_LEVELS[project.ai].description}
                       </span>
                     </span>
                   )}

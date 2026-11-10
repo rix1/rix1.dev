@@ -2,7 +2,7 @@ export const repos = [
   {
     title: "vaskekjeller",
     when: "2026",
-    ai: true,
+    ai: "X",
     wip: true,
     description:
       "Our building's laundry room booking, rebuilt: grab a washer and dryer together in one tap, get a push notification when a slot frees up, and leave passive-aggressive comments. Hono JSX on Cloudflare Workers + D1.",
@@ -12,7 +12,7 @@ export const repos = [
   {
     title: "Catering",
     when: "2026",
-    ai: true,
+    ai: "X",
     description:
       "I made dinner for a wedding party for some friends. It was 76 guests and I was busy with parental leave, so I let an LLM act as sous-chef: production schedule, recipes and a shopping list w/check-off sync. Plain HTML on Cloudflare Pages with a tiny D1 function.",
     link: "https://mat.rix1.dev",
@@ -21,7 +21,7 @@ export const repos = [
   {
     title: "Nord Stream, in one place",
     when: "2026",
-    ai: true,
+    ai: "X",
     description:
       "Every NRK bulletin about Nord Stream since 2016 on a single page, with a magnifying timeline in the margin. Hybrid warfare is designed to be hard to follow; this is me trying to see the whole thing at once. Norwegian, but there's a translate button.",
     link: "https://nordstream.rix1.dev",
@@ -30,7 +30,7 @@ export const repos = [
   {
     title: "Cabinet playground",
     when: "2026",
-    ai: true,
+    ai: "X",
     description:
       "A Three.js playground for designing the cabinet above our kitchen hood — complete with an IKEA-style build guide and a Maxbo shopping list.",
     link: "https://lofotgata.rix1.dev",
@@ -39,7 +39,7 @@ export const repos = [
   {
     title: "Family Calendar",
     when: "2026",
-    ai: true,
+    ai: "X",
     description:
       "A private calendar for family birthdays and important dates. Everyone subscribes to their own iCal feed, and a monthly newsletter rounds up what's coming. Built with Fresh 2 and Deno KV.",
     link: "https://github.com/rix1/family-cal",
@@ -48,7 +48,7 @@ export const repos = [
   {
     title: "YT stats",
     when: "2026",
-    ai: true,
+    ai: "X",
     description:
       "Spotify Wrapped for YouTube. Drop your watch history JSON and get a private, local-first report in the browser or terminal.",
     link: "https://yt-stats.rix1.dev/",
@@ -57,7 +57,7 @@ export const repos = [
   {
     title: "Barnehageutforsker",
     when: "2026",
-    ai: true,
+    ai: "X",
     description:
       "Browse and compare kindergartens in Oslo with a sortable table, map, filters, favorites, and scraped public data.",
     link: "https://barnehageutforsker.rix1.deno.net/",
@@ -66,7 +66,7 @@ export const repos = [
   {
     title: "drop",
     when: "2026",
-    ai: true,
+    ai: "X",
     wip: true,
     description:
       "A small local file sharing tool for explicit, expiring shares over a reverse tunnel such as Cloudflare Tunnel or Tailscale Funnel.",
@@ -76,7 +76,7 @@ export const repos = [
   {
     title: "R3",
     when: "2026",
-    ai: true,
+    ai: "X",
     wip: true,
     description:
       "An experimental Readwise Reader to reMarkable workflow for sending articles to the tablet and recovering highlights back into Readwise.",
@@ -110,6 +110,7 @@ export const repos = [
   {
     title: "Cashflow",
     when: "2024",
+    ai: "W",
     description:
       "Simplify the management of personal finances by parsing and normalizing CSV exports from Norwegian bank statements.",
     link: "https://github.com/rix1/cashflow",
