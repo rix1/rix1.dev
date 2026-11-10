@@ -74,7 +74,7 @@ export default ({ comp, title, heading, children, index, url }: Lume.Data) => {
                         aria-describedby={`ai-tooltip-${slugify(project.title)}`}
                         class="clear block translate-y-0.5 leading-none text-gray-500 transition-colors hover:text-primary focus-visible:text-primary"
                       >
-                        <AiBadge level={project.ai} class="block h-5 w-5" />
+                        <AiBadge level={project.ai} class="block h-6 w-6" />
                       </a>
                       <span
                         role="tooltip"
