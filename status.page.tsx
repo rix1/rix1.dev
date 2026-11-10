@@ -21,7 +21,8 @@ const fmt = new Intl.NumberFormat("en");
 const pillClass = "mr-1.5 mb-1.5 inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-gray-200 bg-gray-50 px-2 py-1 text-sm text-gray-700";
 const cellClass = "px-4 py-3 border-b border-gray-200 align-top";
 const numCellClass = cellClass + " text-right tabular-nums";
-const famCellClass = cellClass + " min-w-[18rem]";
+const famCellClass = cellClass + " whitespace-nowrap";
+const inlineCrawlers = 2;
 
 function pill(label, count, recent) {
   const el = document.createElement("span");
@@ -39,6 +40,41 @@ function pill(label, count, recent) {
     el.append(week);
   }
   return el;
+}
+
+// The rest of a page's crawlers: a "+N more" button opening the full list.
+function moreCrawlers(page) {
+  const pop = document.createElement("div");
+  pop.popover = "auto";
+  pop.className = "m-0 w-80 max-w-[calc(100vw-1.5rem)] rounded-lg border border-gray-200 bg-white p-3 text-left whitespace-normal shadow-lg";
+  pop.style.inset = "auto";
+  const heading = document.createElement("p");
+  heading.className = "m-0 mb-2 text-xs font-extrabold uppercase tracking-wide text-gray-500";
+  heading.textContent = "Crawlers on " + page.path;
+  pop.append(heading, ...page.botFamilies.map((f) => pill(f.label, f.count)));
+
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = pillClass + " cursor-pointer font-semibold hover:border-gray-300 hover:bg-gray-100";
+  button.textContent = "+" + (page.botFamilies.length - inlineCrawlers) + " more";
+  button.setAttribute("aria-label", "Show all " + page.botFamilies.length + " crawlers on " + page.path);
+  button.popoverTargetElement = pop;
+
+  // Popovers sit in the top layer, so place this one by the button by hand:
+  // below it, or above when there is no room.
+  pop.addEventListener("toggle", (event) => {
+    if (event.newState !== "open") return;
+    const at = button.getBoundingClientRect();
+    const below = at.bottom + 6;
+    const fits = below + pop.offsetHeight <= window.innerHeight - 12;
+    pop.style.top = Math.max(12, fits ? below : at.top - 6 - pop.offsetHeight) + "px";
+    pop.style.left = Math.max(12, Math.min(at.left, window.innerWidth - pop.offsetWidth - 12)) + "px";
+  });
+  window.addEventListener("scroll", () => {
+    if (pop.matches(":popover-open")) pop.hidePopover();
+  }, { passive: true });
+
+  return [button, pop];
 }
 
 function row(page) {
@@ -60,7 +96,8 @@ function row(page) {
   bots.textContent = fmt.format(page.bots);
   const fams = document.createElement("td");
   fams.className = famCellClass;
-  page.botFamilies.forEach((f) => fams.append(pill(f.label, f.count)));
+  page.botFamilies.slice(0, inlineCrawlers).forEach((f) => fams.append(pill(f.label, f.count)));
+  if (page.botFamilies.length > inlineCrawlers) fams.append(...moreCrawlers(page));
   tr.append(link, hits, humans, bots, fams);
   return tr;
 }
