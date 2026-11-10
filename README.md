@@ -7,7 +7,7 @@ well as my professional journey.
 
 ## About the Site
 
-Built with Lume and served by a small Deno runtime, the site reflects my
+Built with Lume and served by a small Cloudflare Worker, the site reflects my
 interest in products, technology, and design.
 
 ### Features
@@ -21,9 +21,10 @@ interest in products, technology, and design.
 
 - [Lume](https://lume.land) - A static site generator built with Deno.
 - [Deno](https://deno.land) - A secure runtime for JavaScript and TypeScript.
-- [Deno Deploy](https://deno.com/deploy) - A hassle-free platform for serverless
-  JavaScript applications.
-- [Deno KV](https://deno.com/kv) - Privacy-friendly page and crawler counters.
+- [Cloudflare Workers](https://developers.cloudflare.com/workers/) - Serves the
+  site and its small API.
+- [Cloudflare D1](https://developers.cloudflare.com/d1/) - Privacy-friendly page
+  and crawler counters.
 
 ## Local Development
 
@@ -53,34 +54,33 @@ curl -fsSL https://deno.land/install.sh | sh
 The site should now be running on `http://localhost:3000`. Open your browser to
 this address to view the site.
 
-To test the production-style dynamic runtime, build the site and run the local
-server:
+To test the production Worker locally (static site plus `/status`,
+`/api/visitor-count` and the visitor counter, backed by a local D1 database):
 
 ```bash
-deno task build
-deno task start
+deno task preview
 ```
-
-The dynamic server runs on `http://localhost:8000` and includes runtime-only
-features such as `/status`, `/api/visitor-count`, and the Deno KV visitor
-counter.
 
 ## Production Runtime
 
-Production uses Deno Deploy's dynamic runtime with `serve.ts` as the entrypoint.
-The visitor counter is intentionally privacy-friendly: it stores anonymous
-per-page human visitor hashes and declared crawler families, but not IP
-addresses or raw user agents.
-
-Set a stable private salt before deploying so the anonymous human hashes remain
-consistent across deploys:
+Production is a Cloudflare Worker (`worker/index.ts`) that serves the Lume
+build in `_site/` as static assets and counts page views in D1. Deploy with:
 
 ```bash
-deno deploy env add VISITOR_COUNTER_SALT "<random-long-value>" --secret
+deno task deploy
 ```
 
-Pass `--org <name>` or `--app <name>` if the Deno Deploy CLI has not already
-selected the right application.
+This builds the site, applies any new D1 migrations in `migrations/`, and runs
+`wrangler deploy`.
+
+The visitor counter is intentionally privacy-friendly: it stores anonymous
+per-page human visitor hashes and declared crawler families, but not IP
+addresses or raw user agents. The hashes are salted with the
+`VISITOR_COUNTER_SALT` secret:
+
+```bash
+deno task wrangler secret put VISITOR_COUNTER_SALT
+```
 
 If the salt changes later, existing anonymous visitor IDs will no longer match
 new hashes, so counts may start incrementing again for returning visitors.

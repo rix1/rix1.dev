@@ -1,0 +1,34 @@
+{
+  "$schema": "https://unpkg.com/wrangler@4.159.0/config-schema.json",
+  "name": "rix1-dev",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-11-10",
+  "observability": { "enabled": true },
+  // Deploy creates the DNS records and certificates. The Worker redirects www to
+  // the apex, so rix1.dev stays the single origin for the visitor cookie.
+  "routes": [
+    { "pattern": "rix1.dev", "custom_domain": true },
+    { "pattern": "www.rix1.dev", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  // The Lume build. `deno task build` must run before `wrangler deploy`.
+  "assets": {
+    "directory": "./_site",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    // Pages go through the Worker so views can be counted; static files skip it.
+    "run_worker_first": ["/*", "!/assets/*", "!/fonts/*", "!/pagefind/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      // Created with `wrangler d1 create --jurisdiction eu`: data stays in the EU.
+      "database_name": "rix1-dev",
+      "database_id": "a9f89643-a1ac-4f7e-b854-c58172f150a2",
+      "migrations_dir": "migrations"
+    }
+  ]
+  // Optional secret (wrangler secret put): VISITOR_COUNTER_SALT
+}

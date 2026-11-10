@@ -7,3 +7,4 @@ node_modules
 # Thesis PDFs — too large for git, hosted on Dropbox
 EMR_Capgemini.pdf
 Master Thesis Rikard Eide.pdf
+.wrangler/

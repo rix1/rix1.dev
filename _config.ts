@@ -28,6 +28,7 @@ if (Deno.env.get("LUME_DRAFTS") !== "true") {
 site.add("assets");
 site.ignore("README.md");
 site.ignore("/skills");
+site.ignore("/worker", "/migrations", "wrangler.jsonc");
 
 // Configure plugins in the correct order
 site.use(jsx());

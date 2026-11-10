@@ -4,7 +4,6 @@
     "lume/jsx-runtime": "https://cdn.jsdelivr.net/gh/oscarotero/ssx@0.1.15/jsx-runtime.ts"
   },
   "unstable": [
-    "kv",
     "temporal",
     "fmt-component"
   ],
@@ -25,9 +24,17 @@
       "command": "deno task lume -s"
     },
     "dev": "deno task serve",
-    "start": {
-      "description": "Run the built dynamic server locally",
-      "command": "deno run --allow-read --allow-net --allow-env --unstable-kv serve.ts"
+    "wrangler": {
+      "description": "Run the pinned Wrangler CLI",
+      "command": "npx -y wrangler@4.159.0"
+    },
+    "preview": {
+      "description": "Build and run the production Worker locally with a local D1",
+      "command": "deno task build && deno task wrangler d1 migrations apply rix1-dev --local && deno task wrangler dev"
+    },
+    "deploy": {
+      "description": "Build, migrate D1 and deploy to Cloudflare Workers",
+      "command": "deno task build && deno task wrangler d1 migrations apply rix1-dev --remote && deno task wrangler deploy"
     },
     "image:blog": {
       "description": "Resize and compress a blog image to 1600x900 JPEG",
@@ -47,20 +54,6 @@
         "no-import-prefix"
       ]
     }
-  },
-  "deploy": {
-    "org": "rix1",
-    "app": "rix1-dev",
-    "project": "1be252bb-80ef-43c4-996a-9b8e603e330b",
-    "build": "deno task build",
-    "runtime": {
-      "type": "dynamic",
-      "entrypoint": "./serve.ts"
-    },
-    "exclude": [
-      "**/node_modules"
-    ],
-    "include": []
   },
   "permissions": {
     "lume": {
