@@ -8,7 +8,6 @@ export default ({ comp }: Lume.Data) => {
             design, building things, and life.
           </p>
           <p class="m-0 text-xs font-semibold uppercase tracking-wide text-gray-400">
-            Visitors:{" "}
             <a
               href="/status/"
               data-visitor-counter

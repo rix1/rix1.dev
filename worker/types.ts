@@ -5,6 +5,7 @@ export interface D1PreparedStatement {
   bind(...values: unknown[]): D1PreparedStatement;
   first<T = Record<string, unknown>>(): Promise<T | null>;
   all<T = Record<string, unknown>>(): Promise<{ results: T[] }>;
+  run(): Promise<unknown>;
 }
 
 export interface D1Database {
@@ -23,6 +24,4 @@ export interface ExecutionContext {
 export interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
-  /** Optional secret mixed into visitor hashes. */
-  VISITOR_COUNTER_SALT?: string;
 }

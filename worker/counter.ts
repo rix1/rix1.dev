@@ -1,4 +1,4 @@
-import { botFamilyLabel, classifyVisitor, type VisitorClass } from "./bots.ts";
+import { botFamilyLabel, classifyVisitor } from "./bots.ts";
 import { normalizePagePath } from "./paths.ts";
 import type { D1Database } from "./types.ts";
 
@@ -6,135 +6,86 @@ export type BotFamilyCount = {
   family: string;
   label: string;
   count: number;
+  recent: number;
 };
 export type PageCounts = {
   path: string;
+  hits: number;
   humans: number;
   bots: number;
   botFamilies: BotFamilyCount[];
 };
 
-type CountRow = { path: string; kind: string; family: string; count: number };
+type HitRow = {
+  path: string;
+  kind: string;
+  family: string;
+  count: number;
+  recent: number;
+};
 
-const visitorCookieName = "rix1_visitor_id";
+/** The status page's "recent" window, in days, counting today. */
+const recentDays = 7;
+/** How many days the status page's daily chart covers, counting today. */
+const chartDays = 30;
 const noStore = { "cache-control": "no-store" };
 
-function parseCookies(cookieHeader: string | null) {
-  const cookies = new Map<string, string>();
+function utcDay(date = new Date()) {
+  return date.toISOString().slice(0, 10);
+}
 
-  if (!cookieHeader) {
-    return cookies;
-  }
+function daysBack(days: number) {
+  return utcDay(new Date(Date.now() - days * 86_400_000));
+}
 
-  for (const cookie of cookieHeader.split(";")) {
-    const [rawName, ...rawValue] = cookie.trim().split("=");
-    const value = rawValue.join("=");
+function recentSince() {
+  return daysBack(recentDays - 1);
+}
 
-    if (rawName && value) {
-      try {
-        cookies.set(rawName, decodeURIComponent(value));
-      } catch {
-        // Ignore cookies that aren't valid URI-encoded strings.
-      }
+/** Hits per day for the last `chartDays` days, oldest first, zero-filled. */
+async function dailyHits(db: D1Database) {
+  const { results } = await db.prepare(
+    "SELECT day, kind, SUM(count) AS count FROM page_hits WHERE day >= ? GROUP BY day, kind",
+  ).bind(daysBack(chartDays - 1)).all<
+    { day: string; kind: string; count: number }
+  >();
+  const days = new Map(
+    Array.from({ length: chartDays }, (_, index) => {
+      const day = daysBack(chartDays - 1 - index);
+      return [day, { day, humans: 0, bots: 0 }];
+    }),
+  );
+
+  for (const row of results) {
+    const day = days.get(row.day);
+
+    if (day) {
+      day[row.kind === "bot" ? "bots" : "humans"] += row.count;
     }
   }
 
-  return cookies;
-}
-
-function base64Url(bytes: Uint8Array) {
-  let binary = "";
-
-  for (const byte of bytes) {
-    binary += String.fromCharCode(byte);
-  }
-
-  return btoa(binary)
-    .replaceAll("+", "-")
-    .replaceAll("/", "_")
-    .replaceAll("=", "");
-}
-
-async function hashIdentity(salt: string, value: string) {
-  const bytes = new TextEncoder().encode(`${salt}:${value}`);
-  const digest = await crypto.subtle.digest("SHA-256", bytes);
-
-  return base64Url(new Uint8Array(digest)).slice(0, 24);
-}
-
-async function visitorIdentity(
-  salt: string,
-  request: Request,
-  visitor: VisitorClass,
-  requestUrl: URL,
-) {
-  if (visitor.kind === "bot") {
-    return { id: visitor.family };
-  }
-
-  const cookies = parseCookies(request.headers.get("cookie"));
-  const existingId = cookies.get(visitorCookieName);
-
-  if (existingId?.match(/^[a-f0-9-]{36}$/i)) {
-    return { id: await hashIdentity(salt, `human:${existingId}`) };
-  }
-
-  const visitorId = crypto.randomUUID();
-  const secure = requestUrl.protocol === "https:" ? "; Secure" : "";
-  const cookie = `${visitorCookieName}=${
-    encodeURIComponent(visitorId)
-  }; Path=/; Max-Age=31536000; SameSite=Lax; HttpOnly${secure}`;
-
-  return { id: await hashIdentity(salt, `human:${visitorId}`), cookie };
-}
-
-async function recordVisit(
-  db: D1Database,
-  pagePath: string,
-  visitor: VisitorClass,
-  id: string,
-) {
-  // Only the first visit by this visitor to this page counts.
-  const inserted = await db.prepare(
-    "INSERT INTO visitor_seen (path, kind, visitor) VALUES (?, ?, ?) ON CONFLICT DO NOTHING RETURNING 1 AS inserted",
-  ).bind(pagePath, visitor.kind, id).first();
-
-  if (!inserted) {
-    return;
-  }
-
-  const bump = (kind: string, family = "") =>
-    db.prepare(
-      "INSERT INTO visitor_counts (path, kind, family, count) VALUES (?, ?, ?, 1) ON CONFLICT (path, kind, family) DO UPDATE SET count = count + 1",
-    ).bind(pagePath, kind, family);
-
-  await db.batch(
-    visitor.kind === "bot"
-      ? [bump("bot"), bump("bot-family", visitor.family)]
-      : [bump("human")],
-  );
+  return [...days.values()];
 }
 
 /**
- * Identifies the visitor and returns the cookie to set (for new humans) right away,
- * plus the database write as a promise for the caller to hand to `waitUntil`.
+ * Counts one page load. Every load counts: there is no cookie and no
+ * de-duplication, so a visitor is only ever "human" or a crawler family.
  */
-export async function trackHtmlVisit(
+export function recordPageHit(
   db: D1Database,
-  salt: string,
   request: Request,
   requestUrl: URL,
 ) {
-  const pagePath = normalizePagePath(requestUrl.pathname);
   const visitor = classifyVisitor(request);
-  const { id, cookie } = await visitorIdentity(
-    salt,
-    request,
-    visitor,
-    requestUrl,
-  );
 
-  return { cookie, write: recordVisit(db, pagePath, visitor, id) };
+  return db.prepare(
+    "INSERT INTO page_hits (path, day, kind, family, count) VALUES (?, ?, ?, ?, 1) ON CONFLICT (path, day, kind, family) DO UPDATE SET count = count + 1",
+  ).bind(
+    normalizePagePath(requestUrl.pathname),
+    utcDay(),
+    visitor.kind,
+    visitor.kind === "bot" ? visitor.family : "",
+  ).run();
 }
 
 function sortFamilies(families: BotFamilyCount[]) {
@@ -143,79 +94,102 @@ function sortFamilies(families: BotFamilyCount[]) {
   );
 }
 
-function aggregate(rows: CountRow[]) {
+function aggregate(rows: HitRow[]) {
   const pages = new Map<string, PageCounts>();
   const botFamilyTotals = new Map<string, BotFamilyCount>();
+  const recent = { hits: 0, humans: 0, bots: 0 };
 
   for (const row of rows) {
     const page = pages.get(row.path) ??
-      { path: row.path, humans: 0, bots: 0, botFamilies: [] };
+      { path: row.path, hits: 0, humans: 0, bots: 0, botFamilies: [] };
 
-    if (row.kind === "human") {
-      page.humans = row.count;
-    } else if (row.kind === "bot") {
-      page.bots = row.count;
-    } else if (row.kind === "bot-family" && row.family) {
+    page.hits += row.count;
+    recent.hits += row.recent;
+
+    if (row.kind === "bot") {
       const label = botFamilyLabel(row.family);
-
-      page.botFamilies.push({ family: row.family, label, count: row.count });
-
       const total = botFamilyTotals.get(row.family) ??
-        { family: row.family, label, count: 0 };
+        { family: row.family, label, count: 0, recent: 0 };
+
+      page.bots += row.count;
+      page.botFamilies.push({
+        family: row.family,
+        label,
+        count: row.count,
+        recent: row.recent,
+      });
+      recent.bots += row.recent;
       total.count += row.count;
+      total.recent += row.recent;
       botFamilyTotals.set(row.family, total);
+    } else {
+      page.humans += row.count;
+      recent.humans += row.recent;
     }
 
     pages.set(row.path, page);
   }
 
   for (const page of pages.values()) {
-    const familyTotal = page.botFamilies.reduce(
-      (total, family) => total + family.count,
-      0,
-    );
-
-    page.bots = familyTotal || page.bots;
     sortFamilies(page.botFamilies);
   }
 
-  return { pages, botFamilies: sortFamilies([...botFamilyTotals.values()]) };
+  return {
+    pages,
+    recent,
+    botFamilies: sortFamilies([...botFamilyTotals.values()]),
+  };
 }
 
-export async function serveVisitorCount(db: D1Database, requestUrl: URL) {
+const totalsQuery =
+  "SELECT path, kind, family, SUM(count) AS count, SUM(CASE WHEN day >= ? THEN count ELSE 0 END) AS recent FROM page_hits";
+
+export async function servePageCount(db: D1Database, requestUrl: URL) {
   const pagePath = normalizePagePath(
     requestUrl.searchParams.get("path") ?? "/",
   );
   const { results } = await db.prepare(
-    "SELECT path, kind, family, count FROM visitor_counts WHERE path = ?",
-  ).bind(pagePath).all<CountRow>();
+    `${totalsQuery} WHERE path = ? GROUP BY path, kind, family`,
+  ).bind(recentSince(), pagePath).all<HitRow>();
   const page = aggregate(results).pages.get(pagePath);
 
   return Response.json({
     path: pagePath,
+    hits: page?.hits ?? 0,
     humans: page?.humans ?? 0,
     bots: page?.bots ?? 0,
     botFamilies: page?.botFamilies ?? [],
   }, { headers: noStore });
 }
 
-export async function serveVisitorStatus(db: D1Database) {
+export async function serveStatus(db: D1Database) {
   const { results } = await db.prepare(
-    "SELECT path, kind, family, count FROM visitor_counts",
-  ).all<CountRow>();
-  const { pages, botFamilies } = aggregate(results);
+    `${totalsQuery} GROUP BY path, kind, family`,
+  ).bind(recentSince()).all<HitRow>();
+  const first = await db.prepare("SELECT MIN(day) AS day FROM page_hits")
+    .first<{ day: string | null }>();
+  const days = await dailyHits(db);
+  const { pages, recent, botFamilies } = aggregate(results);
   const sortedPages = [...pages.values()].sort((a, b) =>
-    (b.humans + b.bots) - (a.humans + a.bots) ||
-    a.path.localeCompare(b.path)
+    b.hits - a.hits || a.path.localeCompare(b.path)
   );
   const totals = sortedPages.reduce((total, page) => {
+    total.hits += page.hits;
     total.humans += page.humans;
     total.bots += page.bots;
     return total;
-  }, { pages: sortedPages.length, humans: 0, bots: 0 });
+  }, { pages: sortedPages.length, hits: 0, humans: 0, bots: 0 });
 
   return Response.json(
-    { pages: sortedPages, totals, botFamilies },
+    {
+      since: first?.day ?? null,
+      recentDays,
+      totals,
+      recent,
+      days,
+      pages: sortedPages,
+      botFamilies,
+    },
     { headers: noStore },
   );
 }

@@ -21,11 +21,15 @@ async function updateVisitorCounter() {
     const counts = await response.json();
     const humans = Number(counts.humans ?? 0);
     const bots = Number(counts.bots ?? 0);
+    const hits = Number(counts.hits ?? humans + bots);
 
-    counter.textContent = `${formatter.format(humans)} humans / ${
-      formatter.format(bots)
-    } crawlers`;
-    counter.setAttribute("aria-label", "Open visitor status");
+    const plural = (count, noun) =>
+      `${formatter.format(count)} ${noun}${count === 1 ? "" : "s"}`;
+
+    counter.textContent = `${plural(hits, "page hit")} (${
+      plural(humans, "human")
+    }, ${plural(bots, "bot")})`;
+    counter.setAttribute("aria-label", "Open site status");
     counter.removeAttribute("hidden");
   } catch {
     counter.setAttribute("hidden", "");

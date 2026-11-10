@@ -1,12 +1,8 @@
-import {
-  serveVisitorCount,
-  serveVisitorStatus,
-  trackHtmlVisit,
-} from "./counter.ts";
+import { recordPageHit, servePageCount, serveStatus } from "./counter.ts";
 import type { Env, ExecutionContext } from "./types.ts";
 
 // Serves the Lume build in _site/ as static assets. Every request runs through
-// here first so page views can be counted.
+// here first so page hits can be counted.
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext) {
     const url = new URL(request.url);
@@ -18,11 +14,11 @@ export default {
     }
 
     if (url.pathname === "/api/visitor-count") {
-      return serveVisitorCount(env.DB, url);
+      return servePageCount(env.DB, url);
     }
 
     if (url.pathname === "/api/status") {
-      return serveVisitorStatus(env.DB);
+      return serveStatus(env.DB);
     }
 
     const asset = await env.ASSETS.fetch(request);
@@ -34,27 +30,19 @@ export default {
     }
 
     const response = new Response(asset.body, asset);
+    // Every load has to reach the Worker to be counted.
     response.headers.set("cache-control", "no-store");
     // Workers assets send a bare `text/html`; without a charset browsers guess.
     response.headers.set("content-type", "text/html; charset=utf-8");
 
     try {
-      const { cookie, write } = await trackHtmlVisit(
-        env.DB,
-        env.VISITOR_COUNTER_SALT ?? "rix1.dev visitor counter",
-        request,
-        url,
-      );
-
-      if (cookie) {
-        response.headers.set("set-cookie", cookie);
-      }
-
       ctx.waitUntil(
-        write.catch((error) => console.warn("Visitor counter failed:", error)),
+        recordPageHit(env.DB, request, url).catch((error) =>
+          console.warn("Page hit counter failed:", error)
+        ),
       );
     } catch (error) {
-      console.warn("Visitor counter failed:", error);
+      console.warn("Page hit counter failed:", error);
     }
 
     return response;

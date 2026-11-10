@@ -5,7 +5,7 @@
   "compatibility_date": "2026-11-10",
   "observability": { "enabled": true },
   // Deploy creates the DNS records and certificates. The Worker redirects www to
-  // the apex, so rix1.dev stays the single origin for the visitor cookie.
+  // the apex.
   "routes": [
     { "pattern": "rix1.dev", "custom_domain": true },
     { "pattern": "www.rix1.dev", "custom_domain": true }
@@ -18,7 +18,7 @@
     "binding": "ASSETS",
     "html_handling": "auto-trailing-slash",
     "not_found_handling": "404-page",
-    // Pages go through the Worker so views can be counted; static files skip it.
+    // Pages go through the Worker so hits can be counted; static files skip it.
     "run_worker_first": ["/*", "!/assets/*", "!/fonts/*", "!/pagefind/*"]
   },
   "d1_databases": [
@@ -30,5 +30,4 @@
       "migrations_dir": "migrations"
     }
   ]
-  // Optional secret (wrangler secret put): VISITOR_COUNTER_SALT
 }

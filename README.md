@@ -24,7 +24,7 @@ interest in products, technology, and design.
 - [Cloudflare Workers](https://developers.cloudflare.com/workers/) - Serves the
   site and its small API.
 - [Cloudflare D1](https://developers.cloudflare.com/d1/) - Privacy-friendly page
-  and crawler counters.
+  hit counters.
 
 ## Local Development
 
@@ -55,7 +55,7 @@ The site should now be running on `http://localhost:3000`. Open your browser to
 this address to view the site.
 
 To test the production Worker locally (static site plus `/status`,
-`/api/visitor-count` and the visitor counter, backed by a local D1 database):
+`/api/visitor-count` and the page hit counter, backed by a local D1 database):
 
 ```bash
 deno task preview
@@ -64,7 +64,7 @@ deno task preview
 ## Production Runtime
 
 Production is a Cloudflare Worker (`worker/index.ts`) that serves the Lume
-build in `_site/` as static assets and counts page views in D1.
+build in `_site/` as static assets and counts page hits in D1.
 
 Deploys are git-ops: pushing to `main` triggers Cloudflare Workers Builds,
 which builds the site and deploys the Worker. The build token has no D1 access,
@@ -74,17 +74,10 @@ so new migrations in `migrations/` are applied by hand:
 deno task wrangler d1 migrations apply rix1-dev --remote
 ```
 
-The visitor counter is intentionally privacy-friendly: it stores anonymous
-per-page human visitor hashes and declared crawler families, but not IP
-addresses or raw user agents. The hashes are salted with the
-`VISITOR_COUNTER_SALT` secret:
-
-```bash
-deno task wrangler secret put VISITOR_COUNTER_SALT
-```
-
-If the salt changes later, existing anonymous visitor IDs will no longer match
-new hashes, so counts may start incrementing again for returning visitors.
+The page hit counter counts every page load, split into humans and declared
+crawler families by user agent, in one row per page, UTC day and family. It
+sets no cookie and stores no IP addresses or raw user agents. Anything that
+does not declare itself as a crawler counts as a human.
 
 ## Writing Posts
 
