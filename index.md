@@ -19,5 +19,5 @@ I'm slowly turning this site back into a place for writing. You can
 [read my blog](/posts/), learn more [about me here](/about), or skim
 [my CV](/cv/).
 
-After ten years chasing the sun with [Otovo](https://otovo.com/), I'm now
-building AI for the systems inside buildings at [Solvera](https://solvera.ai/).
+After ten years of chasing the sun with [Otovo](https://otovo.com/),
+I’m now helping MEP engineers design better buildings, faster, with [Solvera](https://solvera.ai/).
